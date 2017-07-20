@@ -1,0 +1,114 @@
+
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<!-- <include file='layouts/_sub_location' />-->
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="" role="form">
+				<div id="show_info">
+					<div class="t-title tc">内销办事处调货报告</div>
+					<table class="t-info" style="text-align:center">
+						<tr>
+                                                    <td colspan="5">
+                                                        日期：<php>if( !empty($do_turn_good[tg_time])){
+                                                                    echo date('Y-m-d H:i:s', $do_turn_good['tg_time']);
+                                                                }
+                                                                </php>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                        <th>办事处/人员：</th>
+                                                        <td class="r-line"><php>echo D('AdminUser')->get_name_deport($do_turn_good['admin_user_id']);</php></td>
+                                                        <td></td>
+                                                        <th>收货人：</th>
+                                                        <td class="r-line">
+                                                            {$do_turn_good.consignee}
+                                                        </td>
+
+                                                </tr>
+						<tr>
+                                                        <th>电话：</th>
+                                                        <td>{$do_turn_good.phone}</td>
+                                                        <td></td>
+                                                        <th>运　费：</th>
+                                                        <td class="r-line">{$do_turn_good.postage}</td>
+
+                                                </tr>
+                                                <tr>    
+                                                    <td colspan="5">
+                                                        地　　址：{$do_turn_good.address}
+                                                    </td>
+                                                </tr>
+                                                <tr>    
+                                                    <td colspan="5">
+                                                        调货原因：{$do_turn_good.reason}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="r-line">物料编码</td>
+                                                    <td class="r-line">物流名称</td>
+                                                    <td class="r-line">件数</td>
+                                                    <td class="r-line">调出办事处</td>
+                                                    <td class="r-line">备注</td>
+                                                </tr>
+                                                <php>if($do_turn_good){</php>
+                                                    <foreach name="do_turn_good_items" item="vo" key="k" >
+                                                    <tr>
+                                                        <td class="r-line">{$vo.number}</td>
+                                                        <td class="r-line">{$vo.name}</td>
+                                                        <td class="r-line">{$vo.num}</td>
+                                                        <td class="r-line"><php>echo D('AdminUser')->get_name_deport($vo['office_id']);</php></td>
+                                                        <td class="r-line">{$vo.content}</td>
+                                                    </tr>
+                                                    </foreach>
+                                                <php>}</php>
+						<php>if( count($do_turn_good_status)>0 ){</php>
+							<tr>
+								<td align="center">状态</td>
+								<td align="center">审核时间</td>
+								<td align="center">审核人</td>
+								<td align="center">审核内容</td>
+							</tr>
+							<foreach name="do_turn_good_status" item="v">
+								<tr>
+									<php>if( $v['status']==1 ){</php>
+										<td style="color:green;text-align:center;">审核通过</td>
+									<php>}else{</php>
+										<td style="color:red;text-align:center;">审核不通过</td>
+									<php>}</php>
+									<td align="center"><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+									<td align="center">{$v.username}</td>
+									<td align="center">
+										{$v.content}
+										<php>if( !empty($v['url_path']) ){</php>
+											<br />
+											附件：<a href="{:U('Download/index',array('file'=>urlencode($v['url_path'])))}">{$v['name']}</a>
+										<php>}</php>
+									</td>
+								</tr>
+							</foreach>
+						<php>}</php>
+					</table>
+				</div>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="button" name="back_btn">
+							<i class="ace-icon fa fa-undo bigger-110"></i>
+							返回上页
+						</button>&nbsp; &nbsp; &nbsp;&nbsp;
+						<button class="btn btn-info" type="button" name="print_info" >
+							打印
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

@@ -1,0 +1,28 @@
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">选择商城：</label>
+	<div class="col-sm-9">
+		<select name="shop[mall_id]" id="shop_mall_id">
+			<php>foreach($shop_mall as $value){</php>
+				<php>if( $value['id']==$shop['mall_id'] ){</php>
+					<option value='{$value.id}' selected="selected">{$value.name}</option>
+				<php>}else{</php>
+					<option value='{$value.id}'>{$value.name}</option>
+				<php>}</php>
+			<php>}</php>
+		</select>
+	</div>
+</div>
+
+
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">店铺名称：</label>
+
+	<div class="col-sm-9">
+		<input type="text" id="shop_name" name="shop[name]" placeholder="店铺名称" class="col-xs-10 col-sm-5" value="{$shop.name}" />
+	</div>
+</div>
+
+
+<div class="space-4"></div>

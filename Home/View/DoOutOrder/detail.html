@@ -1,0 +1,76 @@
+
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<!-- <include file='layouts/_sub_location' />-->
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="" role="form">
+				<div id="show_info">
+					<div class="t-title tc">办事处临时外出单</div>
+					<table class="t-info" style="text-align:center">
+						<tr>
+                                                    <td colspan="2">
+                                                        单据号：{$do_out_order.no}
+                                                    </td>
+                                                    <td colspan="2">
+                                                        办事处/部门：<php>echo D('AdminUser')->get_name_deport($do_out_order['admin_user_id'])</php>
+                                                    </td>
+						</tr>
+                                                <tr>
+                                                        <td colspan="2" align="center">前往何处：
+                                                            {$do_out_order.address}
+                                                        </td>
+                                                        <td colspan="2" align="center">前往时间：
+                                                            <php>echo date('Y-m-d H:i:s', $do_out_order[lw_time])</php>
+                                                        </td>
+                                                </tr>
+						<tr>
+							<td colspan="4" align="left">
+                                                            事由:
+                                                        </td>
+                                                </tr>
+                                                <tr>
+							<td style="height:100px;vertical-align:top; padding: 5px 23px;" colspan="4">
+                                                            {$do_out_order.content}
+                                                        </td>
+							
+						</tr>
+						<php>if( count($do_business_status)>0 ){</php>
+							<tr>
+								<td>审核时间</td>
+								<td>审核人</td>
+								<td>审核内容</td>
+								<td></td>
+							</tr>
+							<foreach name="temporary_status" item="v">
+								<tr>
+									<td><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+									<td>{$v.username}</td>
+									<td>{$v.content}</td>
+								</tr>
+							</foreach>
+						<php>}</php>
+					</table>
+				</div>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="button" name="back_btn">
+							<i class="ace-icon fa fa-undo bigger-110"></i>
+							返回上页
+						</button>&nbsp; &nbsp; &nbsp;&nbsp;
+						<button class="btn btn-info" type="button" name="print_info" >
+							打印
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

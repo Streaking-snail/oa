@@ -1,0 +1,60 @@
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">分类名称：</label>
+	<div class="col-sm-9">
+		<input type="text" id="ptype_name" name="ptype[name]" placeholder="分类名称" class="col-xs-10 col-sm-5" value="{$ptype.name}" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">流程说明：</label>
+	<div class="col-sm-9">
+		<textarea name="ptype[content]" id="ptype_content" placeholder="流程说明" rows="5" cols="50">{$ptype['content']}</textarea>
+	</div>
+</div>
+
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">排序：</label>
+
+	<div class="col-sm-9">
+		<input type="text" id="ptype_rank" name="ptype[rank]" placeholder="排序" class="col-xs-10 col-sm-5" value="{$ptype.rank}" />
+	</div>
+</div>
+
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">状态：</label>
+
+	<style>
+		.status-list{}
+		.status-list li{list-style:none;margin-right:10px;}
+	</style>
+	<div class="col-sm-9">
+		<ul class="status-list">
+			<php>if( count($ptype_status)>0 ){</php>
+				<php>foreach( $ptype_status as $k=>$v ){</php>
+					<li vel="{$k}" name="item">
+						<input type="hidden" name="ptype_status[{$k}][id]" id="ptype_status_{$k}_id" value="{$v.id}" />
+						状态名称：<input type="text" name="ptype_status[{$k}][name]" placeholder="状态名称" id="ptype_status_{$k}_name" value="{$v.name}" />&nbsp;&nbsp;
+						排序：<input type="text" name="ptype_status[{$k}][rank]" id="ptype_status_{$k}_rank" value="{$v.rank}" />
+                        <!--    选择：<input type="checkbox">  -->
+                        <!-- <a href="javascript:void(0);" name="del">删除</a> -->                                
+					</li>
+				<php>}</php>
+			<php>}else{</php>
+				<li vel="0" name="item">
+					<input type="hidden" name="ptype_status[0][id]" id="ptype_status_0_id" value="0" />
+					状态名称：<input type="text" name="ptype_status[0][name]" placeholder="状态名称" id="ptype_status_0_name" value="" />&nbsp;&nbsp;
+					排序：<input type="text" name="ptype_status[0][rank]" id="ptype_status_0_rank" value="0" />&nbsp;
+					<!-- <a href="javascript:void(0);" name="del">删除</a>-->
+				</li>
+			<php>}</php>
+			<li><a href="javascript:void(0);" id="add_status">添加</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="space-4"></div>

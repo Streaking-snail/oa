@@ -1,0 +1,146 @@
+<div id="back" class="bgt"></div>
+<include file="layout/_add_checked"/>
+<div class="info_form" id="checked_list" style="left:10%;"></div>
+<div class="page-content-area">
+    <include file='layouts/_sub_location'/>
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="sample-table-2_wrapper" class="dataTables_wrapper form-inline no-footer" style="overflow-x:auto;">
+                <div class="row">
+                    <include file="layouts/_search"/>
+                </div>
+                <div id="col" class="col">
+                    <include file="layouts/_application" />
+                </div>
+                <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable no-footer"
+                       role="grid" aria-describedby="sample-table-2_info">
+                    <thead>
+                    <tr>
+                        <th>单据号</th>
+                        <th>创建人</th>
+                        <th>
+                            <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                            创建时间
+                        </th>
+                        <th>所属部门</th>
+                        <th>
+                            <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                            申请日期
+                        </th>
+                        <th>客户名称</th>
+                        <th>申请性质</th>
+                        <th>授信额度</th>
+                        <th>超额金额</th>
+                        <th>付款期限</th>
+                        <th>应收总金额</th>
+                        <th>超期时间</th>
+                        <th>超期金额</th>
+                        <th>申请发货数</th>
+                        <th>发货金额</th>
+                        <th>审核状态</th>
+                        <th>审核人</th>
+                        <th>单据状态</th>
+                        <th>备注</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <php>foreach($overdue_list as $k=>$value){</php>
+                    <tr data-id="{$value.id}" class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>" name="item">
+                        <td>
+                            <a>{$value.no}</a>
+                        </td>
+                        <td>
+                            <php>echo D('AdminUser')->get_username($value['admin_user_id']);</php>
+                        </td>
+                        <td>
+                            <php>echo date("Y-m-d H:i:s", $value['create_time']);</php>
+                        </td>
+                        <td>
+                            <php>echo D('AdminUser')->get_name_deport($value['admin_user_id'])</php>
+                        </td>
+                        <td>
+                            <php>echo date('Y-m-d H:i:s',$value['apply_time']);</php>
+                        </td>
+                        <td>
+                            {$value.user_name}
+                        </td>
+                        <td>
+                            {$value.apply_type}
+                        </td>
+                        <td>
+                            {$value.credit_price}
+                        </td>
+                        <td>
+                            {$value.flow_price}
+                        </td>
+                        <td>
+                            {$value.days}
+                        </td>
+                        <td>
+                            {$value.total_price}
+                        </td>
+                        <td>
+                            {$value.flow_time}
+                        </td>
+                        <td>
+                            {$value.flow_time_price}
+                        </td>
+                        <td>
+                            {$value.apply_delivery_num}
+                        </td>
+                        <td>
+                            {$value.delivery_price}
+                        </td>
+                        <td>
+                            <a href="javascript:void(0);" name="show_status"
+                               data-url="{:U('DoOverdueDelivery/get_checked_list', array('id'=>$value['id']))}">
+                                <php>
+                                    echo D('DoOverdueDelivery')->get_status_name($value['id']);
+                                </php>
+                            </a>
+                        </td>
+                        <td>
+                            {$value.check_user_id}
+                        </td>
+                        <td>
+                            <php>echo $value['is_del'] == 1 ? '已删除' : '正常';</php>
+                        </td>
+                        <td>
+                            {$value.content}
+                        </td>
+                        <td>
+                            <a name="show_info" href="{:U('DoOverdueDelivery/detail', array('id'=>$value['id']))}"
+                               target="_blank" title="详情">
+                                详情
+                            </a>&nbsp;|
+                            <php>if( $value['is_over']==0 ){</php>
+                            <a href="{:U('DoOverdueDelivery/edit', array('id'=>$value['id']))}" title="修改">
+                                修改
+                            </a>&nbsp;|
+                            <a href="javascript:void(0);" name="add_checked" data-id="{$value['id']}" title="审核">
+                                审核
+                            </a>&nbsp;|
+                            <php>}</php>
+                            <php>if( $value['admin_user_id']==$user_info['id'] ){</php>
+                            <a href="{:U('DoOverdueDelivery/del', array('id'=>$value['id']))}" title="删除">
+                                删除
+                            </a>
+                            <php>}</php>
+                        </td>
+                    </tr>
+                    <php>}</php>
+                    <php>if( count($overdue_list)==0 ){ echo "
+                        <tr>
+                            <td colspan='20'>暂无相关记录</td>
+                        </tr>
+                        ";}
+                    </php>
+                    </tbody>
+                </table>
+                <include file="layouts/_page"/>
+            </div><!-- sample-table-2_wrapper -->
+        </div><!-- col-xs-12 -->
+    </div>
+</div>

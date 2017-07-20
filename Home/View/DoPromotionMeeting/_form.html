@@ -1,0 +1,80 @@
+<style>
+    .t-info .atx{height:100px;}
+    .t-info th{font-weight: bold;text-align:center}
+</style>	
+<div class="t-title tc">内销推广会议申请表</div>
+	<table class="t-info">
+		<tr>
+			<th>客户名称：</th>
+			<td class="r-line">
+                                <input type="text" class="tx" id="office" name="do_promotion_meeting[user_name]" value="{$do_promotion_meeting.user_name}"/>
+			</td>
+			<th>会议地点：</th>
+			<td class="r-line">
+				<input type="text" id='address' class="tx" id="office" name="do_promotion_meeting[address]" value="{$do_promotion_meeting.address}"/>
+			</td>
+                        <th>会议时间：</th>
+			<td class="r-line">
+				<input type="text" id='meeting_time' class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="do_promotion_meeting[meeting_time]" value="<php>if( !empty($do_promotion_meeting[meeting_time]) ){ echo date('Y-m-d H:i:s', $do_promotion_meeting[meeting_time]);}</php>" />
+			</td>
+			<th>专场/联合：</th>
+			<td class="r-line">
+				<input type="text" class="tx" id="office" name="do_promotion_meeting[zc_lh]" value="{$do_promotion_meeting.zc_lh}"/>
+			</td>
+		</tr>
+                <tr>
+                        <th>单据号：</th>
+                        <td class="r-line">
+                            <input type="text" class="tx" id="office" name="do_promotion_meeting[no]" value="{$do_promotion_meeting.no}"/>
+                        </td>
+			<th>预计销售目标（万）：</th>
+			<td class="r-line">
+				<input type="text" class="tx" id="no" name="do_promotion_meeting[plan_price]" value="{$do_promotion_meeting.plan_price}" />
+			</td>
+			<th>回款计划（万）：</th>
+			<td class="r-line">
+				<input type="text" class="tx" id="office" name="do_promotion_meeting[back_price]" value="{$do_promotion_meeting.back_price}"/>
+			</td>
+                        <th>汇款截止时间：</th>
+			<td class="r-line">
+				<input type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" id="no" name="do_promotion_meeting[back_end_time]" value="<php>if( !empty($do_promotion_meeting[back_end_time]) ){ echo date('Y-m-d H:i:s', $do_promotion_meeting[back_end_time]);}</php>" />
+			</td>
+		</tr>
+                <tr>
+                    <th colspan="8" align="center">会议目的</th>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        1.开发新客户<input type="radio" <php>if($do_promotion_meeting['ptype']==1) echo 'checked'</php> name="do_promotion_meeting[ptype]" value="1" /> 
+                        2.产品推广<input type="radio" <php>if($do_promotion_meeting['ptype']==2) echo 'checked'</php> name="do_promotion_meeting[ptype]" value="2" /> 
+                        3.客户产品扩充<input type="radio" <php>if($do_promotion_meeting['ptype']==3) echo 'checked'</php> name="do_promotion_meeting[ptype]" value="3" /> 
+                        4.客户维护<input type="radio" <php>if($do_promotion_meeting['ptype']==4) echo 'checked'</php> name="do_promotion_meeting[ptype]" value="4" /> 
+                        5.新区域品牌推广<input type="radio" <php>if($do_promotion_meeting['ptype']==5) echo 'checked'</php> name="do_promotion_meeting[ptype]" value="5" /> 
+                        6.销售提升<input type="radio" <php>if($do_promotion_meeting['ptype']==6) echo 'checked'</php> name="do_promotion_meeting[ptype]" value="6" />
+                        (要求附件具体说明以上几点)
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="8">会议促销申请政策</th>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        1.政策时间(原则上为一个月或者一个半月)：<input type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="do_promotion_meeting[zc_time]" value="<php>if( !empty($do_promotion_meeting[zc_time]) ){ echo date('Y-m-d H:i:s', $do_promotion_meeting[zc_time]);}</php>" /><br />
+                        2.促销产品及政策<textarea name="do_promotion_meeting[content]" id="temporary_content" class="atx">{$do_promotion_meeting.content}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="8">会议费用申请</th>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        1.固定费用(<span style="color:red">按照公司2014年会议标准</span>)：<input type="text" name="do_promotion_meeting[fixed_price]" value="{$do_promotion_meeting.fixed_price}" class="tx" /><br />
+                        2.广告制作例费用说明：（1.横幅=单价 * 米数 2.背景布=平方单位*面积 3.X展架喷绘、按公司标准化制作）<textarea name="do_promotion_meeting[ad_content]" id="temporary_content" class="atx">{$do_promotion_meeting.ad_content}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan='8'>
+                        物料申请<textarea name="do_promotion_meeting[wl_content]" id="temporary_content" class="atx">{$do_promotion_meeting.wl_content}</textarea>
+                    </th>
+                </tr>
+	</table>

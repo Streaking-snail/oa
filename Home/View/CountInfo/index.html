@@ -1,0 +1,106 @@
+<style>
+input.ad-btn{border:none;width:50px;line-height:20px;}
+input.fp{position:absolute;left:50px;top:0;width:66px;z-index:1000;filter:alpha(opacity=0);opacity:0}
+.fl{float:left;width:60px;line-height:20px;}
+</style>
+<div class="page-content-area">
+		<include file="layouts/_sub_location" />
+		<div class="row">
+				<div class="col-xs-12">
+							<div id="sample-table-2_wrapper" style="overflow-x:auto;" class="dataTables_wrapper form-inline no-footer">
+												<div class="row">
+													<include file="layouts/_search" />
+												</div>
+												<div class="row">
+													<include file="layouts/_notice" />
+												</div>
+												<table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample-table-2_info">
+													<thead>
+														   <tr>
+                                                                <th width="3%">序号</th>
+																<th width="8%">物料代码</th>
+																<th width="8%">辅代码</th>
+																<th width="10%">产品名称</th>
+																<th width="10%">到货数</th>
+																<th width="10%">到货时间</th>
+																<th width="10%">产品图片<br />完成时间</th>
+																<php>foreach($malls as $value){</php>
+																	<th width="8%">{$value.name}</th>
+																<php>}</php>
+															</tr>
+													</thead>
+	
+													<tbody>
+														<php>foreach($count_infos as $k=>$value){</php>
+															<tr class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>">
+                                                                <td>{$page_number+$k+1}</td>
+																<td>{$value.code}</td>
+																<td>{$value.number}</td>
+																<td>
+																	<img src="<php>echo C('WEBURL').$value['pic_path'];</php>" width="50" height="50" />
+																	<span>{$value.product_name}</span><br />
+																	<a href="{:U('Download/index',array('file'=>$value['pic_path']))}">下载</a>
+																</td>
+																<td>
+																	<php>
+																	$product_order = M('product_order')->where("product_id=%d", array($value['product_id']))->find();
+																	$deliver_num = D("ProductOrder")->get_deliver_num($product_order['id']);
+																	echo $deliver_num;
+																	</php>
+																</td>
+																<td>
+																	<php>
+																		$deliver_time = D("CountInfo")->get_deliver_time($product_order['id']);
+																		echo date("Y-m-d H:i:s", $deliver_time);
+																	</php>
+																</td>
+																<td>
+																	<php>
+																		$finish_time = D('CountInfo')->get_end_time($value['product_id']);
+																		echo date("Y-m-d H:i:s", $finish_time);
+																	</php>
+																</td>
+																<php>foreach($malls as $v){</php>
+																	<td>
+																		<!-- 
+																		<a href="{:U('ShopCount/index', array('mall_id'=>$v['id'], 'product_id'=>$value['product_id']))}">
+																			<php>echo D('CountInfo')->get_count($value['product_id'], $v['id']);</php>
+																		</a>
+																		-->
+																		<php>
+																			$shops = D('CountInfo')->get_shops($v['id'], $value['product_id']);
+																			if( count($shops)>0 ){
+																				foreach($shops as $val){
+																					if( $val['is_over'] ){
+																						echo "<span style='color:green;'>".$val['name']."</span>";
+																					}else{
+																						echo "<span style='color:red;'>".$val['name']."</span>";
+																					}
+																				}
+																			}else{
+																				echo "";
+																			}
+																		</php>
+																	</td>
+																<php>}</php>
+															</tr>
+														<php>}
+															if( count($count_infos)==0 ){ 
+																echo "<tr><td align='center' colspan='".(count($malls)+7)."'>暂无相关记录</td></tr>";
+															}
+														</php>
+													</tbody>
+												</table>
+												<div class="row">
+														<div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+															{$show_page}
+														</div>
+												</div>
+										</div><!-- sample-table-2_wrapper -->
+				 </div><!-- col-xs-12 -->
+		</div>
+		<a href="{:U('CountInfo/download_csv')}" title="下载表格">
+                    下载表格    
+                </a>
+
+</div>

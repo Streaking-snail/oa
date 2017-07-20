@@ -1,0 +1,65 @@
+<style>
+input.ad-btn{border:none;width:50px;line-height:20px;}
+input.fp{position:absolute;left:50px;top:0;width:66px;z-index:1000;filter:alpha(opacity=0);opacity:0}
+.fl{float:left;width:60px;line-height:20px;}
+</style>
+<div class="page-content-area">
+		<include file="layouts/_sub_location" />
+		<div class="row">
+				<div class="col-xs-12">
+							<div id="sample-table-2_wrapper" class="dataTables_wrapper form-inline no-footer">
+												<div class="row">
+													<include file="layouts/_search" />
+												</div>
+												<table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample-table-2_info">
+													<thead>
+														   <tr>
+														   		<th width="10%">分类名称</th>
+																<th width="10%">系列名称</th>
+																<th width="10%">类别名称</th>
+																<th width="10%">描述</th>
+																<th width="10%">排序</th>
+																<th width="10%">操作</th>
+															</tr>
+													</thead>
+	
+													<tbody>
+														<php>foreach($classifications as $k=>$value){</php>
+															<tr role="row" class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>">
+																<td><php>echo D('Classification')->get_category_name($value['sub_category_id']);</php></td>
+																<td><php>echo D('Product')->get_sub_category_name($value['sub_category_id']);</php></td>
+																<td>{$value.name}</td>
+																<td>{$value.content}</td>
+																<td>{$value.rank}</td>
+																<td>
+																	<a href="{:U('Classification/edit', array('id'=>$value['id']))}" title="修改">
+																		<button class="btn btn-xs btn-info">
+																			<i class="ace-icon fa fa-pencil bigger-120"></i>
+																		</button>
+																	</a>
+																	<a href="{:U('Classification/delete_item', array('id'=>$value['id']))}" title="删除">
+																		<button class="btn btn-xs btn-danger">
+																			<i class="ace-icon fa fa-trash-o bigger-120"></i>
+																		</button>
+																	</a>
+																</td>
+															</tr>
+															
+														<php>}
+															if( count($classifications)==0 ){ 
+																echo "<tr><td align='center' colspan='6'>暂无相关记录</td></tr>";
+															}
+														</php>
+													</tbody>
+												</table>
+												<div class="row">
+														<div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+															{$show_page}
+														</div>
+												</div>
+										</div><!-- sample-table-2_wrapper -->
+				 </div><!-- col-xs-12 -->
+		</div>
+		
+
+</div>

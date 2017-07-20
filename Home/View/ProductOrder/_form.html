@@ -1,0 +1,105 @@
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">物料代码：</label>
+	<div class="col-sm-9">
+		<input type="text" id="product_code" name="product[code]" placeholder="物料代码" class="col-xs-10 col-sm-5" readonly value="{$product_order.code}" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">辅代码：</label>
+	<div class="col-sm-9">
+		<input type="text" id="product_number" name="product[number]" placeholder="辅代码" class="col-xs-10 col-sm-5" readonly value="{$product_order.number}" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">产品名称：</label>
+	<div class="col-sm-9">
+		<input type="text" id="product_name" name="product[name]" placeholder="大类名称" class="col-xs-10 col-sm-5" readonly value="{$product_order.name}" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">下单时间：</label>
+	<div class="col-sm-9">
+            <input type="text" id="product_order_order_time" name="product_order[order_time]" placeholder="下单时间(格式：YYYY-mm-dd HH:mm:ss)" name="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  class="col-xs-10 col-sm-5" value="<php>if(!empty($product_order['order_time'])){echo date('Y-m-d H:i:s', $product_order['order_time']);}</php>" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">京东：</label>
+	<div class="col-sm-9">
+		<input type="number" min='0' id="product_order_jd_num" name="product_order[jd_num]" placeholder="京东数量(须为数字)" class="col-xs-10 col-sm-5" value="{$product_order.jd_num}" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">天猫：</label>
+	<div class="col-sm-9">
+		<input type="number" min='0' id="product_order_tm_num" name="product_order[tm_num]" placeholder="天猫数量(须为数字)" class="col-xs-10 col-sm-5" value="{$product_order.tm_num}" />
+	</div>
+</div>
+<div class="space-4"></div>
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">淘宝：</label>
+	<div class="col-sm-9">
+		<input type="number" min='0' id="product_order_tb_num" name="product_order[tb_num]" placeholder="淘宝数量(须为数字)" class="col-xs-10 col-sm-5" value="{$product_order.tb_num}" />
+	</div>
+</div>
+<div class="space-4"></div>
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">KA：</label>
+	<div class="col-sm-9">
+		<input type="number" min='0' id="product_order_ka_num" name="product_order[ka_num]" placeholder="KA数量(须为数字)" class="col-xs-10 col-sm-5" value="{$product_order.ka_num}" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">市场：</label>
+	<div class="col-sm-9">
+		<input type="number" min='0' id="product_order_sc_num" name="product_order[sc_num]" placeholder="市场数量(须为数字)" class="col-xs-10 col-sm-5" value="{$product_order.sc_num}" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">计划大货前样：</label>
+
+	<div class="col-sm-9">
+		<input type="text" id="product_order_deliver_time" name="product_order[deliver_time]" placeholder="大货前样（格式：YYYY-mm-dd HH:mm:ss）" name="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" class="col-xs-10 col-sm-5" value="<php>if(!empty($product_order['deliver_time'])){echo date('Y-m-d H:i:s', $product_order['deliver_time']);}</php>" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">到货时间：</label>
+
+	<div class="col-sm-9">
+		<input type="text"  id="product_order_dh_time" name="product_order[dh_time]" placeholder="到货时间（格式：YYYY-mm-dd HH:mm:ss）" name="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" class="col-xs-10 col-sm-5"  value="<php>if(!empty($product_order['dh_time'])){echo date('Y-m-d H:i:s', $product_order['dh_time']);}</php>" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">到货数量：</label>
+
+	<div class="col-sm-9">
+		<input type="number" min='0' id="product_order_dh_num" name="product_order[dh_num]" placeholder="到货数量" class="col-xs-10 col-sm-5" value="{$product_order.dh_num}" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">备注：</label>
+
+	<div class="col-sm-9">
+          <textarea name="product_order[content]" id="product_order_content" class="" rows="3" cols="45">{$product_order.content}</textarea>
+	</div>
+</div>
+<div class="space-4"></div>

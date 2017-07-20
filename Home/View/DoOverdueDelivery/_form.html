@@ -1,0 +1,85 @@
+<div class="t-title">超额&超期发货申请单</div>
+<table class="t-info">
+    <tr>
+        <th colspan="4">
+            超额&超期发货单据号：<input type="text" class="tx" name="overdue[no]" id="temporary_no" value="{$overdue.no}"/>
+        </th>
+    </tr>
+    <tr>
+        <th>客户名称</th>
+        <td class="r-line">
+            <input type="text" class="tx" id="overdue_user_name" name="overdue[user_name]" value="{$overdue['user_name']?$overdue['user_name']:''}">
+        </td>
+<!--        <th>部门/业务员</th>
+        <td class="r-line">
+            <select>
+                <option selected>{$user_info.deport_name}/{$user_info.name}</option>
+            </select>
+        </td>-->
+        <th>申请日期</th>
+        <td>
+            <input type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"
+                   name="overdue[apply_time]" id="overdue_apply_time"
+                   value="<php>if( !empty($overdue['apply_time']) ){ echo date('Y-m-d H:i:s', $overdue['apply_time']);}</php>"/>
+        </td>
+<!--    </tr>
+        <th>客户名称</th>
+        <td class="r-line">
+            <input type="text" class="tx" id="overdue_user_name" name="overdue[user_name]" value="{$overdue['user_name']?$overdue['user_name']:''}">
+        </td>
+    <tr>-->
+        
+    </tr>
+    <tr>
+        <th>授信额度</th>
+        <td class="r-line">
+            <input type="text" name="overdue[credit_price]" class="tx" value="{$overdue.credit_price}"/></td>
+        <th>超额金额</th>
+        <td><input type="text" id="overdue_flow_price" name="overdue[flow_price]"
+                   class="tx valid" valid_type="price" error_msg="超额金额输入有误" value="{$overdue.flow_price}"/>
+        </td>
+    </tr>
+    <tr>
+        <th>付款期限</th>
+        <td class="r-line">
+            <input type="text" id="overdue_days" name="overdue[days]"
+                   class="tx valid" valid_type="number" error_msg="付款期限输入有误" value="{$overdue.days}"/>
+        </td>
+        <th>应收款金额</th>
+        <td>
+            <input type="text" id="overdue_total_price" name="overdue[total_price]"
+                   class="tx valid" valid_type="price" error_msg="应收款金额输入有误" value="{$overdue.total_price}"/>
+        </td>
+    </tr>
+    <tr>
+        <th>超期时间</th>
+        <td class="r-line">
+            <input type="text" id="overdue_flow_time" name="overdue[flow_time]"
+                   class="tx" value="{$overdue.flow_time}"/>
+        <th>超额金额</th>
+        <td><input type="text" id="overdue_flow_time_price" name="overdue[flow_time_price]"
+                   class="tx valid" valid_type="price" error_msg="超期金额输入有误"
+                   value="{$overdue.flow_time_price}"/>
+        </td>
+    </tr>
+    <tr>
+        <th>申请发货数</th>
+        <td class="r-line">
+            <input type="text" id="overdue_apply_delivery_num" name="overdue[apply_delivery_num]"
+                   class="tx" value="{$overdue.apply_delivery_num}"/>
+        </td>
+        <th>发货金额</th>
+        <td>
+            <input type="text" id="overdue_delivery_price" name="overdue[delivery_price]"
+                   class="tx" value="{$overdue.delivery_price}"/>
+        </td>
+    </tr>
+    <tr class="n-l">
+        <th class="lf" colspan="4">申请发货原因</th>
+    </tr>
+    <tr class="t-l">
+        <td colspan="4" class="att">
+            <textarea class="atx" name="overdue[content]" id="overdue_content" placeholder="描述" rows="5" cols="50">{$overdue.content}</textarea>
+        </td>
+    </tr>
+</table>

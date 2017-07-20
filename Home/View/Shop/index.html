@@ -1,0 +1,78 @@
+<style>
+input.ad-btn{border:none;width:50px;line-height:20px;}
+input.fp{position:absolute;left:50px;top:0;width:66px;z-index:1000;filter:alpha(opacity=0);opacity:0}
+.fl{float:left;width:60px;line-height:20px;}
+</style>
+<div class="page-content-area">
+		<include file="layouts/_sub_location" />
+		<div class="row">
+				<div class="col-xs-12">
+							<div id="sample-table-2_wrapper" class="dataTables_wrapper form-inline no-footer">
+												<div class="row">
+													<include file="layouts/_search" />
+												</div>
+												<table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample-table-2_info">
+													<thead>
+														   <tr>
+																<th width="10%">店铺编号</th>
+																<th width="10%">所属平台</th>
+																<th width="10%">店铺名称</th>
+                                                                                                                                <th width="10%">店铺状态</th>
+																<th width="10%">操作</th>
+															</tr>
+													</thead>
+	
+													<tbody>
+														<php>foreach($shop as $k=>$value){</php>
+															<tr class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>">
+															        <td>{$value.id}</td>
+																<td><php>foreach($mall as $value2){if($value['mall_id']==$value2['id']){echo $value2['name'];}}</php></td>
+																<td>{$value.name}</td>
+                                                                <td><php>
+                                                                	if($value['status']==0){
+                                                                		echo "未审核";
+                                                                	}else{if($value['status']==1){
+                                                                		echo "审核通过";
+                                                                	}else{
+                                                                		echo "审核未通过";
+                                                                	}}</php></td>
+																<td>
+																	<php>if( $user_info['is_admin']==1 ){</php>
+																		<php>if( $value['status']==0 ){</php>
+		                                                                    <a href="{:U('Shop/pass', array('id'=>$value['id']))}" title="审核通过">
+																				<button class="btn btn-xs btn-green">
+																					<i class="ace-icon fa fa-check bigger-120"></i>
+																				</button>
+																			</a>
+		                                                                    <a href="{:U('Shop/del', array('id'=>$value['id']))}" title="审核不通过">
+																				<button class="btn btn-xs btn-danger">
+																					<i class="ace-icon fa fa-flag bigger-120"></i>
+																				</button>
+																			</a>
+																		<php>}</php>
+																		<a href="{:U('Shop/edit', array('id'=>$value['id']))}" title="修改">
+																			<button class="btn btn-xs btn-info">
+																				<i class="ace-icon fa fa-pencil bigger-120"></i>
+																			</button>
+																		</a>
+																	<php>}</php>
+																</td>
+															</tr>
+														<php>}
+															if( count($shop)==0 ){ 
+																echo "<tr><td align='center' colspan='5'>暂无相关记录</td></tr>";
+															}
+														</php>
+													</tbody>
+												</table>
+												<div class="row">
+														<div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+															{$show_page}
+														</div>
+												</div>
+										</div><!-- sample-table-2_wrapper -->
+				 </div><!-- col-xs-12 -->
+		</div>
+		
+
+</div>

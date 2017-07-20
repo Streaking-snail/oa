@@ -1,0 +1,153 @@
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-5">所在部门：</label>
+
+	<div class="col-sm-9">
+		<select name="role[deport_id]" id="role_deport_id" class="col-xs-10 col-sm-5">
+			<php>
+			foreach( $deports as $k=>$value ){
+				if( $value['id']==$role['deport_id'] ){
+					echo '<option value="'.$value['id'].'" selected="selected">'.$value['name'].'</option>';
+				}else{
+					echo '<option value="'.$value['id'].'">'.$value['name'].'</option>';
+				}
+			}
+			</php>
+		</select>
+	</div>
+</div>
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">角色名称：</label>
+
+	<div class="col-sm-9">
+		<input type="text" id="role_name" name="role[name]" placeholder="角色名称" class="col-xs-10 col-sm-5" value="{$role.name}" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">角色描述：</label>
+
+	<div class="col-sm-9">
+		<textarea name="role[content]" id="role_content" placeholder="角色描述" rows="5" cols="50">{$role.content}</textarea>
+	</div>
+</div>
+
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">权限：</label>
+
+	<div class="col-sm-9" style="height:300px;">
+		<style>
+		.status-list{width:80%;}
+		.status-list li{list-style:none;margin-right:10px;float:left;height:145px;width:120px;}
+		</style>
+		<ul class="status-list">
+			<php>foreach($s_menus as $k=>$value){</php>
+               <php>if($value['id']==5 && empty($role['id']) ){</php>
+					<li>
+						<table>
+							<tr>
+								<td>{$value.name}</td>
+								<td><input type="checkbox" name="ids[]" checked="checked" <php>if(in_array($value['id'],$ids)){echo "checked='checked'";}</php> value="{$value.id}"/></td>
+							</tr>
+							<php>foreach($value['sub_menus'] as $val){</php>
+	                                                  
+								<tr id="item_{$val.id}" class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>">
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;-{$val.name}</td>
+									<td><input type="checkbox" checked="checked" <php>if(in_array($val['id'],$ids)){echo "checked='checked'";}</php> name="ids[]" value="{$val.id}"/></td>
+								</tr>
+								<php>foreach($val['sub_menus'] as $v){</php>
+									<tr id="item_{$val.id}" class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>">
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;--{$v.name}</td>
+										<td><input type="checkbox" checked="checked" <php>if(in_array($v['id'],$ids)){echo "checked='checked'";}</php> name="ids[]" value="{$v.id}"/></td>
+									</tr>
+								<php>}</php>
+							<php>}</php>
+						</table>
+	                 </li>
+            	<php>}else{</php>
+            		<li>
+						<table>
+							<tr>
+								<td>{$value.name}</td>
+								<td><input type="checkbox" name="ids[]" <php>if(in_array($value['id'],$ids)){echo "checked='checked'";}</php> value="{$value.id}"/></td>
+							</tr>
+							<php>foreach($value['sub_menus'] as $val){</php>
+	                                                  
+								<tr id="item_{$val.id}" class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>">
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;-{$val.name}</td>
+									<td><input type="checkbox" <php>if(in_array($val['id'],$ids)){echo "checked='checked'";}</php> name="ids[]" value="{$val.id}"/></td>
+								</tr>
+								<php>foreach($val['sub_menus'] as $v){</php>
+									<tr id="item_{$val.id}" class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>">
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;--{$v.name}</td>
+										<td><input type="checkbox" <php>if(in_array($v['id'],$ids)){echo "checked='checked'";}</php> name="ids[]" value="{$v.id}"/></td>
+									</tr>
+								<php>}</php>
+							<php>}</php>
+						</table>
+					</li>
+                 <php>}</php>
+			<php>}</php>
+		</ul>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">产品图片权限：</label>
+	<div class="col-sm-9" style="height:250px;">
+		<ul class="status-list">
+			<li>
+				<php>$ptype_status = M('ptype_status')->where("ptype_id=3")->order("rank asc,id")->select();</php>
+				<table width="600">
+					<tr>
+						<th>状态名称</th>
+						<th>是否允许上传附件</th>
+						<th>是否允许填写说明</th>
+						<th>是否允许同意/拒绝</th>
+					</tr>
+					<php>foreach($ptype_status as $k=>$v){</php>
+						<tr>
+							<td>{$v.name}</td>
+							<td><input type="checkbox" name="attach_ids[{$k}]" <php>if( in_array($v['id'], explode(",", $role['attach_power_ids'])) ){echo "checked='checked'";}</php> value="{$v.id}" /></td>
+							<td><input type="checkbox" name="text_ids[{$k}]" <php>if( in_array($v['id'], explode(",", $role['text_power_ids'])) ){echo "checked='checked'";}</php> value="{$v.id}" /></td>
+							<td><input type="checkbox" name="check_ids[{$k}]" <php>if( in_array($v['id'], explode(",", $role['check_power_ids'])) ){echo "checked='checked'";}</php> value="{$v.id}" /></td>
+						</tr>
+					<php>}</php>
+				</table>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="space-4"></div>
+
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">商城店铺维护权限：</label>
+	<div class="col-sm-9" style="height:245px;">
+		<ul class="status-list">
+			<li>
+				<php>$shops = M('shop')->where("is_del=0 and status=1")->select();</php>
+				<table width="600">
+					<tr>
+						<th>店铺名称</th>
+						<th>是否修改信息</th>
+						<th>是否上新提交</th>
+						<th>是否允许删除</th>
+					</tr>
+					<php>foreach($shops as $k=>$v){</php>
+						<tr>
+							<td><input type="hidden" name="shop_powers[{$k}][shop_id]" value="{$v.id}" />{$v.name}</td>
+							<td><input type="checkbox" name="shop_powers[{$k}][is_edit]" <php>if( D('Roles')->is_shop_edit($v['id'], $role['id']) ){echo "checked='checked'";}</php> value="{$v.id}" /></td>
+							<td><input type="checkbox" name="shop_powers[{$k}][is_send]" <php>if( D('Roles')->is_shop_send($v['id'], $role['id']) ){echo "checked='checked'";}</php> value="{$v.id}" /></td>
+							<td><input type="checkbox" name="shop_powers[{$k}][is_del]" <php>if( D('Roles')->is_shop_del($v['id'], $role['id']) ){echo "checked='checked'";}</php> value="{$v.id}" /></td>
+						</tr>
+					<php>}</php>
+				</table>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="space-4"></div>

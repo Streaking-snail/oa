@@ -1,0 +1,100 @@
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<include file='layouts/_sub_location' />
+	<div class="row">
+		<div class="col-xs-12">
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="form-field-5">所在部门：</label>
+					<div class="col-sm-9">
+						<span class="help-inline col-xs-12 col-sm-7"><php>echo $AdminUser->deport_name($admin_user['deport_id']);</php></span>
+					</div>
+				</div>
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="form-field-5">角色：</label>
+					<div class="col-sm-9">
+						<span class="help-inline col-xs-12 col-sm-7">
+							<php>echo $AdminUser->role_name($admin_user['role_id']);</php>
+						</span>
+					</div>
+				</div>
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="form-field-1">用户名：</label>
+				    <div class="col-sm-9">
+				    	<label class="middle">
+							<span class="lbl">
+								{$admin_user.username}
+							</span>
+						</label>
+					</div>
+				</div>
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">姓名：</label>
+					<div class="col-sm-9">
+						{$admin_user.name}
+					</div>
+				</div>				
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="form-field-4">手机号：</label>
+					<div class="col-sm-9">
+						{$admin_user.mobile}
+					</div>
+				</div>
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="form-field-5">固定电话：</label>
+					<div class="col-sm-9">
+						{$admin_user.phone}
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right">性别：</label>
+					<div class="col-sm-9">
+						<php>if($admin_user['sex']==0 ){ echo '女';}else{echo '男';}</php>
+					</div>
+				</div>
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="form-field-6">现在住址：</label>
+					<div class="col-sm-9">
+						{$admin_user.address}
+					</div>
+				</div>
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">描述：</label>
+					<div class="col-sm-9">
+						{$admin_user.content}
+					</div>
+				</div>
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<a href="{:U('Home/AdminUser/index')}">
+							<button class="btn btn-info" type="button">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								修改
+							</button>
+						</a>
+						&nbsp; &nbsp; &nbsp;
+						<a href="{:U('Home/AdminUser/edit',array('id'=>$admin_user['id']))}">
+							<button class="btn" type="button">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								返回首页
+							</button>
+						</a>
+					</div>
+				</div>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

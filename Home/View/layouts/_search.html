@@ -1,0 +1,118 @@
+<form action="" id="search_info" method="post">
+	<div class="col-xs-6" style="width:30%">
+		<div class="dataTables_length" id="sample-table-2_length">
+			<label>每页显示
+				<select name="num" id="num" aria-controls="sample-table-2" class="form-control input-sm">
+					<option value="10" <php>if($search_info['num']==10){echo "selected='selected'";}</php> >10</option>
+					<option value="25" <php>if($search_info['num']==25){echo "selected='selected'";}</php> >25</option>
+					<option value="50" <php>if($search_info['num']==50){echo "selected='selected'";}</php> >50</option>
+					<option value="100" <php>if($search_info['num']==100){echo "selected='selected'";}</php> >100</option>
+				</select>条,共{$total_count}条记录
+			</label>
+		</div>
+	</div>
+	<div class="col-xs-6" style="width:70%">
+		<div id="sample-table-2_filter" class="dataTables_filter">
+			<label>
+				关键字：<input type="text" name="key" placeholder="关键字" id="search_txt" class="form-control input-sm" aria-controls="sample-table-2" value="<php>echo $search_info['key'];</php>" />
+				&nbsp;&nbsp;
+				<php>if( is_array($s_deports) && is_array($s_deports)>0 ){</php>
+					部门:<select name="deport_id" id="deport_id">
+						<php>
+							foreach($s_deports as $value){
+								if( $value['id']==$search_info['deport_id'] ){
+									echo "<option value='".$value['id']."' selected='selected'>".$value['name']."</option>";
+								}else{
+									echo "<option value='".$value['id']."'>".$value['name']."</option>";
+								}
+							}
+						</php>
+					</select>
+					&nbsp;&nbsp;
+				<php>}</php>
+				<php>if( is_array($s_status) && count($s_status)>0 ){</php>
+					状态:<select name="status" id="status">
+						<php>
+							foreach($s_status as $value){
+								if( intval($value['val'])==intval($search_info['status']) ){
+									echo "<option value='".$value['val']."' selected='selected'>".$value['name']."</option>";
+								}else{
+									echo "<option value='".$value['val']."'>".$value['name']."</option>";
+								}
+							}
+						</php>
+					</select>
+					&nbsp;&nbsp;
+				<php>}</php>
+				<php>if( is_array($s_categories) && count($s_categories)>0 ){</php>
+					大类：<select name="category_id" id="category_id" vel="{:U('ProductBase/get_sub_categories')}">
+						<php>
+							foreach($s_categories as $value){
+								if( $value['id']==$search_info['category_id'] ){
+									echo "<option value='".$value['id']."' selected='selected'>".$value['name']."</option>";
+								}else{
+									echo "<option value='".$value['id']."'>".$value['name']."</option>";
+								}
+							}
+						</php>
+					</select>
+					&nbsp;&nbsp;
+				<php>}</php>
+				<php>if( is_array($s_sub_categories) && count($s_sub_categories)>0 ){</php>
+					系列：<select name="sub_category_id" id="sub_category_id" vel="{:U('ProductBase/get_classifications')}">
+						<php>
+							foreach($s_sub_categories as $value){
+								if( $value['id']==$search_info['sub_category_id'] ){
+									echo "<option value='".$value['id']."' selected='selected'>".$value['name']."</option>";
+								}else{
+									echo "<option value='".$value['id']."'>".$value['name']."</option>";
+								}
+							}
+						</php>
+					</select>
+					&nbsp;&nbsp;
+				<php>}</php>
+				<php>if( is_array($s_classifications) && count($s_classifications)>0 ){</php>
+					类别：<select name="classification_id" id="classification_id">
+						<php>
+							foreach($s_classifications as $value){
+								if( $value['id']==$search_info['classification_id'] ){
+									echo "<option value='".$value['id']."' selected='selected'>".$value['name']."</option>";
+								}else{
+									echo "<option value='".$value['id']."'>".$value['name']."</option>";
+								}
+							}
+						</php>
+					</select>
+					&nbsp;&nbsp;
+				<php>}</php>
+				<php>if( is_array($s_shops) && count($s_shops)>0 ){</php>
+					店铺：<select name="s_shop_id" id="s_shop_id">
+						<php>
+							foreach($s_shops as $value){
+								if( $value['id']==$search_info['s_shop_id'] ){
+									echo "<option value='".$value['id']."' selected='selected'>".$value['name']."</option>";
+								}else{
+									echo "<option value='".$value['id']."'>".$value['name']."</option>";
+								}
+							}
+						</php>
+					</select>
+					&nbsp;&nbsp;
+				<php>}</php>
+                                
+				<input type="submit" value="搜索" />&nbsp;
+				<php>if( $is_add ){</php>
+					<input type="button" id="" value="" data-url="{:U('Temporary/add_info')}" />
+				<php>}</php>
+				<php>if($is_export){</php>
+					<input type="button" id="search_btn" value="导出数据" data-url="{:U('ProductBase/download_csv')}" />
+				<php>}</php>
+                                
+                                <php>if($is_more_search || $application){</php>
+                                <input type="button" id="more_search" value="更多" />
+                                <php>}</php>
+			</label>
+		</div>
+	</div>
+</form>

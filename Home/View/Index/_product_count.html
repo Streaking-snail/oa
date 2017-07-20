@@ -1,0 +1,103 @@
+                               
+									<div class="col-sm-12">
+										<div class="widget-box transparent">
+											<div class="widget-header widget-header-flat">
+												<h4 class="widget-title lighter">
+													<i class="ace-icon fa fa-star orange"></i>
+													产品数量
+												</h4>
+												<div class="widget-toolbar">
+													<a href="javascript:void(0);" data-action="collapse">
+														<i class="ace-icon fa fa-chevron-up"></i>
+													</a>
+													<!--<a href="{:U('Product/index')}" style="margin-right:5px;font-size:14px;">更多</a>-->
+												</div>
+											</div>
+
+											<div class="widget-body" style="overflow-x:auto;">
+												<div class="widget-main no-padding">
+													<table class="table table-bordered table-stripe">
+														<thead class="thin-border-bottom">
+															<tr>
+																<th>
+																	<i class="ace-icon fa fa-caret-right blue"></i>产品总数
+																</th>
+                                                                <th>
+																	<i class="ace-icon fa fa-caret-right blue"></i>未完成数
+																</th>
+																<th>
+																	<i class="ace-icon fa fa-caret-right blue"></i>已到货数
+																</th>
+																<th>
+																	<i class="ace-icon fa fa-caret-right blue"></i>大货前样
+																</th>
+
+																<th>
+																	<i class="ace-icon fa fa-caret-right blue"></i>交样
+																</th>
+
+																<th class="hidden-480">
+																	<i class="ace-icon fa fa-caret-right blue"></i>首页
+																</th>
+																<th>
+																	<i class="ace-icon fa fa-caret-right blue"></i>详情页
+																</th>
+                                                                                                                                <php>$mall = M('mall')->select();
+                                                                                                                                    foreach($mall as $value){
+                                                                                                                                        </php>
+                                                                                                                                            <th>
+                                                                                                                                                <i class="ace-icon fa fa-caret-right blue"></i>{$value.name}
+                                                                                                                                            </th>
+                                                                                                                                        <php>}</php>
+                                                                                                                                
+															</tr>
+														</thead>
+
+														<tbody>
+															<php>
+																$products = M('products')->select();
+                                                                                                                                $product_not_over = M('product_pic')->where("is_over=0 and is_del=0")->group("product_id")->select();
+                                                                                                                                $product_dh = M('product_order')->where("dh_time!=0 and is_del=0")->select();
+                                                                                                                                $product_deliver = M('product_order')->where("deliver_time!=0 and is_del=0")->select();
+                                                                                                                                $product_jy = M('product_pic_status')->where("ptype_status_id=1")->group("product_pic_id")->select();
+                                                                                                                                $product_st = M('product_pic_status')->where("ptype_status_id=8")->group("product_pic_id")->select();
+                                                                                                                                $product_xqy = M('product_pic_status')->where("ptype_status_id=6")->group("product_pic_id")->select();
+                                                                                                                                $product_jd = M('shop')->alias('a')->join("left join ".C('DB_PREFIX')."count_info b on a.id=b.shop_id ")
+                                                                                                                                                        ->where("b.mall_id=1")->select();
+                                                                                                                                $product_jdpop = M('shop')->alias('a')->join("left join ".C('DB_PREFIX')."count_info b on a.id=b.shop_id ")
+                                                                                                                                                        ->where("b.mall_id=2")->select();
+                                                                                                                                $product_tm = M('shop')->alias('a')->join("left join ".C('DB_PREFIX')."count_info b on a.id=b.shop_id ")
+                                                                                                                                                        ->where("b.mall_id=3")->select();
+                                                                                                                                $product_tb = M('shop')->alias('a')->join("left join ".C('DB_PREFIX')."count_info b on a.id=b.shop_id ")
+                                                                                                                                                        ->where("b.mall_id=4")->select();
+                                                                                                                                $product_ka = M('shop')->alias('a')->join("left join ".C('DB_PREFIX')."count_info b on a.id=b.shop_id ")
+                                                                                                                                                        ->where("b.mall_id=5")->select();
+                                                                                                                                $product_sc = M('shop')->alias('a')->join("left join ".C('DB_PREFIX')."count_info b on a.id=b.shop_id ")
+                                                                                                                                                        ->where("b.mall_id=6")->select();
+															</php>
+																<tr>
+                                                                                                                                    <td><a href="{:U('Product/index')}"><php>echo count($products);</php></a></td>
+                                                                                                                                    <td><a href="{:U('Product/index')}"><php>echo count($product_not_over);</php></a></td>
+                                                                                                                                    <td><a href="{:U('ProductOrder/list_items')}"><php>echo count($product_dh);</php></a></td>
+                                                                                                                                    <td><a href="{:U('ProductOrder/list_items')}"><php>echo count($product_deliver);</php></a></td>
+                                                                                                                                    <td><a href="{:U('ProductPic/index', array('status'=>1))}"><php>echo count($product_jy);</php></a></td>
+                                                                                                                                    <td><a href="{:U('ProductPic/index', array('status'=>7))}"><php>echo count($product_st);</php></a></td>
+                                                                                                                                    <td><a href="{:U('ProductPic/index', array('status'=>5))}"><php>echo count($product_xqy);</php></a></td>
+                                                                                                                                        <php>
+                                                                                                                                        foreach($mall as $v){
+                                                                                                                                            unset($g);
+                                                                                                                                            $g =  M('shop')->alias('a')->join("left join ".C('DB_PREFIX')."count_info b on a.id=b.shop_id ".
+                                                                                                                                                                              "left join ".C('DB_PREFIX')."products p on b.product_id=p.id")
+                                                                                                                                                        ->where("b.mall_id=%d and p.status=1",array($v['id']))->select();</php>
+                                                                                                                                <td><a href="{:U('ShopCount/index', array('mall_id'=>$v['id']))}"><php>echo count($g);</php></td></a><php>
+                                                                                                                                        }
+                                                                                                                                        </php>
+																</tr>
+                                                                                                                                
+														</tbody>
+													</table>
+												</div><!-- /.widget-main -->
+											</div><!-- /.widget-body -->
+										</div><!-- /.widget-box -->
+									</div><!-- /.col -->
+									<div class="hr hr32 hr-dotted" style="width:100%;float:left;"></div>

@@ -1,0 +1,135 @@
+
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<!-- <include file='layouts/_sub_location' />-->
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="" role="form">
+				<div id="show_info">
+					<div class="t-title tc">促销申请报告</div>
+					<table class="t-info">
+						<tr>
+							<td>
+								单据号：{$dopromotion.dj_no}
+							</td>
+							<td>
+								负责人：{$dopromotion.username}
+							</td>
+							<th colspan="2">
+								填写时间：<php>if( !empty($dopromotion['send_time']) ){ echo date('Y-m-d H:i:s', $dopromotion['send_time']);}</php>
+							</th>
+						</tr>
+						<tr>
+							<td colspan="2">申请办事处：{$dopromotion.deport_name}</td>
+							<td>客户姓名：
+							<td>{$dopromotion.user_name}</td>
+						</tr>
+						<tr>
+							<td colspan="2">合同号：
+								{$dopromotion.no}
+							</td>
+							<td>合同时间：</td>
+							<td>
+								<php>if( !empty($dopromotion['ht_time']) ){ echo date('Y-m-d H:i:s', $dopromotion['ht_time']);}</php>
+							</td>
+						</tr>
+						<tr>
+							<td rowspan="5" class="r-line" style="width:250px">促销内容：1、促销产品、客户毛利、促销幅度、有无返利等需要注明,单独需附产品明细
+																							  2、促销延长的需要说明政策内容</td>
+							<td class="r-line">促销品类</td>
+							<td class="r-line">今年1月至本月毛利</td>
+							<td>毛利异动说明</td>
+						</tr>
+						<tr>
+							<td class="r-line">{$dopromotion.promotion_category}</td>
+							<td class="r-line">{$dopromotion.gross_profit}</td>
+							<td>{$dopromotion.exception_specification}</td>
+						</tr>
+						<tr>
+							<td rowspan="3" colspan="3"  class="att">
+								{$dopromotion.promotion_content}
+							</td>
+						</tr>
+						<tr>
+						</tr>
+						<tr>
+						</tr>
+						<tr>
+							<td rowspan="3" class="r-line" style="width:250px">重点产品需求说明：（每单品促销需求量超过50件需要注明单品品名细及数量）</td>
+							<td rowspan="3" colspan="3"  class="att">
+								{$dopromotion.main_content}
+							</td>
+						</tr>
+						<tr>
+						</tr>
+						<tr>
+						</tr>
+						<tr>
+							<td class="r-line">促销额度(预会力求精准)</td>
+							<td colspan="3"  class="att">
+								{$dopromotion.promotion_credit}万
+							</td>
+						</tr>
+						<tr>
+							<td class="r-line">促销活动时间</td>
+							<td colspan="3">
+								自<php>if( !empty($dopromotion['promotion_start_time']) ){ echo date('Y-m-d H:i:s', $dopromotion['promotion_start_time']);}</php>
+								至<php>if( !empty($dopromotion['promotion_end_time']) ){ echo date('Y-m-d H:i:s', $dopromotion['promotion_end_time']);}</php>
+							</td>
+						</tr>
+						<tr>
+							<td class="r-line">应收货款金额</td>
+							<td class="r-line">{$dopromotion.price}</td>
+							<td class="r-line">其中：到期货款金额</td>
+							<td>{$dopromotion.over_price}</td>
+						</tr>
+						<php>if( count($do_promotions_status)>0 ){</php>
+							<tr>
+								<td align="center">状态</td>
+								<td align="center">审核时间</td>
+								<td align="center">审核人</td>
+								<td align="center">审核内容</td>
+							</tr>
+							<foreach name="do_promotions_status" item="v">
+								<tr>
+									<php>if( $v['status']==1 ){</php>
+										<td style="color:green;text-align:center;">审核通过</td>
+									<php>}else{</php>
+										<td style="color:red;text-align:center;">审核不通过</td>
+									<php>}</php>
+									<td align="center"><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+									<td align="center">{$v.username}</td>
+									<td align="center">
+										{$v.content}
+										<php>if( !empty($v['url_path']) ){</php>
+											<br />
+											附件：<a href="{:U('Download/index',array('file'=>urlencode($v['url_path'])))}">{$v['name']}</a>
+										<php>}</php>
+									</td>
+								</tr>
+							</foreach>
+						<php>}</php>
+					</table>
+				</div>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="button" name="back_btn">
+							<i class="ace-icon fa fa-undo bigger-110"></i>
+							返回上页
+						</button>&nbsp; &nbsp; &nbsp;&nbsp;
+						<button class="btn btn-info" type="button" name="print_info" >
+							打印
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

@@ -1,0 +1,45 @@
+<tr>
+    <td class="r-line">大类</td>
+    <td class="r-line">货号</td>
+    <td class="r-line">名称</td>
+    <td class="r-line">申请价格</td>
+    <td class="r-line">申请数量</td>
+    <td class="r-line">零售价</td>
+    <td class="r-line">备注</td>
+</tr><!--在顶部插入个空数组,传值为空 , 作为clone的数据-->
+<php>
+    if(!empty($explosion_items)){
+        array_unshift($explosion_items,array());
+    }else{
+        $explosion_items = array(array());
+    }
+</php>
+<foreach name="explosion_items" item="v">
+    <php>$clone_attr = $key==0?' id="clone_item" style="display:none;" ':'';</php>
+    <tr {$clone_attr}>
+        <td class="r-line"><input readonly class="tx dalei" type="text" value="{$v.name}"></td>
+        <td class="r-line"><input readonly class="tx huohao" type="text" value="{$v.number}"></td>
+        <td class="r-line">
+            <select name="explosion[item][product_id][]" class="tx product_item">
+                <include file="DoExplosion/_products"/>
+            </select>
+        </td>
+        <td class="r-line">
+            <input type="text" name="explosion[item][apply_price][]" value="{$v.apply_price}" class="tx"/>
+        </td>
+        <td class="r-line">
+            <input type="number" min='1' name="explosion[item][apply_num][]" value="{$v.apply_num}" class="tx"/>
+        </td>
+        <td class="r-line">
+            <input type="text" name="explosion[item][price][]" value="{$v.price}" class="tx"/>
+        </td>
+        <td class="r-line">
+            <input type="text" name="explosion[item][content][]" value="{$v.content}" class="tx"/>
+            <a href="javascript:void(0);" class="remove_item">移除</a>
+        </td>
+    </tr>
+</foreach>
+<php>unset($v);</php>
+<tr>
+    <td colspan="7" class="r-line"><a id="add_item" href="javascrpit:;" style="display: table;margin: 0 auto;">增加</a></td>
+</tr>

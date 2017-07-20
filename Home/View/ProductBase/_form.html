@@ -1,0 +1,169 @@
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"><span class="err">*</span>选择大类：</label>
+	<div class="col-sm-9">
+		<select name="product_base[category_id]" class="col-xs-10 col-sm-5" id="product_base_category_id" vel="{:U('Product/get_sub_categories')}">
+			<php>foreach($categories as $value){</php>
+				<php>if( $value['id']==$product_base['category_id'] ){</php>
+					<option value='{$value.id}' selected="selected">{$value.name}</option>
+				<php>}else{</php>
+					<option value='{$value.id}'>{$value.name}</option>
+				<php>}</php>
+			<php>}</php>
+		</select>
+                <span class="help-inline col-xs-12 col-sm-7">
+                        <label class="middle">
+                                <span class="lbl">请选择大类!</span>
+                        </label>
+                </span>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"><span class="err">*</span>选择系列：</label>
+	<div class="col-sm-9">
+		<select name="product_base[sub_category_id]" vel="{:U('Product/get_classifications')}" class="col-xs-10 col-sm-5" id="product_base_sub_category_id">
+			<include file="Product/_sub_categories" />
+		</select>
+                <span class="help-inline col-xs-12 col-sm-7">
+                        <label class="middle">
+                                <span class="lbl">请选择系列!</span>
+                        </label>
+                </span>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"><span class="err">*</span>选择类别：</label>
+	<div class="col-sm-9">
+		<select name="product_base[classification_id]" class="col-xs-10 col-sm-5" id="product_base_classification_id">
+			<include file="Product/_classifications" />
+		</select>
+                <span class="help-inline col-xs-12 col-sm-7">
+                        <label class="middle">
+                                <span class="lbl">请选择类别!</span>
+                        </label>
+                </span>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"><span class="err">*</span>物料代码：</label>
+	<div class="col-sm-9">
+		<input type="text" id="product_base_code" name="product_base[code]" placeholder="物料代码" class="col-xs-10 col-sm-5" value="{$product_base.code}" />
+                <span class="help-inline col-xs-12 col-sm-7">
+                        <label class="middle">
+                                <span class="lbl">请填写物料代码!</span>
+                        </label>
+                </span>
+        </div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"><span class="err">*</span>辅代码：</label>
+	<div class="col-sm-9">
+		<input type="text" id="product_base_number" name="product_base[number]" placeholder="辅代码" class="col-xs-10 col-sm-5" value="{$product_base.number}" />
+                <span class="help-inline col-xs-12 col-sm-7">
+                    <label class="middle">
+                            <span class="lbl">请填写辅代码!</span>
+                    </label>
+                 </span>
+        </div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"><span class="err">*</span>产品名称：</label>
+	<div class="col-sm-9">
+		<input type="text" id="product_base_name" name="product_base[name]" placeholder="产品名称" class="col-xs-10 col-sm-5" value="{$product_base.name}" />
+                <span class="help-inline col-xs-12 col-sm-7">
+                        <label class="middle">
+                                <span class="lbl">请填写产品名称!</span>
+                        </label>
+                </span>
+        </div>
+        
+</div>
+<div class="space-4"></div>
+
+
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags"><span class="err">*</span>现价：</label>
+	<div class="col-sm-9">
+		<input type="text" id="product_now_price" name="product_base[now_price]" min="0"  placeholder="现价" class="col-xs-10 col-sm-5" value="{$product_base.now_price}" />
+                <span class="help-inline col-xs-12 col-sm-7">
+                        <label class="middle">
+                                <span class="lbl">请填写现价!</span>
+                        </label>
+                </span>
+        </div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags"><span class="err">*</span>统一售价：</label>
+	<div class="col-sm-9">
+		<input type="text" id="product_base_sold_price" name="product_base[sold_price]" min="0"  placeholder="统一售价" class="col-xs-10 col-sm-5" value="{$product_base.sold_price}" />
+                <span class="help-inline col-xs-12 col-sm-7">
+                        <label class="middle">
+                                <span class="lbl">请填写统一售价!</span>
+                        </label>
+                </span>
+        </div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags"><span class="err">*</span>最低售价：</label>
+	<div class="col-sm-9">
+		<input type="text" id="product_base_sold_price" name="product_base[min_price]" min="0"  placeholder="最低售价" class="col-xs-10 col-sm-5" value="{$product_base.min_price}" />
+                <span class="help-inline col-xs-12 col-sm-7">
+                        <label class="middle">
+                                <span class="lbl">请填写最低售价!</span>
+                        </label>
+                </span>
+        </div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">排序：</label>
+
+	<div class="col-sm-9">
+		<input type="number"  id="product_base_rank" name="product_base[rank]" placeholder="排序" class="col-xs-10 col-sm-5" value="{$product_base.rank}" />
+	</div>
+</div>
+
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">描述：</label>
+
+	<div class="col-sm-9">
+		<textarea name="product_base[content]" id="product_base_content" rows="3" cols="45">{$product_base.content}</textarea>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags"><span class="err">*</span>产品图片：</label>
+
+	<div class="col-sm-9-file">
+			<php>if( !empty($product_base['pic_path']) ){</php>
+	        	<img style="float:left;" src="<php>echo C('WEBURL').$product_base['pic_path'];</php>" width="50" height="50" />
+	        <php>}</php>
+            <input type="hidden" name="product_base_pic_path" id="product_base_pic_path" value="{$product_base.pic_path}" />
+            <input type="file"  id="product_file" name="file" placeholder="产品图片" class="col-xs-10 col-sm-5" />
+            <span class="help-inline col-xs-12 col-sm-7">
+                    <label class="middle">
+                            <span class="lbl">请上传产品图片!</span>
+                    </label>
+            </span>
+        </div>
+</div>
+<div class="space-4"></div>

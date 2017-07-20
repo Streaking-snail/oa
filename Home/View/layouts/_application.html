@@ -1,0 +1,29 @@
+<form action="" id="condition_info" method="post" />
+	<input type='text' style="display:none;" id="show"  name="show"  value="{$search_info['show']}"/>
+    <php>if($application){</php>
+	        部门：<input type='text' name='deport'  value="{$search_info['deport']}" />
+	        人员：<input type='text' name='admin_user' value="{$search_info['admin_user']}" />
+	        日期：<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="time1" value="<php>if( !empty($search_info['time1']) ){ echo $search_info['time1'];}</php>" />-
+                 <input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="time2"  value="<php>if( !empty($search_info['time2']) ){ echo $search_info['time2'];}</php>" />
+    <php>}</php>
+    <php>if($doleaves_search){</php>
+        请假日期：<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="time3" value="<php>if( !empty($search_info['time3']) ){ echo $search_info['time3'];}</php>" />-
+                 <input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="time4"  value="<php>if( !empty($search_info['time4']) ){ echo $search_info['time4'];}</php>" />
+                 <input style="width: 42px;height: 25px;" id="daochu" type="button" data-url="{:U('DoLeave/expUser')}" value="导出" />
+    <php>}</php>
+    <php>if($leaves_search){</php>
+        请假日期：<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="time3" value="<php>if( !empty($search_info['time3']) ){ echo $search_info['time3'];}</php>" />-
+                 <input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="time4" value="<php>if( !empty($search_info['time4']) ){ echo $search_info['time4'];}</php>" />
+                 <input style="width: 42px;height: 25px;" id="daochu" type="button" data-url="{:U('Leave/expUser')}"  value="导出" />
+    <php>}</php>
+        <php>if($dopromotion_search  || $business_search){if($dopromotion_search)echo "活动日期：";else if($business_search)echo "出差日期：";</php>
+            <input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="time3" value="<php>if( !empty($search_info['time3']) ){ echo $search_info['time3'];}</php>" />-
+            <input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="time4" value="<php>if( !empty($search_info['time4']) ){ echo $search_info['time4'];}</php>" />
+        <php>}</php>
+<!--            <php>if($business_search){</php>
+        出差日期：<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="time3" value="<php>if( !empty($search_info['time3']) ){ echo $search_info['time3'];}</php>" />-
+                 <input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="time4" value="<php>if( !empty($search_info['time4']) ){ echo $search_info['time4'];}</php>" />
+    <php>}</php>-->
+    <input id="search" type="submit" value="搜索" />
+</form>
+    

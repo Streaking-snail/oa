@@ -1,0 +1,8 @@
+<php>
+foreach($sub_categories as $value){</php>
+	<php>if( $value['id']==$product['sub_category_id'] ){</php>
+		<option value='{$value.id}' selected="selected">{$value.name}</option>
+	<php>}else{</php>
+		<option value='{$value.id}'>{$value.name}</option>
+	<php>}</php>
+<php>}</php>

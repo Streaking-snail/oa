@@ -1,0 +1,7 @@
+<php>foreach($products as $value){</php>
+    <php>if( $value['id']==$v['product_id'] ){</php>
+        <option value='{$value.id}' selected="selected">{$value.name}</option>
+    <php>}else{</php>
+        <option value='{$value.id}'>{$value.name}</option>
+    <php>}</php>
+<php>}</php>

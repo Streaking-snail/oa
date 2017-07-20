@@ -1,0 +1,101 @@
+
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<!-- <include file='layouts/_sub_location' />-->
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="" role="form">
+				<div id="show_info">
+					<div class="t-title tc">广博集团出差申请单</div>
+					<table class="t-info">
+						<tr>
+							<th class="r-line">申请人</th>
+							<td class="r-line">
+								{$business.username}
+							</td>
+							<th class="r-line">部门</th>
+							<td class="r-line">
+								{$business.deport_name}
+							</td>
+						</tr>
+						<tr>
+							<th class="r-line">出差事由</th>
+							<td colspan="3">
+								{$business['content']}
+							</td>
+						</tr>
+						<tr>
+							<th class="r-line">出差地点</th>
+							<td class="r-line">
+								{$business['address']}
+							</td>
+							<td rowspan="2" class="r-line">出差时间</td>
+							<td rowspan="2">
+								自<php>if( !empty($business['start_time']) ){ echo date('Y-m-d H:i:s', $business['start_time']);}</php></br>
+								至<php>if( !empty($business['end_time']) ){ echo date('Y-m-d H:i:s', $business[end_time]);}</php>
+							</td>
+						</tr>
+						<tr>
+						<th class="r-line">交通方式</th>
+							<td>
+								{$business['transportation']}
+							</td>
+						</tr>
+						<tr class="n-l">
+							<th class="lf" colspan="4">备注:</th>
+						</tr>
+						<tr class="t-l">
+							<td colspan="4" class="att">
+								{$business.note}
+							</td>
+						</tr>
+                                                <php>if( count($business_status)>0 ){</php>
+							<tr>
+								<td align="center">状态</td>
+								<td align="center">审核时间</td>
+								<td align="center">审核人</td>
+								<td align="center">审核内容</td>
+							</tr>
+							<foreach name="business_status" item="v">
+								<tr>
+									<php>if( $v['status']==1 ){</php>
+										<td style="color:green;text-align:center;">审核通过</td>
+									<php>}else{</php>
+										<td style="color:red;text-align:center;">审核不通过</td>
+									<php>}</php>
+									<td align="center"><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+									<td align="center">{$v.username}</td>
+									<td align="center">
+										{$v.content}
+										<php>if( !empty($v['url_path']) ){</php>
+											<br />
+											附件：<a href="{:U('Download/index',array('file'=>urlencode($v['url_path'])))}">{$v['name']}</a>
+										<php>}</php>
+									</td>
+								</tr>
+							</foreach>
+						<php>}</php>
+					</table>
+				</div>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="button" name="back_btn">
+							<i class="ace-icon fa fa-undo bigger-110"></i>
+							返回上页
+						</button>&nbsp; &nbsp; &nbsp;&nbsp;
+						<button class="btn btn-info" type="button" name="print_info" >
+							打印
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

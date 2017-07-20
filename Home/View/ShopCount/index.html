@@ -1,0 +1,200 @@
+<style>
+input.ad-btn{border:none;width:50px;line-height:20px;}
+.fl{float:left;width:60px;line-height:20px;}
+	input.fp {
+    position: absolute;
+    left: 0px;
+    top: -7px;
+    width: 50px;
+    z-index: 1000;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+.bgt{z-index:999; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5; display:none;background:#000;width:100%;height:100%;position:absolute;left:0;top:0;}
+.info_form{width:275px;z-index:9999;position:absolute;top:10%;left:30%;background:#fff;display:none;padding:0px 0px 20px;
+ -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+}
+.info_form .mtl20{padding-left:20px;}
+.info_form .mtl120{    padding: 10px 60px 0px;font-size: 14px;}
+.title{color:#c2c2c2;width:100%;padding:5px 10px;border-bottom:1px solid #c2c2c2;float:left;margin-bottom: 20px;font-size:14px;}
+.title .tit{float:left;}
+.title .closed{float:right;}
+.ad_in{border:none;background:#33CCFF;color:#fff;}
+</style>
+<div id="back" class="bgt"></div>
+<div class="page-content-area">
+		<include file="layouts/_sub_location" />
+		<div class="row">
+				<div class="col-xs-12">
+							<div id="sample-table-2_wrapper"  style="overflow-x:auto;" class="dataTables_wrapper form-inline no-footer">
+												<div class="row">
+													<include file="layouts/_search" />
+												</div>
+												<div class="row">
+													<include file="layouts/_notice" />
+												</div>
+												<table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample-table-2_info">
+													<thead>
+														   <tr>
+                                                                <th width="3%">序号</th>
+																<th width="5%">物料代码</th>
+																<th width="5%">辅代码</th>
+																<th width="8%">产品名称</th>
+                                                                <th width="5%">店铺名</th>
+                                                                <th width="5%">到货数</th>
+																<php>foreach($mall_columns as $value){</php>
+																	<th width="5%">{$value.name}</th>
+																<php>}</php>
+                                                                <th width="5%" rowspan="2">操作</th>
+															</tr>
+													</thead>
+
+													<tbody>
+														<php>foreach($count_infos as $k=>$value){</php>
+															<tr class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>">
+                                                                <td>{$page_number+$k+1}</td>
+																<td>{$value.code}</td>
+																<td>{$value.number}</td>
+																<td>
+																	<img src="<php>echo C('WEBURL').$value['pic_path'];</php>" width="50" height="50" />
+																	{$value.product_name}<br />
+																	<a href="{:U('Download/index',array('file'=>urlencode($value['pic_path'])))}">下载</a>
+																</td>
+                                                                <td>
+                                                                      <php>
+                                                                          $name = M('shop')->where("id=%d",array($value['shop_id']))->find();
+                                                                          echo $name['name'];
+                                                                     </php>
+                                                                </td>
+                                                                <td>
+																	<php>
+																	$product_order = M('product_order')->where("product_id=%d", array($value['product_id']))->find();
+																	$deliver_num = D("ProductOrder")->get_deliver_num($product_order['id']);
+																	echo $deliver_num;
+																	</php>
+																</td>
+																<php>
+																	D('Mall')->add_first_status($value['id'], $value['mall_id']);
+																	foreach($mall_columns as $k=>$v){
+																</php>
+																	<td>
+                                                                       <php>if($v['ptype_status_id']==0){</php>
+                                                                       	   <php>
+                                                                       	   		$mall_status = M('count_info_status')->alias('a')
+                                                                       	   					   ->join("left join ".C('DB_PREFIX')."admin_user b on b.id=a.admin_user_id")
+                                                                       	   					   ->field("a.*, b.name")
+                                                                       	   					   ->where("count_info_id=%d and mall_status_id=%d", array($value['id'], $v['id']))->find();
+                                                                       	   		if( $mall_status && $mall_status['status']==0 ){
+	                                                                       </php>
+                                                                                    <div class="info_form">
+                                                                                        <div class="title">
+                                                                                             <span class="tit">添加信息</span>
+                                                                                             <span class="closed">[关闭]</span>
+                                                                                        </div>
+                                                                                            <form action="{:U('ShopCount/add_info')}" enctype="multipart/form-data" method="post" >
+                                                                                                <p class="mtl20">       
+                                                                                                <input type="hidden" name="mall_id" value="{$mall_id}" />
+                                                                                            <input type="hidden" name="id" value="{$mall_status.id}" />
+                                                                                                                                                                               <php>if( $v['is_text']==1 ){</php>
+                                                                                                                                                                                           <input type="text" id="content" name="content" placeholder="描述" value="" />&nbsp;
+                                                                                                       <php>}</php>
+                                                                                                       <php>if( $v['is_attach']==1 ){</php>
+                                                                                                               <span style="position:relative;">
+                                                                                                                                                                                                                   <input type="button" value="附件" class="ad-btn" id="add_attach"/>
+                                                                                                                                                                                                                   <input type="file" class="fp" name="file" id="file" value=""/>&nbsp;
+                                                                                                                                                                                                           </span>
+                                                                                                       <php>}</php>
+                                                                                            </p>
+                                                                                            <p class="mtl120">
+                                                                                                       <input type="submit" id="submit" class="btn_i" value="提交"/>
+                                                                                                       <input type="button" name="close" class="btn_c" value="关闭" />
+                                                                                            </p>
+                                                                                            </form>
+                                                                                        </div>
+                                                                                        <a href="javascript:void(0);" name="add_info">
+                                                                                            <input type="button" class="ad_in" value="添加信息" />
+                                                                                        </a>
+                                                                                            <div style="margin:5px 0;">
+	                                                                                   <a href="{:U('ShopCount/up_status', array('mid'=>$mall_status['id'], 'cid'=>$value['id'], 'mall_id'=>$mall_id))}">
+												<input style="border:none;background:green;color:#fff;" type="button" id="" value="下一步"/>
+                                                                                            </a><br />
+                                                                                            </div>
+																		    	
+																		    <php>
+																		    		echo "所用时间:".D('ProductOrder')->get_show_time($mall_status['create_time'])."<br />";
+																	    		}else if( $mall_status['status']==1 ){
+																	    			echo $mall_status['name']." ".date("Y-m-d H:i:s", $mall_status['checked_time'])."<br />";
+																	    		}
+																	    		if( $mall_status ){
+																		    		$mall_attaches = D('count_info_status_attach')->alias("a")->join("left join ".C('DB_PREFIX')."admin_user b on b.id=a.admin_user_id")
+																		    						 ->field("ifnull(b.name, b.username) as name,a.*")
+																		    						 ->where("a.count_info_status_id=%d", array($mall_status['id']))->select();
+																		    		foreach( $mall_attaches as $val ){
+																		    			echo $val['name']." ";
+																		    			if( !empty($val['content']) ){
+	                                                                                         echo $val['content'];
+	                                                                                     }
+	                                                                                     if( !empty($val['url']) ){
+	                                                                                     	 $names = explode('/', $val['url']); 
+	                                                                                         echo '<a href="'.U('Download/index',array('file'=>urlencode($val['url']))).'">'.$names[count($names)-1].'</a>';
+	                                                                     				 }
+	                                                                     				 echo " ".date("Y-m-d H:i:s", $val['create_time']);
+	                                                                                 	 echo "<br />";
+                                                                                                 $status = D('Shop')->get_status($val['id']);
+                                                                                                 if($val['admin_user_id']==$_SESSION['admin_user_id'] && $status['status'] != 1){
+                                                                                                    echo "  <a href='".U('Download/delete_file', array('id'=>$val['id']))."'><span style='color:red;'>删除</span></a>";
+												}
+                                                                                                                                                            }
+																	    		}
+																	    	</php>
+                                                                       <php>}else if($v['ptype_status_id']!=10){
+                                                                                  $infos = D('CountInfo')->get_info($value['product_id'],$v['ptype_status_id']);
+                                                                                  if(empty($infos)){
+                                                                                       echo "无上传内容";
+                                                                                  }else{
+                                                                                       if( !empty($infos['content']) ){
+                                                                                              echo $infos['content'];
+                                                                                       }
+                                                                                       if( !empty($infos['url']) ){
+                                                                                           echo '<a href="'.U('Download/index',array('file'=>urlencode($infos['url']))).'">下载</a>';
+                                                                       				   }
+                                                                                   	   echo "<br />";
+                                                                                   }
+																			}else{
+                                                                                $dh_time = M('product_order')->where("product_id=%d",array($value['product_id']))->find();
+                                                                               	echo date("Y-m-d H:i:s", $dh_time['dh_time']); 
+                                                                            }</php>
+																	</td>
+																<php>}</php>
+                                                                <td>       
+	                                                                 <php>if( D('Roles')->is_shop_send($value['shop_id'], $user_info['role_id']) && $value['status']==0 ){</php> 
+	                                                                    <a href="{:U('ShopCount/checked', array('id'=>$value['id'],'mall_id'=>$mall_id))}" title="删除">上新完成</a>   
+	                                                                 <php>}</php>
+	                                                                 <php>if( D('Roles')->is_shop_del($value['shop_id'], $user_info['role_id']) ){</php> 
+	                                                                    <a href="{:U('ShopCount/del', array('id'=>$value['id'],'mall_id'=>$mall_id))}" title="删除">删除</a>   
+	                                                                 <php>}</php>
+                                                                 </td>
+                                                                                                                                
+															</tr>
+														<php>}
+															if( count($count_infos)==0 ){ 
+																echo "<tr><td align='center' colspan='".(count($mall_columns)+7)."'>暂无相关记录</td></tr>";
+															}
+														</php>
+													</tbody>
+												</table>
+												<div class="row">
+														<div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+															{$show_page}
+														</div>
+												</div>
+										</div><!-- sample-table-2_wrapper -->
+				 </div><!-- col-xs-12 -->
+		</div>
+                <a href="{:U('ShopCount/download_csv',array('mall_id'=>$mall_id))}" title="下载表格">
+                    下载表格    
+                </a>
+
+</div>

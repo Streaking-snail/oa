@@ -1,0 +1,131 @@
+<style>
+    .t-info th{font-weight: bold;text-align:center}
+    .t-info td{text-align:left}
+</style>
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<!-- <include file='layouts/_sub_location' />-->
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="" role="form">
+				<div id="show_info">
+					<div class="t-title tc">内销推广会议申请表</div>
+					<table class="t-info" style="text-align:center">
+						<tr>
+                                                        <!--<th></th>-->
+                                                        <td class="r-line">
+                                                            客户名称：{$do_promotion_meeting.user_name}
+                                                                
+                                                        </td>
+                                                        <!--<th></th>-->
+                                                        <td class="r-line">
+                                                                会议地点：{$do_promotion_meeting.address}
+                                                        </td>
+                                                        <!--<th></th>-->
+                                                        <td class="r-line">
+                                                                会议时间：<php>if( !empty($do_promotion_meeting[meeting_time]) ){ echo date('Y-m-d H:i:s', $do_promotion_meeting[meeting_time]);}</php>
+                                                        </td>
+                                                        <!--<th></th>-->
+                                                        <td class="r-line">
+                                                                专场/联合：{$do_promotion_meeting.zc_lh}
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                    <!--<th></th>-->
+                                                    <td class="r-line">
+                                                        单据号：{$do_promotion_meeting.no}
+                                                    </td>
+                                                    <!--<th></th>-->
+                                                    <td class="r-line">
+                                                            预计销售目标（万）：{$do_promotion_meeting.plan_price}
+                                                    </td>
+                                                    <!--<th></th>-->
+                                                    <td class="r-line">
+                                                            回款计划（万）：{$do_promotion_meeting.back_price}
+                                                    </td>
+                                                    <!--<th></th>-->
+                                                    <td class="r-line">
+                                                            汇款截止时间：<php>if( !empty($do_promotion_meeting[back_end_time]) ){ echo date('Y-m-d H:i:s', $do_promotion_meeting[back_end_time]);}</php>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="4" align="center">会议目的</th>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4">
+                                                        <php>if($do_promotion_meeting['ptype']==1)
+                                                        echo "开发新客户";
+                                                        else if($do_promotion_meeting['ptype']==2)
+                                                        echo "产品推广";
+                                                        else if($do_promotion_meeting['ptype']==3)
+                                                        echo "客户产品扩充";
+                                                        else if($do_promotion_meeting['ptype']==4)
+                                                        echo "客户维护";
+                                                        else if($do_promotion_meeting['ptype']==5)
+                                                        echo "新区域品牌推广";
+                                                        else
+                                                        echo "销售提升";
+                                                        </php>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="4" align="center">会议促销申请政策</th>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4">
+                                                        1.政策时间（原则上为一个月或者一个半月）：<php>if( !empty($do_promotion_meeting[zc_time]) ){ echo date('Y-m-d H:i:s', $do_promotion_meeting[zc_time]);}</php><br />
+                                                        2.促销产品及政策<textarea  readonly name="do_promotion_meeting[content]" id="temporary_content" class="atx">{$do_promotion_meeting.content}</textarea>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="4">会议费用申请</th>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4">
+                                                        1.固定费用（<span style="color:red">按照公司2014年会议标准</span>）:{$do_promotion_meeting.fixed_price}元<br />
+                                                        2.广告制作例费用说明：（1.横幅=单价 * 米数 2.背景布=平方单位*面积 3.X展架喷绘、按公司标准化制作）<textarea  readonly name="do_promotion_meeting[ad_content]" id="temporary_content" class="atx">{$do_promotion_meeting.ad_content}</textarea>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan='4'>
+                                                        物料申请<textarea  readonly name="do_promotion_meeting[wl_content]" id="temporary_content" class="atx">{$do_promotion_meeting.content}</textarea>
+                                                    </th>
+                                                </tr>
+						<php>if( count($do_business_status)>0 ){</php>
+							<tr>
+								<td>审核时间</td>
+								<td>审核人</td>
+								<td>审核内容</td>
+								<td></td>
+							</tr>
+							<foreach name="temporary_status" item="v">
+								<tr>
+									<td><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+									<td>{$v.username}</td>
+									<td>{$v.content}</td>
+								</tr>
+							</foreach>
+						<php>}</php>
+					</table>
+				</div>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="button" name="back_btn">
+							<i class="ace-icon fa fa-undo bigger-110"></i>
+							返回上页
+						</button>&nbsp; &nbsp; &nbsp;&nbsp;
+						<button class="btn btn-info" type="button" name="print_info" >
+							打印
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

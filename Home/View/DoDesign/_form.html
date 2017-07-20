@@ -1,0 +1,156 @@
+<style>
+    .t-info .atx{height:100px;}
+</style>	
+<div class="t-title tc">会员店广告设计制作申请表</div>
+	<table class="t-info" id="tab">
+		<tr>
+			<th>单据号：</th>
+			<td colspan="2" class="r-line">
+                                <input type="text" class="tx" id="office" name="do_design[no]" value="{$do_design.no}"/>
+			</td>
+			<th>业务员：</th>
+			<td colspan="3" class="r-line">
+				<input type="text" id='salesman' class="tx" id="office" name="do_design[salesman]" value="{$do_design.address}"/>
+			</td>
+<!--                        <th>办事处经理：</th>
+			<td>
+                            <select name="do_design[office_id]">
+                                <foreach name="is_office" item="list">
+                                    <option <php>if($do_design[office_id] == $list[id]) echo "selected"; </php> value="{$list.id}">{$list.name}</option>
+                                </foreach>
+                            </select>
+			</td>-->
+		</tr>
+                <tr>
+                        <th>申请时间：</th>
+                        <td colspan="2" class="r-line">
+                            <input type="text" id='apply_time' class="tx" style="width:290px" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" id="office" name="do_design[apply_time]" value="<php>if(!empty($do_design['apply_time'])){echo date('Y-m-d H:i:s', $do_design['apply_time']);}</php>"/>
+                        </td>
+			<th colspan='2'>广告设计后接收人QQ号：</th>
+			<td colspan="2" class="r-line">
+				<input type="text" style="width:200px" class="tx" id="no" name="do_design[qq]" value="{$do_design.qq}" />
+			</td>
+		</tr>
+                <tr>
+                        <th>店名：</th>
+                        <td class="r-line">
+                               <input type="text" class="tx" id="office" name="do_design[shop_name]" value="{$do_design.shop_name}"/>
+                         </td>
+                        <th>经营负责人：</th>
+                        <td class="r-line">
+                            <input type="text" class="tx" id="office" name="do_design[management_name]" value="{$do_design.management_name}"/>
+                        </td>
+			<th>联系电话：</th>
+			<td colspan='2' class="r-line">
+				<input type="text" class="tx" id="no" name="do_design[phone]" value="{$do_design.phone}" />
+			</td>
+		</tr>
+                <tr>
+                        <th>地址：</th>
+                        <td colspan="4" class="r-line">
+                               <input type="text" class="tx" style="width:600px;" id="office" name="do_design[address]" value="{$do_design.address}"/>
+                         </td>
+			<th>上一级经销商：</th>
+			<td class="r-line">
+				<input type="text" class="tx" id="no" name="do_design[distributor_name]" value="{$do_design.distributor_name}" />
+			</td>
+		</tr>
+                <tr>
+                        <th>会员店形式：</th>
+                        <td colspan="4" class="r-line">
+                               <input type="radio" <php>if($do_design['shop_type']==1) echo 'checked'</php> name="do_design[shop_type]" value="1" />原广博终端店升级为会员店
+                               <input type="radio" <php>if($do_design['shop_type']==2) echo 'checked'</php> name="do_design[shop_type]" value="2" />新开会员店
+                         </td>
+                        <th>签约金额：</th>
+                        <td class="r-line">
+                            <input type="text" class="tx" id="office" name="do_design[qy_price]" value="{$do_design.qy_price}"/>
+                        </td>
+		</tr>
+                <tr>
+                    <th>终端物料已使用情况：</th>
+                        <td colspan="4" class="r-line">
+                            中岛：
+                            <input type="text" class="tx" id="office" name="do_design[zd_num]" value="{$do_design.zd_num}"/>
+                            高柜：
+                            <input type="text" class="tx" id="office" name="do_design[gg_num]" value="{$do_design.gg_num}"/>
+                        </td>
+                        <th>首次进货单品项数量：</th>
+                        <td class="r-line">
+                            <input type="text" class="tx" id="office" name="do_design[first_num]" value="{$do_design.first_num}"/>
+                        </td>
+		</tr>
+                <tr>
+                    <th>客户类型：</th>
+                    <td colspan="6" class="r-line">
+                        <input type="radio" <php>if($do_design['user_type']==1) echo 'checked'</php> name="do_design[user_type]" value="1" />托盘商/合作办事处
+                        <input type="radio" <php>if($do_design['user_type']==2) echo 'checked'</php> name="do_design[user_type]" value="2" />核心客户 
+                        <input type="radio" <php>if($do_design['user_type']==3) echo 'checked'</php> name="do_design[user_type]" value="3" />重点客户 
+                        <input type="radio" <php>if($do_design['user_type']==4) echo 'checked'</php> name="do_design[user_type]" value="4" />生意客户 
+                    </td>
+                </tr>
+                <tr>
+                        <!--<th></th>-->
+                        <td colspan='2' class="r-line">
+                               首次进货金额：<input type="text" class="tx" id="office" name="do_design[first_price]" value="{$do_design.first_price}"/>
+                         </td>
+                        <!--<th></th>-->
+                        <td colspan='3' class="r-line">
+                               签约方式：<input type="radio" <php>if($do_design['qy_type']==1) echo 'checked'</php> name="do_design[qy_type]" value="1" />销售合同
+                               <input type="radio" <php>if($do_design['qy_type']==2) echo 'checked'</php> name="do_design[qy_type]" value="2" />三方协议
+                         </td>
+			<!--<th></th>-->
+                        <td colspan='2' class="r-line">
+                            广告发布（店招/室内）：<input type="text" class="tx" id="office" name="do_design[publish_con]" value="{$do_design.publish_con}"/>
+                        </td>
+		</tr>
+                <tr>
+                        <th>备注：</th>
+                        <td colspan="6" class="r-line">
+                               <input type="text" style="width:700px;" class="tx" id="office" name="do_design[content]" value="{$do_design.content}"/>
+                         </td>
+		</tr>
+                <tr>
+                    <td class="r-line">日期</td>
+                    <td class="r-line">进货金额</td>
+                    <td class="r-line">品项数量</td>
+                    <td class="r-line">日期</td>
+                    <td class="r-line">进货金额</td>
+                    <td class="r-line">品项数量</td>
+                    <td class='r-line'>操作</td>
+                </tr>
+                <php>if($do_design_item){</php>
+                    <foreach name="do_design_item" item="vo" key="k" >
+                    <php>if($k%2==0) echo "<tr name='item' id='sub_cat_$k' vel='$k'>";</php>
+                        <input type="hidden" name="do_design_items[{$k}][id]" value="{$vo.id}" />
+                        <td class="r-line"><input onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" id='order_time_{$k}' class="tx" type="text" name="do_design_items[{$k}][order_time]" value="<php>if(!empty($vo['order_time']))echo date('Y-m-d H:i:s', $vo['order_time']);</php>" /></td>
+                        <td class="r-line"><input class="tx" id='price_{$k}' type="text" name="do_design_items[{$k}][price]" value="{$vo.price}" /></td>
+                        <td class="r-line"><input class="tx" id='num_{$k}' type="text" name="do_design_items[{$k}][num]" value="{$vo.num}" /></td>
+                        <php>if($k%2==1) echo "<td class='r-line'><a onclick='del_sub(this)' href='javascrpit:;'>删除</a></td></tr>";else if($k%2==0 && $k==$items_num) echo "<td  class='r-line'></td><td  class='r-line'></td><td  class='r-line'></td><td class='r-line'><a onclick='del_sub(this)' href='javascrpit:;'>删除</a></td></tr>";</php>
+                    </foreach>
+                <php>}else{</php>
+                    <tr name="item" id="sub_cat_0"  vel="0">
+                        <td class="r-line"><input id='order_time_0' onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" class="tx" type="text" name="do_design_items[0][order_time]" /></td>
+                        <td class="r-line"><input id='price_0' class="tx" type="text" name="do_design_items[0][price]" /></td>
+                        <td class="r-line"><input id='num_0' class="tx" type="text" name="do_design_items[0][num]" /></td>
+                        <td class="r-line"><input id='order_time_1' onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" class="tx" type="text" name="do_design_items[1][order_time]" /></td>
+                        <td class="r-line"><input id='price_1' class="tx" type="text" name="do_design_items[1][price]"/></td>
+                        <td class="r-line"><input id='num_1' class="tx" type="text" name="do_design_items[1][num]" /></td>
+                        <td class="r-line"><a onclick="del_sub(this)" href="javascrpit:;">删除</a></td>
+                    </tr>
+                <php>}</php>
+                    <tr>
+                        <th colspan="7" align="right"><a onclick="add_sub()" href="javascrpit:;" style="display: table;margin: 0 auto;">添加</a></th>
+                    </tr>
+                <tr>
+                    <td colspan="7">室内广告（宽*高）设计中需增加任何产品形象图的请说明，注明制作材料所需<input type="text" class="tx" name="do_design[price]" value="{$do_design.price}" />元</td>
+                </tr>
+                <tr>
+                    <td colspan="7"><textarea name="do_design[wh_content]" id="temporary_content" class="atx">{$do_design.wh_content}</textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="7">其他物料（如产品样本，报价单等）</td>
+                </tr>
+                <tr>
+                    <td colspan="7"><textarea name="do_design[other_content]" id="temporary_content" class="atx">{$do_design.other_content}</textarea></td>
+                </tr>
+	</table>

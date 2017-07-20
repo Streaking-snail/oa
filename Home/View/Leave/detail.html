@@ -1,0 +1,103 @@
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<!-- <include file='layouts/_sub_location' />-->
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="" role="form">
+				<div id="show_info">
+					<div class="t-title tc">请假表</div>
+					<table class="t-info">
+						<tr>
+							<td colspan="2">
+								单据号：{$leave.no}
+							</td>
+							<th colspan="4">
+								填写时间：<php>if( !empty($leave['create_time']) ){ echo date('Y-m-d H:i:s', $leave['create_time']);}</php>
+							</th>
+						</tr>
+						<tr>
+							<td class="r-line">请假类别：</td>
+							<td  class="r-line" colspan="2"><?php if($leave[ptype]==1) echo(探亲假);?>
+																		<?php if($leave[ptype]==2) echo(事假);?>
+																		<?php if($leave[ptype]==3) echo(病假);?>
+																		<?php if($leave[ptype]==4) echo(婚假);?>
+																		<?php if($leave[ptype]==5) echo(丧假);?>
+																		<?php if($leave[ptype]==6) echo(公假);?>
+																		<?php if($leave[ptype]==7) echo(工伤);?>
+																		<?php if($leave[ptype]==8) echo(产假);?>
+																		<?php if($leave[ptype]==9) echo(其他);?></td>
+							<td class="r-line">部门：</td>
+							<td colspan="2">{$leave.deport_name}</td>
+						</tr>
+						<tr>
+							<td class="r-line">工号：</td>
+							<td class="r-line" colspan="2">{$leave.job_id}</td>
+							<td class="r-line">姓名：</td>
+							<td colspan="2">{$leave.username}</td>
+						</tr>
+						
+						<tr>
+							<td rowspan="3" class="r-line">请假时间：</td>
+							<td colspan="2"  class="r-line">自<php>if( !empty($leave['start_time']) ){ echo date('Y-m-d H:i:s', $leave['start_time']);}</php></td>
+							<td rowspan="3" class="r-line">请假事由</td>
+							<td rowspan="3" colspan="2"  class="att">
+								{$leave.content}
+							</td>
+						</tr>
+						<tr>
+						<td colspan="2"  class="r-line">至<php>if( !empty($leave['end_time']) ){ echo date('Y-m-d H:i:s', $leave['end_time']);}</php></td>
+						</tr>
+						<tr>
+						<td colspan="2"  class="r-line">共计<php>if( !empty($leave['days']) ){ echo $leave['days'];}</php>天</td>
+						</tr>
+                                                </tr>
+						<php>if( count($leaves_status)>0 ){</php>
+							<tr>
+								<td align="center">状态</td>
+								<td align="center">审核时间</td>
+								<td align="center">审核人</td>
+								<td align="center" colspan="3">审核内容</td>
+							</tr>
+							<foreach name="leaves_status" item="v">
+								<tr>
+									<php>if( $v['status']==1 ){</php>
+										<td style="color:green;text-align:center;">审核通过</td>
+									<php>}else{</php>
+										<td style="color:red;text-align:center;">审核不通过</td>
+									<php>}</php>
+									<td align="center"><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+									<td align="center">{$v.username}</td>
+									<td align="center" colspan="3">
+										{$v.content}
+										<php>if( !empty($v['url_path']) ){</php>
+											<br />
+											附件：<a href="{:U('Download/index',array('file'=>urlencode($v['url_path'])))}">{$v['name']}</a>
+										<php>}</php>
+									</td>
+								</tr>
+							</foreach>
+						<php>}</php>
+					</table>
+				</div>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="button" name="back_btn">
+							<i class="ace-icon fa fa-undo bigger-110"></i>
+							返回上页
+						</button>&nbsp; &nbsp; &nbsp;&nbsp;
+						<button class="btn btn-info" type="button" name="print_info" >
+							打印
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

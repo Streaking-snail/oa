@@ -1,0 +1,67 @@
+<div class="col-sm-12">
+										<div class="widget-box transparent">
+											<div class="widget-header widget-header-flat">
+												<h4 class="widget-title lighter">
+													<i class="ace-icon fa fa-star orange"></i>
+													产品开发
+												</h4>
+												<div class="widget-toolbar">
+													<a href="javascript:void(0);" data-action="collapse">
+														<i class="ace-icon fa fa-chevron-up"></i>
+													</a>
+													<a href="{:U('Product/index')}" style="margin-right:5px;font-size:14px;">更多</a>
+												</div>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main no-padding">
+													<table class="table table-bordered table-striped">
+														<thead class="thin-border-bottom">
+															<tr>
+																<th>产品大类</th>
+																<th>产品系列</th>
+																<th>产品类别</th>
+																<th>产品名称</th>
+																<th class="hidden-480">
+																	<i class="ace-icon fa fa-caret-right blue"></i>状态
+																</th>
+																<th>创建时间</th>
+															</tr>
+														</thead>
+
+														<tbody>
+															<php>
+																foreach($aproducts as $k=>$v){
+															</php>
+																<tr>
+																	<td><php>echo $Product->get_category_name($v['category_id']);</php></td>
+																	<td><php>echo $Product->get_sub_category_name($v['category_id']);</php></td>
+																	<td><php>echo $Product->get_classification_name($v['classification_id']);</php></td>
+																	<td>{$v.name}</td>
+																	<td class="hidden-480">
+																		<php>if($v['status']==1){
+																				echo "<span class='label label-sm label-success'>审核通过</span>";
+																			 }elseif( $v['status']==2 ){
+																			 	echo "<span class='label label-sm label-inverse arrowed-in'>审核不通过</span>";
+																			 }else{
+																			 	echo "<span class='label label-sm label-warning'>未审核</span>";
+																			 }
+																		</php>
+																	</td>
+																	<td><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+																</tr>
+															<php>}
+																if( count($products)==0 ){
+															</php>
+																<tr>
+																	<td colspan="6" style="text-align:center;">暂无相关记录</td>
+																</tr>
+															<php>}</php>
+														</tbody>
+													</table>
+												</div><!-- /.widget-main -->
+											</div><!-- /.widget-body -->
+										</div><!-- /.widget-box -->
+										
+</div><!-- /.col -->
+<div class="hr hr32 hr-dotted" style="width:100%;float:left;"></div>

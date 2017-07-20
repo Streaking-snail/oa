@@ -1,0 +1,1209 @@
+[ 2016-11-17T11:27:14+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000396s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.025008s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.025111s ]
+
+[ 2016-11-17T11:27:14+08:00 ] 127.0.0.1 /index.php/Home/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000361s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000582s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000049s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000133s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.069728s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.069786s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.048351s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.048465s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.024283s ]
+INFO: [ app_end ] --END-- [ RunTime:0.024462s ]
+
+[ 2016-11-17T11:27:17+08:00 ] 127.0.0.1 /index.php/Home/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000439s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000719s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000829s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user` [ RunTime:0.0428s ]
+SQL: SELECT * FROM `gb_admin_user` WHERE ( username='admin' ) LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: is_lock E:\por\oa\Home\Model\AdminUserModel.class.php 第 15 行.
+
+[ 2016-11-17T11:27:19+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000449s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000645s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user` [ RunTime:0.0028s ]
+SQL: SELECT * FROM `gb_admin_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: is_lock E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 16 行.
+SQL: SHOW COLUMNS FROM `gb_roles` [ RunTime:0.0203s ]
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_deport` [ RunTime:0.0376s ]
+SQL: SELECT * FROM `gb_deport` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user_show` [ RunTime:0.0437s ]
+SQL: SELECT * FROM `gb_admin_user_show` WHERE ( admin_user_id=1 and is_background=0 )  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_admin_user_show` WHERE ( admin_user_id=1 and is_background=1 ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `gb_deport_message` [ RunTime:0.0526s ]
+SQL: SELECT a.msg,a.create_time,ifnull(u.name,u.username) as username,u.head_pic FROM gb_deport_message a left join gb_admin_user u on u.id=a.admin_user_id  WHERE ( a.create_time>=1478921238 ) ORDER BY a.create_time desc LIMIT 5   [ RunTime:0.0011s ]
+NOTIC: [8] Undefined variable: user_info E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 180 行.
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `gb_role_menus` [ RunTime:0.0404s ]
+SQL: SELECT * FROM `gb_role_menus` WHERE ( role_id=1 )  [ RunTime:0.0133s ]
+SQL: SHOW COLUMNS FROM `gb_menus` [ RunTime:0.0502s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and ptype=0 ) ORDER BY rank,id  [ RunTime:0.0079s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=1 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=75 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=55 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0018s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=56 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=57 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=58 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=59 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=60 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=61 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=62 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=63 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=64 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=65 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0018s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=66 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=67 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0017s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=68 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=69 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=70 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=71 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=2 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0018s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=9 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0018s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=10 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=11 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0011s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=12 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=53 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=54 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=3 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=13 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=14 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=4 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=16 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=15 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=17 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=5 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=19 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=18 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=20 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=6 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=21 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=45 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `gb_mall` [ RunTime:0.0389s ]
+SQL: SELECT * FROM `gb_mall` WHERE ( is_del=0 )  [ RunTime:0.0007s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=7 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0011s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=24 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=25 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=26 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=27 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=28 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=29 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=30 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=8 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0011s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=34 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0011s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=35 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=36 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0011s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=39 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0012s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=40 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=41 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0012s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=42 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0011s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=43 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+SQL: SHOW COLUMNS FROM `gb_items` [ RunTime:0.0405s ]
+SQL: SHOW COLUMNS FROM `gb_items` [ RunTime:0.0034s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `gb_items` WHERE ( is_del=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `gb_items` WHERE ( is_del=0 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `gb_items` WHERE ( is_del=0 and is_over=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `gb_items` WHERE ( is_del=0 and is_over=0 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `gb_items` WHERE ( is_del=0 and (create_time<=1479312000 and create_time>=1479398399) ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `gb_products` [ RunTime:0.0661s ]
+SQL: SELECT * FROM `gb_products` WHERE ( status<3 ) ORDER BY status asc,create_time desc LIMIT 5   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `gb_product_order` [ RunTime:0.0451s ]
+SQL: SELECT a.*,p.name,p.code,p.number FROM gb_product_order a left join gb_products p on p.id=a.product_id  WHERE ( a.is_del=0 ) ORDER BY a.update_time desc LIMIT 5   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_ptypes` [ RunTime:0.0432s ]
+SQL: SELECT * FROM `gb_ptypes` WHERE ( id=3 )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_product_pic` [ RunTime:0.0164s ]
+SQL: SELECT a.*,p.name,p.code,p.number FROM gb_product_pic a left join gb_products p on p.id=a.product_id  WHERE ( a.is_over=0 )  [ RunTime:0.0005s ]
+SQL: SELECT a.id,a.admin_user_id,a.msg,a.create_time,ifnull(u.name,u.username) as username,u.head_pic FROM gb_deport_message a left join gb_admin_user u on u.id=a.admin_user_id  WHERE ( a.create_time>=1479094038 or a.deport_id=0 ) ORDER BY a.create_time desc  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000204s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000263s ]
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 318 行.
+NOTIC: [8] Undefined variable: locations E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 367 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 367 行.
+SQL: SELECT * FROM `gb_mall`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_products` [ RunTime:0.0031s ]
+SQL: SELECT * FROM `gb_products`  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_product_pic` WHERE ( is_over=0 and is_del=0 ) GROUP BY product_id  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_product_order` [ RunTime:0.0032s ]
+SQL: SELECT * FROM `gb_product_order` WHERE ( dh_time!=0 and is_del=0 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_product_order` WHERE ( deliver_time!=0 and is_del=0 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `gb_product_pic_status` [ RunTime:0.0504s ]
+SQL: SELECT * FROM `gb_product_pic_status` WHERE ( ptype_status_id=1 ) GROUP BY product_pic_id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_product_pic_status` WHERE ( ptype_status_id=8 ) GROUP BY product_pic_id  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_product_pic_status` WHERE ( ptype_status_id=6 ) GROUP BY product_pic_id  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `gb_shop` [ RunTime:0.0562s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id   WHERE ( b.mall_id=1 )  [ RunTime:0.0434s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id   WHERE ( b.mall_id=2 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id   WHERE ( b.mall_id=3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id   WHERE ( b.mall_id=4 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id   WHERE ( b.mall_id=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id   WHERE ( b.mall_id=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id left join gb_products p on b.product_id=p.id  WHERE ( b.mall_id=1 and p.status=1 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id left join gb_products p on b.product_id=p.id  WHERE ( b.mall_id=2 and p.status=1 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id left join gb_products p on b.product_id=p.id  WHERE ( b.mall_id=3 and p.status=1 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id left join gb_products p on b.product_id=p.id  WHERE ( b.mall_id=4 and p.status=1 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id left join gb_products p on b.product_id=p.id  WHERE ( b.mall_id=5 and p.status=1 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id left join gb_products p on b.product_id=p.id  WHERE ( b.mall_id=6 and p.status=1 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_category` [ RunTime:0.0439s ]
+SQL: SELECT * FROM `gb_category` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_sub_category` [ RunTime:0.0239s ]
+SQL: SELECT * FROM `gb_sub_category` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_classification` [ RunTime:0.0504s ]
+SQL: SELECT * FROM `gb_classification` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `gb_product_order` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0007s ]
+NOTIC: [8] Undefined variable: time E:\por\oa\Home\Model\ProductOrderModel.class.php 第 191 行.
+SQL: SHOW COLUMNS FROM `gb_product_pic` [ RunTime:0.0034s ]
+SQL: SHOW COLUMNS FROM `gb_ptype_status` [ RunTime:0.0457s ]
+SQL: SELECT * FROM `gb_ptype_status` WHERE ( ptype_id=3 ) ORDER BY rank desc,id desc LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_product_pic` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT a.*,ps.name FROM gb_product_pic_status a left join gb_ptype_status ps on ps.id=a.ptype_status_id  WHERE ( a.product_pic_id=1 ) ORDER BY a.id desc LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: is_over E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 747 行.
+NOTIC: [8] Undefined index: is_over E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 749 行.
+NOTIC: [8] Undefined variable: is_kindeditor E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 931 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.484916s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.484983s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000624s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000675s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000799s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000861s ]
+
+[ 2016-11-17T11:27:22+08:00 ] 127.0.0.1 /index.php/Home/Menus/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000604s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001174s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001336s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user` [ RunTime:0.0039s ]
+SQL: SELECT * FROM `gb_admin_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: is_lock E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 16 行.
+SQL: SHOW COLUMNS FROM `gb_roles` [ RunTime:0.0043s ]
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_deport` [ RunTime:0.0028s ]
+SQL: SELECT * FROM `gb_deport` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user_show` [ RunTime:0.0039s ]
+SQL: SELECT * FROM `gb_admin_user_show` WHERE ( admin_user_id=1 and is_background=0 )  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `gb_admin_user_show` WHERE ( admin_user_id=1 and is_background=1 ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `gb_deport_message` [ RunTime:0.0048s ]
+SQL: SELECT a.msg,a.create_time,ifnull(u.name,u.username) as username,u.head_pic FROM gb_deport_message a left join gb_admin_user u on u.id=a.admin_user_id  WHERE ( a.create_time>=1478921242 ) ORDER BY a.create_time desc LIMIT 5   [ RunTime:0.0014s ]
+NOTIC: [8] Undefined variable: user_info E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 180 行.
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_role_menus` [ RunTime:0.0032s ]
+SQL: SELECT * FROM `gb_role_menus` WHERE ( role_id=1 )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_menus` [ RunTime:0.0044s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and ptype=0 ) ORDER BY rank,id  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=1 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=75 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=55 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=56 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=57 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=58 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=59 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=60 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=61 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=62 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=63 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=64 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=65 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=66 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=67 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=68 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=69 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=70 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=71 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=2 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=9 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=10 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=11 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=12 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=53 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0007s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=54 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=3 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=13 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=14 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=4 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=16 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=15 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=17 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=5 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=19 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=18 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=20 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=6 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=21 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=45 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_mall` [ RunTime:0.0028s ]
+SQL: SELECT * FROM `gb_mall` WHERE ( is_del=0 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=7 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=24 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=25 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=26 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=27 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=28 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=29 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=30 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=8 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=34 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=35 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=36 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=39 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=40 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=41 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=42 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=43 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+SQL: SELECT * FROM `gb_menus` WHERE ( ptype=0 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=1 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=12 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=53 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=54 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=13 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=14 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=31 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=44 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=4 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=15 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=16 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=17 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=32 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=33 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=5 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=18 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=19 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=20 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=38 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=21 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=45 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=46 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=47 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=7 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=24 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=25 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=26 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=27 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=28 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=29 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=30 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=8 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=34 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=35 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=36 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=37 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=39 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=40 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=41 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=42 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=43 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=48 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=49 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=50 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=51 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=52 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=55 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=56 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=72 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=73 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=74 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=57 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=58 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=59 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=60 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=61 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=62 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=63 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=64 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=65 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=66 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=67 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=68 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=69 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=70 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=71 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=75 )  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000167s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000225s ]
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 318 行.
+NOTIC: [8] Undefined variable: search_info E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 465 行.
+NOTIC: [8] Undefined variable: search_info E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 466 行.
+NOTIC: [8] Undefined variable: search_info E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 467 行.
+NOTIC: [8] Undefined variable: search_info E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 468 行.
+NOTIC: [8] Undefined variable: total_count E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 469 行.
+NOTIC: [8] Undefined variable: search_info E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 476 行.
+NOTIC: [8] Undefined variable: s_deports E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 478 行.
+NOTIC: [8] Undefined variable: s_status E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 484 行.
+NOTIC: [8] Undefined variable: s_categories E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 490 行.
+NOTIC: [8] Undefined variable: s_sub_categories E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 496 行.
+NOTIC: [8] Undefined variable: s_classifications E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 502 行.
+NOTIC: [8] Undefined variable: s_shops E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 508 行.
+NOTIC: [8] Undefined variable: is_add E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 516 行.
+NOTIC: [8] Undefined variable: is_export E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 519 行.
+NOTIC: [8] Undefined variable: is_more_search E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 523 行.
+NOTIC: [8] Undefined variable: application E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 523 行.
+NOTIC: [8] Undefined variable: show_page E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 630 行.
+NOTIC: [8] Undefined variable: is_kindeditor E:\por\oa\Runtime\Cache\Home\449f9d23b4bd8ab31da89f4ee69817f1.php 第 713 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.052799s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.052859s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000631s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001172s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001290s ]
+
+[ 2016-11-17T11:27:24+08:00 ] 127.0.0.1 /index.php/Home/AdminUser/add_info.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000541s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000685s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000768s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user` [ RunTime:0.0044s ]
+SQL: SELECT * FROM `gb_admin_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: is_lock E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 16 行.
+SQL: SHOW COLUMNS FROM `gb_roles` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_deport` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `gb_deport` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user_show` [ RunTime:0.0028s ]
+SQL: SELECT * FROM `gb_admin_user_show` WHERE ( admin_user_id=1 and is_background=0 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_admin_user_show` WHERE ( admin_user_id=1 and is_background=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `gb_deport_message` [ RunTime:0.0030s ]
+SQL: SELECT a.msg,a.create_time,ifnull(u.name,u.username) as username,u.head_pic FROM gb_deport_message a left join gb_admin_user u on u.id=a.admin_user_id  WHERE ( a.create_time>=1478921244 ) ORDER BY a.create_time desc LIMIT 5   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: user_info E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 180 行.
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `gb_role_menus` [ RunTime:0.0026s ]
+SQL: SELECT * FROM `gb_role_menus` WHERE ( role_id=1 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_menus` [ RunTime:0.0027s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and ptype=0 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=1 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=75 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=55 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=56 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=57 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=58 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=59 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=60 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=61 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=62 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=63 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=64 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=65 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=66 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=67 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=68 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=69 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=70 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=71 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=2 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=9 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=10 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=11 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=12 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=53 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=54 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=3 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=13 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=14 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=4 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=16 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=15 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=17 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=5 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=19 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=18 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=20 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=6 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=21 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=45 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_mall` [ RunTime:0.0033s ]
+SQL: SELECT * FROM `gb_mall` WHERE ( is_del=0 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=7 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=24 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=25 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=26 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=27 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=28 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=29 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=30 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=8 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=34 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=35 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=36 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=39 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=40 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=41 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=42 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=43 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+SQL: SHOW COLUMNS FROM `gb_deport` [ RunTime:0.0038s ]
+SQL: SELECT * FROM `gb_deport` WHERE ( is_del=0 ) ORDER BY rank  [ RunTime:0.0004s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in E:\por\oa\Home\Controller\AdminUserController.class.php on line 57 and defined E:\por\oa\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content E:\por\oa\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000316s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000416s ]
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 318 行.
+NOTIC: [8] Undefined index: deport_id E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 578 行.
+NOTIC: [8] Undefined index: deport_id E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 578 行.
+NOTIC: [8] Undefined index: deport_id E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 578 行.
+NOTIC: [8] Undefined index: role_id E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 594 行.
+NOTIC: [8] Undefined index: is_admin E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 611 行.
+NOTIC: [8] Undefined index: is_mail E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 628 行.
+NOTIC: [8] Undefined index: username E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 645 行.
+NOTIC: [8] Undefined index: name E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 660 行.
+NOTIC: [8] Undefined index: is_test E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 702 行.
+NOTIC: [8] Undefined index: mobile E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 717 行.
+NOTIC: [8] Undefined index: phone E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 730 行.
+NOTIC: [8] Undefined index: sex E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 744 行.
+NOTIC: [8] Undefined index: address E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 770 行.
+NOTIC: [8] Undefined index: head_pic E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 795 行.
+NOTIC: [8] Undefined index: head_pic E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 795 行.
+NOTIC: [8] Undefined index: head_pic E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 795 行.
+NOTIC: [8] Undefined index: head_pic E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 795 行.
+NOTIC: [8] Undefined index: head_pic E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 795 行.
+NOTIC: [8] Undefined index: content E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 805 行.
+NOTIC: [8] Undefined variable: is_kindeditor E:\por\oa\Runtime\Cache\Home\f381fec4d7e9be7bce8e12d2717213f7.php 第 901 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.257438s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.257528s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000764s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000840s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001663s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001811s ]
+
+[ 2016-11-17T11:27:25+08:00 ] 127.0.0.1 /index.php/Home/Roles/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000370s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000504s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000558s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user` [ RunTime:0.0029s ]
+SQL: SELECT * FROM `gb_admin_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: is_lock E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 16 行.
+SQL: SHOW COLUMNS FROM `gb_roles` [ RunTime:0.0031s ]
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_deport` [ RunTime:0.0028s ]
+SQL: SELECT * FROM `gb_deport` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user_show` [ RunTime:0.0032s ]
+SQL: SELECT * FROM `gb_admin_user_show` WHERE ( admin_user_id=1 and is_background=0 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_admin_user_show` WHERE ( admin_user_id=1 and is_background=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_deport_message` [ RunTime:0.0038s ]
+SQL: SELECT a.msg,a.create_time,ifnull(u.name,u.username) as username,u.head_pic FROM gb_deport_message a left join gb_admin_user u on u.id=a.admin_user_id  WHERE ( a.create_time>=1478921245 ) ORDER BY a.create_time desc LIMIT 5   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: user_info E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 180 行.
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_role_menus` [ RunTime:0.0045s ]
+SQL: SELECT * FROM `gb_role_menus` WHERE ( role_id=1 )  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `gb_menus` [ RunTime:0.0051s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and ptype=0 ) ORDER BY rank,id  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=1 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0007s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=75 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=55 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=56 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=57 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=58 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=59 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=60 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=61 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=62 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=63 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=64 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=65 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=66 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=67 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=68 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=69 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=70 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=71 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=2 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=9 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=10 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=11 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=12 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=53 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=54 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=3 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=13 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=14 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=4 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=16 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=15 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=17 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=5 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=19 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=18 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=20 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=6 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=21 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=45 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_mall` [ RunTime:0.0038s ]
+SQL: SELECT * FROM `gb_mall` WHERE ( is_del=0 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=7 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=24 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=25 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=26 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=27 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=28 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=29 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=30 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=8 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=34 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=35 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=36 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=39 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=40 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=41 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=42 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=43 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+SQL: SELECT * FROM `gb_deport` WHERE ( is_del=0 )  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: num E:\por\oa\Home\Controller\RolesController.class.php 第 22 行.
+NOTIC: [8] Undefined index: deport_id E:\por\oa\Home\Controller\RolesController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `gb_roles` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `gb_roles` WHERE ( is_del=0 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_roles` WHERE ( is_del=0 ) LIMIT 0,10   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_deport` [ RunTime:0.0029s ]
+SQL: SELECT * FROM `gb_deport` WHERE ( is_del=0 ) ORDER BY rank  [ RunTime:0.0003s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in E:\por\oa\Home\Controller\RolesController.class.php on line 30 and defined E:\por\oa\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content E:\por\oa\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000404s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000535s ]
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 318 行.
+NOTIC: [8] Undefined variable: total_count E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 523 行.
+NOTIC: [8] Undefined variable: s_status E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 538 行.
+NOTIC: [8] Undefined variable: s_categories E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 544 行.
+NOTIC: [8] Undefined variable: s_sub_categories E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 550 行.
+NOTIC: [8] Undefined variable: s_classifications E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 556 行.
+NOTIC: [8] Undefined variable: s_shops E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 562 行.
+NOTIC: [8] Undefined variable: is_add E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 570 行.
+NOTIC: [8] Undefined variable: is_export E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 573 行.
+NOTIC: [8] Undefined variable: is_more_search E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 577 行.
+NOTIC: [8] Undefined variable: application E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 577 行.
+SQL: SELECT * FROM `gb_deport` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM gb_menus a left join gb_role_menus b on b.menus_id=a.id  WHERE ( b.role_id=1 )  [ RunTime:0.0015s ]
+SQL: SELECT * FROM `gb_deport` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM gb_menus a left join gb_role_menus b on b.menus_id=a.id  WHERE ( b.role_id=2 )  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined variable: is_kindeditor E:\por\oa\Runtime\Cache\Home\952c76eaf38fbca4609ba0930dc39803.php 第 714 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.117895s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.117961s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000844s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000922s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001102s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001195s ]
+
+[ 2016-11-17T11:27:29+08:00 ] 127.0.0.1 /index.php/Home/Roles/edit/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000735s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003171s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003417s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `gb_admin_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: is_lock E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 16 行.
+SQL: SHOW COLUMNS FROM `gb_roles` [ RunTime:0.0049s ]
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0017s ]
+SQL: SHOW COLUMNS FROM `gb_deport` [ RunTime:0.0029s ]
+SQL: SELECT * FROM `gb_deport` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user_show` [ RunTime:0.0026s ]
+SQL: SELECT * FROM `gb_admin_user_show` WHERE ( admin_user_id=1 and is_background=0 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_admin_user_show` WHERE ( admin_user_id=1 and is_background=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `gb_deport_message` [ RunTime:0.0026s ]
+SQL: SELECT a.msg,a.create_time,ifnull(u.name,u.username) as username,u.head_pic FROM gb_deport_message a left join gb_admin_user u on u.id=a.admin_user_id  WHERE ( a.create_time>=1478921249 ) ORDER BY a.create_time desc LIMIT 5   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: user_info E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 180 行.
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `gb_role_menus` [ RunTime:0.0065s ]
+SQL: SELECT * FROM `gb_role_menus` WHERE ( role_id=1 )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_menus` [ RunTime:0.0028s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and ptype=0 ) ORDER BY rank,id  [ RunTime:0.0007s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=1 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=75 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=55 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=56 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=57 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=58 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=59 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=60 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=61 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=62 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=63 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=64 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=65 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=66 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=67 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=68 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=69 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=70 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=71 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=2 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=9 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=10 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=11 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=12 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=53 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=54 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=3 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=13 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=14 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=4 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=16 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=15 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=17 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=5 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=19 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=18 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=20 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=6 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=21 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=45 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `gb_mall` [ RunTime:0.0059s ]
+SQL: SELECT * FROM `gb_mall` WHERE ( is_del=0 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=7 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=24 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=25 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=26 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=27 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=28 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=29 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=30 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=8 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=34 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=35 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=36 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=39 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=40 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=41 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=42 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=43 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_deport` WHERE ( is_del=0 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_role_menus` WHERE ( role_id=1 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( ptype=0 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=1 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=12 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=53 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=54 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=13 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=14 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=31 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=44 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=4 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=15 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=16 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=17 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=32 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=33 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=5 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=18 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=19 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=20 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=38 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=21 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=45 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=46 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=47 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=7 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=24 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=25 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=26 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=27 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=28 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=29 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=30 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=34 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=35 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=36 )  [ RunTime:0.0007s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=37 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=39 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=40 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=41 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=42 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=43 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=48 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=49 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=50 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=51 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=52 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=55 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=56 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=72 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=73 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=74 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=57 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=58 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=59 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=60 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=61 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=62 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=63 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=64 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=65 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=66 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=67 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=68 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=69 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=70 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=71 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( parent_id=75 )  [ RunTime:0.0002s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in E:\por\oa\Home\Controller\RolesController.class.php on line 106 and defined E:\por\oa\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content E:\por\oa\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000156s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000217s ]
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 318 行.
+SQL: SHOW COLUMNS FROM `gb_ptype_status` [ RunTime:0.0033s ]
+SQL: SELECT * FROM `gb_ptype_status` WHERE ( ptype_id=3 ) ORDER BY rank asc,id  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_shop` [ RunTime:0.0029s ]
+SQL: SELECT * FROM `gb_shop` WHERE ( is_del=0 and status=1 )  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: is_kindeditor E:\por\oa\Runtime\Cache\Home\79ba9be1fd28eadedf3874ea6e98313e.php 第 751 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.140551s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.140604s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000611s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000662s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001272s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001399s ]
+
+[ 2016-11-17T15:36:29+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000056s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010581s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006598s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006998s ]
+
+[ 2016-11-17T15:36:30+08:00 ] 127.0.0.1 /index.php/Home/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001142s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001316s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000222s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.101559s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.101744s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.023554s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.023671s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.023981s ]
+INFO: [ app_end ] --END-- [ RunTime:0.024104s ]
+
+[ 2016-11-17T15:37:16+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000432s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000483s ]
+
+[ 2016-11-17T15:37:16+08:00 ] 127.0.0.1 /index.php/Home/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000328s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000499s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000046s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000101s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005365s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005421s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000351s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000439s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000482s ]
+
+[ 2016-11-17T15:37:22+08:00 ] 127.0.0.1 /index.php/Home/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000336s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000509s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000570s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user` [ RunTime:0.0425s ]
+SQL: SELECT * FROM `gb_admin_user` WHERE ( username='admin' ) LIMIT 1   [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: is_lock E:\por\oa\Home\Model\AdminUserModel.class.php 第 15 行.
+
+[ 2016-11-17T15:37:24+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000677s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000611s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `gb_admin_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: is_lock E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 16 行.
+SQL: SHOW COLUMNS FROM `gb_roles` [ RunTime:0.0238s ]
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_deport` [ RunTime:0.0304s ]
+SQL: SELECT * FROM `gb_deport` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `gb_admin_user_show` [ RunTime:0.0184s ]
+SQL: SELECT * FROM `gb_admin_user_show` WHERE ( admin_user_id=1 and is_background=0 )  [ RunTime:0.0007s ]
+SQL: SELECT * FROM `gb_admin_user_show` WHERE ( admin_user_id=1 and is_background=1 ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `gb_deport_message` [ RunTime:0.0159s ]
+SQL: SELECT a.msg,a.create_time,ifnull(u.name,u.username) as username,u.head_pic FROM gb_deport_message a left join gb_admin_user u on u.id=a.admin_user_id  WHERE ( a.create_time>=1478936242 ) ORDER BY a.create_time desc LIMIT 5   [ RunTime:0.0959s ]
+NOTIC: [8] Undefined variable: user_info E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 180 行.
+SQL: SELECT * FROM `gb_roles` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `gb_role_menus` [ RunTime:0.0249s ]
+SQL: SELECT * FROM `gb_role_menus` WHERE ( role_id=1 )  [ RunTime:0.0247s ]
+SQL: SHOW COLUMNS FROM `gb_menus` [ RunTime:0.0280s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and ptype=0 ) ORDER BY rank,id  [ RunTime:0.0633s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=1 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=75 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=55 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0018s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=56 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=57 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0012s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=58 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0012s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=59 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0012s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=60 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=61 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=62 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=63 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0012s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=64 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0012s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=65 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0017s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=66 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=67 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0018s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=68 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=69 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=70 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0015s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=71 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0011s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=2 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=9 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=10 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=11 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=12 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=53 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=54 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=3 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=13 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0017s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=14 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=4 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=16 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0015s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=15 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=17 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=5 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=19 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=18 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=20 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=6 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=21 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0007s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=45 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `gb_mall` [ RunTime:0.0416s ]
+SQL: SELECT * FROM `gb_mall` WHERE ( is_del=0 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=7 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0007s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=24 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=25 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=26 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=27 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0007s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=28 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0007s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=29 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=30 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=8 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=34 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=35 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=36 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=39 and ptype=1 ) ORDER BY rank,id  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=40 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=41 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=42 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_menus` WHERE ( id in (75,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,43,42,41,40,39,37,36,35,34,8,30,29,28,27,26,25,24,7,45,21,6,38,20,19,18,5,33,32,17,16,15,4,44,31,14,13,3,54,53,12,11,10,9,2,1) and is_show=1 and parent_id=43 and ptype=2 ) ORDER BY rank,id  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Common\Common\Controller\AdminBaseController.class.php 第 235 行.
+SQL: SHOW COLUMNS FROM `gb_items` [ RunTime:0.0306s ]
+SQL: SHOW COLUMNS FROM `gb_items` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `gb_items` WHERE ( is_del=1 ) LIMIT 1   [ RunTime:0.0252s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `gb_items` WHERE ( is_del=0 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `gb_items` WHERE ( is_del=0 and is_over=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `gb_items` WHERE ( is_del=0 and is_over=0 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `gb_items` WHERE ( is_del=0 and (create_time<=1479312000 and create_time>=1479398399) ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `gb_products` [ RunTime:0.0644s ]
+SQL: SELECT * FROM `gb_products` WHERE ( status<3 ) ORDER BY status asc,create_time desc LIMIT 5   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `gb_product_order` [ RunTime:0.0363s ]
+SQL: SELECT a.*,p.name,p.code,p.number FROM gb_product_order a left join gb_products p on p.id=a.product_id  WHERE ( a.is_del=0 ) ORDER BY a.update_time desc LIMIT 5   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `gb_ptypes` [ RunTime:0.0305s ]
+SQL: SELECT * FROM `gb_ptypes` WHERE ( id=3 )  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `gb_product_pic` [ RunTime:0.0095s ]
+SQL: SELECT a.*,p.name,p.code,p.number FROM gb_product_pic a left join gb_products p on p.id=a.product_id  WHERE ( a.is_over=0 )  [ RunTime:0.0009s ]
+SQL: SELECT a.id,a.admin_user_id,a.msg,a.create_time,ifnull(u.name,u.username) as username,u.head_pic FROM gb_deport_message a left join gb_admin_user u on u.id=a.admin_user_id  WHERE ( a.create_time>=1479109043 or a.deport_id=0 ) ORDER BY a.create_time desc  [ RunTime:0.0009s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000650s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000803s ]
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 318 行.
+NOTIC: [8] Undefined index: first_code E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 311 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 312 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 315 行.
+NOTIC: [8] Undefined index: sub_menus E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 318 行.
+NOTIC: [8] Undefined variable: locations E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 367 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 367 行.
+SQL: SELECT * FROM `gb_mall`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `gb_products` [ RunTime:0.0048s ]
+SQL: SELECT * FROM `gb_products`  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_product_pic` WHERE ( is_over=0 and is_del=0 ) GROUP BY product_id  [ RunTime:0.0163s ]
+SQL: SHOW COLUMNS FROM `gb_product_order` [ RunTime:0.0045s ]
+SQL: SELECT * FROM `gb_product_order` WHERE ( dh_time!=0 and is_del=0 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_product_order` WHERE ( deliver_time!=0 and is_del=0 )  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `gb_product_pic_status` [ RunTime:0.0335s ]
+SQL: SELECT * FROM `gb_product_pic_status` WHERE ( ptype_status_id=1 ) GROUP BY product_pic_id  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `gb_product_pic_status` WHERE ( ptype_status_id=8 ) GROUP BY product_pic_id  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `gb_product_pic_status` WHERE ( ptype_status_id=6 ) GROUP BY product_pic_id  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `gb_shop` [ RunTime:0.0218s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id   WHERE ( b.mall_id=1 )  [ RunTime:0.0214s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id   WHERE ( b.mall_id=2 )  [ RunTime:0.0011s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id   WHERE ( b.mall_id=3 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id   WHERE ( b.mall_id=4 )  [ RunTime:0.0008s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id   WHERE ( b.mall_id=5 )  [ RunTime:0.0009s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id   WHERE ( b.mall_id=6 )  [ RunTime:0.0008s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id left join gb_products p on b.product_id=p.id  WHERE ( b.mall_id=1 and p.status=1 )  [ RunTime:0.0011s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id left join gb_products p on b.product_id=p.id  WHERE ( b.mall_id=2 and p.status=1 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id left join gb_products p on b.product_id=p.id  WHERE ( b.mall_id=3 and p.status=1 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id left join gb_products p on b.product_id=p.id  WHERE ( b.mall_id=4 and p.status=1 )  [ RunTime:0.0019s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id left join gb_products p on b.product_id=p.id  WHERE ( b.mall_id=5 and p.status=1 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM gb_shop a left join gb_count_info b on a.id=b.shop_id left join gb_products p on b.product_id=p.id  WHERE ( b.mall_id=6 and p.status=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `gb_category` [ RunTime:0.0162s ]
+SQL: SELECT * FROM `gb_category` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `gb_sub_category` [ RunTime:0.0215s ]
+SQL: SELECT * FROM `gb_sub_category` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `gb_classification` [ RunTime:0.0685s ]
+SQL: SELECT * FROM `gb_classification` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0210s ]
+SQL: SELECT * FROM `gb_product_order` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined variable: time E:\por\oa\Home\Model\ProductOrderModel.class.php 第 191 行.
+SQL: SHOW COLUMNS FROM `gb_product_pic` [ RunTime:0.0066s ]
+SQL: SHOW COLUMNS FROM `gb_ptype_status` [ RunTime:0.0206s ]
+SQL: SELECT * FROM `gb_ptype_status` WHERE ( ptype_id=3 ) ORDER BY rank desc,id desc LIMIT 1   [ RunTime:0.0009s ]
+SQL: SELECT * FROM `gb_product_pic` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT a.*,ps.name FROM gb_product_pic_status a left join gb_ptype_status ps on ps.id=a.ptype_status_id  WHERE ( a.product_pic_id=1 ) ORDER BY a.id desc LIMIT 1   [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: is_over E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 747 行.
+NOTIC: [8] Undefined index: is_over E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 749 行.
+NOTIC: [8] Undefined variable: is_kindeditor E:\por\oa\Runtime\Cache\Home\2f412aae274b751dca883838bf7e7502.php 第 931 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.644980s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.645185s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001243s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001405s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001736s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001942s ]
+

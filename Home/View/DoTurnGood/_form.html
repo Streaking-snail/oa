@@ -1,0 +1,89 @@
+<div class="t-title tc">内销办事处调货报告</div>
+            <table class="t-info" id="tab"> 
+                <tr>
+<!--                        <th>办事处/人员：</th>
+			<td>
+                            <select name="do_turn_good[office_id]">
+                                <foreach name="office_id" item="list">
+                                    <option <php>if($do_turn_good[office_id] == $list[id]) echo "selected"; </php> value="{$list.id}">{$list.name}</option>
+                                </foreach>
+                            </select>
+			</td>
+                        <td></td>-->
+                        <th>收货人：</th>
+			<td colspan="2" class="r-line">
+                            <input type="text" id='consignee' class="tx"  name="do_turn_good[consignee]" value="{$do_turn_good.consignee}"/>
+			</td>
+                        <th>日期：</th>
+                        <td colspan="2">
+                            <input type="text" id='tg_time' class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="do_turn_good[tg_time]" value="<php>if( !empty($do_turn_good[tg_time]) ){ echo date('Y-m-d H:i:s', $do_turn_good[tg_time]);}</php>"/>
+                        </td>
+                        
+		</tr>
+                <tr>
+                        <th>电话：</th>
+			<td colspan="2" class="r-line">
+                            <input type="text" class="tx"  name="do_turn_good[phone]" value="{$do_turn_good.phone}"/>
+			</td>
+                        <th>运　费：</th>
+			<td colspan="2" class="r-line">
+                            <input type="text" class="tx"  name="do_turn_good[postage]" value="{$do_turn_good.postage}"/>
+			</td>
+                        
+		</tr>
+                <tr>    
+                    <td colspan="6">
+                        地　　址：<input type="text" class="tx" style="width:650px" id="office" name="do_turn_good[address]" value="{$do_turn_good.address}"/>
+                    </td>
+		</tr>
+                <tr>    
+                    <td colspan="6">
+                        调货原因：<input type="text" class="tx" style="width:650px" id="office" name="do_turn_good[reason]" value="{$do_turn_good.reason}"/>
+                    </td>
+		</tr>
+                <tr>
+                    <td>物料编码</td>
+                    <td>物流名称</td>
+                    <td>件数</td>
+                    <td>调出办事处</td>
+                    <td>备注</td>
+                    <td>操作</td>
+                </tr>
+                <php>if($do_turn_good){</php>
+                    <foreach name="do_turn_good_item" item="vo" key="k" >
+                        <tr name="item" id="sub_cat_{$k}" vel="{$k}">
+                            <input type='hidden' name="do_turn_good_items[{$k}][id]" value='{$vo.id}' />
+                            <td><input class="tx" type="text" id='number_{$k}' name="do_turn_good_items[{$k}][number]" value="{$vo.number}" /></td>
+                            <td><input class="tx" type="text" id='name_{$k}' name="do_turn_good_items[{$k}][name]" value="{$vo.name}" /></td>
+                            <td><input class="tx" type="text" id='num_{$k}' name="do_turn_good_items[{$k}][num]" value="{$vo.num}" /></td>
+                            <td>
+                                <select id="office_id_{$k}" name="do_turn_good_items[{$k}][office_id]">
+                                    <foreach name="office_id" item="list">
+                                        <option <php>if($vo[office_id] == $list[id]) echo "selected"; </php> value="{$list.id}">{$list.name}</option>
+                                    </foreach>
+                                </select>
+                            </td>
+                            <td><input class="tx" id='content_{$k}' type="text" name="do_turn_good_items[{$k}][content]" value="{$vo.content}" /></td>
+                            <td><a onclick="del_sub(this)" href="javascrpit:;">删除</a></td>
+                        </tr>
+                    </foreach>
+                <php>}else{</php>
+                    <tr name="item" id="sub_cat_0" vel="0">
+                        <td><input class="tx" id='number_0' type="text" name="do_turn_good_items[0][number]" /></td>
+                        <td><input class="tx" id='name_0' type="text" name="do_turn_good_items[0][name]" /></td>
+                        <td><input class="tx" id='num_0' type="text" name="do_turn_good_items[0][num]" /></td>
+                        <td>
+                            <select id="office_id_0" name="do_turn_good_items[0][office_id]">
+                                <foreach name="office_id" item="list">
+                                    <option value="{$list.id}">{$list.name}</option>
+                                </foreach>
+                            </select>
+                        </td>
+                        <td><input class="tx" id='content_0' type="text" name="do_turn_good_items[0][content]" /></td>
+                        <td><a onclick="del_sub(this)" href="javascrpit:;">删除</a></td>
+                    </tr>
+                <php>}</php>
+                    <tr>
+                        <td colspan="6"><a onclick="add_sub()" href="javascrpit:;" style="display: table;margin: 0 auto;">添加</a></td>
+                    </tr>
+            </table>

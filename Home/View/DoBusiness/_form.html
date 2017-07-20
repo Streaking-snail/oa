@@ -1,0 +1,39 @@
+<style>
+    .t-info .atx{height:100px;}
+</style>	
+<div class="t-title tc">出差计划申请表</div>
+	<table class="t-info">
+		<tr>
+			<th>单据号：</th>
+			<td colspan="3" class="r-line">
+				<input type="text" class="tx" id="no" name="do_business[no]" value="{$do_business.no}" />
+			</td>
+<!--			<th>办事处/部门：</th>
+			<td>
+                            <php>echo D('AdminUser')->get_name_deport($_SESSION['admin_user_id']);</php>
+			</td>
+		</tr>-->
+		<tr>
+			<td colspan="4" align="center">出差时间
+			<input type="text" class="tx" id='start_time' name="do_business[start_time]" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="<php>if( !empty($do_business['start_time']) ){ echo date('Y-m-d H:i:s', $do_business['start_time']);}</php>" />
+			至
+			<input type="text" class="tx" id='end_time' name="do_business[end_time]" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="<php>if( !empty($do_business['end_time']) ){ echo date('Y-m-d H:i:s', $do_business['end_time']);}</php>" /></td>
+		</tr>
+		<tr class="n-l">
+			<th class="lf" colspan="4">出差目的</th>
+		</tr>
+		<tr class="t-l">
+			<td colspan="4" class="att">
+				<textarea name="do_business[content]" id="temporary_content" class="atx">{$do_business.content}</textarea>
+			</td>
+		</tr>
+                </tr>
+		<tr class="n-l">
+			<th class="lf" colspan="4">出差线路</th>
+		</tr>
+		<tr class="t-l">
+			<td colspan="4" class="att">
+				<textarea name="do_business[address]" id="temporary_content" class="atx">{$do_business.address}</textarea>
+			</td>
+		</tr>
+	</table>

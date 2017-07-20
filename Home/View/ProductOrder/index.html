@@ -1,0 +1,158 @@
+<style>
+input.ad-btn{border:none;width:50px;line-height:20px;}
+input.fp{position:absolute;left:50px;top:0;width:66px;z-index:1000;filter:alpha(opacity=0);opacity:0}
+.fl{float:left;width:60px;line-height:20px;}
+</style>
+<div class="page-content-area">
+		<include file="layouts/_sub_location" />
+		<div class="row">
+				<div class="col-xs-12">
+							<div id="sample-table-2_wrapper" style="overflow-x:auto;" class="dataTables_wrapper form-inline no-footer">
+												<div class="row">
+													<include file="layouts/_search" />
+												</div>
+                                                                                                <div id="col" class="col">
+                                                                                                        <include file="layouts/_conditions" />
+                                                                                                </div>
+												<table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample-table-2_info">
+													<thead>
+														   
+														   <tr>
+                                                                <th width="3%" rowspan="2">序号</th>
+																<th width="8%" rowspan="2">物料代码</th>
+																<th width="8%" rowspan="2">辅代码</th>
+																<th width="8%" rowspan="2">产品名称</th>
+																<th width="8%" rowspan="2">下单时间</th>
+																<th width="8%" colspan="6" style="text-align:center">下单总数</th>
+																<th width="8%" rowspan="2">计划大货前样</th>
+																<th width="8%" rowspan="2">到货时间</th>
+																<th width="10%" rowspan="2">到货数量</th>
+																<th width="10%" rowspan="2">备注</th>
+																<th width="10%" rowspan="2">操作</th>
+															</tr>
+															<tr>
+																<th width="5%">京东</th>
+																<th width="5%">天猫</th>
+																<th width="5%">淘宝</th>
+																<th width="5%">KA</th>
+																<th width="5%">市场</th>
+																<th width="5%">汇总</th>
+															</tr>
+													</thead>
+	
+													<tbody>
+														<php>foreach($product_orders as $k=>$value){
+															$deliver_num = D("ProductOrder")->get_deliver_num($value['id']);
+															$deliver_time = D("ProductOrder")->get_deliver_time($value['id']);
+														</php>
+															<tr class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>" name="item" vel="{$value.id}">
+                                                                <td>{$page_number+$k+1}</td>
+																<php>$p = M('products')->where("id=%d", array($value['product_id']))->find();</php>
+																<td>{$value.code}</td>
+																<td>{$value.number}</td>
+																<td>{$value.name}</td>
+																<td>
+																<php>if( !empty($value['order_time']) ){
+																		$f = true;
+																		echo date("Y-m-d H:i:s", $value['order_time']);
+																	}else{
+																		$f = false;
+																		echo $ProductOrder->get_show_time($value['update_time']);
+																	}
+																</php>
+																</td>
+																<td>{$value.jd_num}</td>
+																<td>{$value.tm_num}</td>
+																<td>{$value.tb_num}</td>
+																<td>{$value.ka_num}</td>
+																<td>{$value.sc_num}</td>
+																<td><php>echo $value['jd_num']+$value['tm_num']+$value['tb_num']+$value['ka_num']+$value['sc_num'];</php></td>
+																<td>
+																	<php>if(!empty($value['deliver_time'])){ 
+																			$f = true;
+																			echo date("Y-m-d H:i:s", $value['deliver_time']); 
+																		}else if( $f ){
+																			$f = false;
+																			echo $ProductOrder->get_show_time($value['update_time']);
+																		}
+																	</php>
+																</td>
+																
+																<td>
+																	<php>if( !empty($deliver_time) ){ 
+																			echo date("Y-m-d H:i:s", $deliver_time); 
+																		}
+																	</php>
+																</td>
+																<td>
+<!--																	<php>if(!empty($value['deliver_time']) && !empty($value['dh_time'])){ 
+																			echo date("Y-m-d H:i:s", $value['dh_time']); 
+																		}else if(!empty($value['deliver_time'])){
+																			echo $ProductOrder->get_show_time($value['update_time']);
+																		}
+																	</php>-->
+                                                                    {$deliver_num}
+																</td>
+                                                                <td>{$value.content}</td>
+																<td>
+																    <php>if( $deliver_num==0  &&  ( $value['admin_user_id']==$user_info['id'] || D('Roles')->is_power('ProductOrder', 'edit', $user_info['id'])) ){</php>
+																		<a href="{:U('ProductOrder/edit', array('id'=>$value['id']))}" title="修改">
+																			<button class="btn btn-xs btn-info">
+																				<i class="ace-icon fa fa-pencil bigger-120"></i>
+																			</button>
+																		</a>
+																	<php>}else if($deliver_num<($value['jd_num']+$value['tm_num']+$value['tb_num']+$value['ka_num']+$value['sc_num'])){</php>
+																		<span class="label label-sm label-inverse">到货数不足</span>
+																		<php>if( $value['admin_user_id']==$user_info['id'] || D('Roles')->is_power('ProductOrder', 'edit', $user_info['id']) ){</php>
+																			<a href="{:U('ProductOrder/add_deliver_num', array('id'=>$value['id']))}" title="添加到货数">
+																				添加到货数
+																			</a>
+																		<php>}</php>
+																	<php>}else{</php>
+																		<span class="label label-sm label-success">已完成</span>
+																	<php>}</php>
+																	<php>if( $deliver_num==0 && (D('Roles')->is_power('ProductOrder', "del", $user_info['id']) || $value['admin_user_id']==$user_info['id']) ){</php>
+																		<a href="{:U('ProductOrder/del', array('id'=>$value['id']))}" title="删除">
+																			<button class="btn btn-xs btn-danger">
+																				<i class="ace-icon fa fa-trash-o bigger-120"></i>
+																			</button>
+																		</a>
+																	<php>}</php>
+															</tr>
+															<tr style="display:none;" id="item_{$value.id}" data-s="0">
+																<td colspan="3">
+																	提交者：<php>echo D('AdminUser')->get_name($value['admin_user_id']);</php><br />
+																	提交时间：<php>echo date("Y-m-d H:i:s", $value['create_time']);</php>
+																</td>
+																<td colspan="13">
+																		<php>
+																		$order_delivers = M('product_order_deliver')->where("product_order_id=%d", array($value['id']))->select();
+																		foreach($order_delivers as $v){</php>
+																			<p>
+																				到货时间：<php>echo date("Y-m-d H:i:s", $v['deliver_time']);</php>&nbsp;&nbsp;
+																				到货数量：{$v.num}&nbsp;&nbsp;
+																				备注：<php>if(!empty($v['content'])){echo $v['content'];}else{echo "无";}</php>&nbsp;&nbsp;
+																				提交者：<php>echo D('AdminUser')->get_name($v['admin_user_id']);</php>&nbsp;&nbsp;
+																				提交时间：<php>echo date("Y-m-d H:i:s", $v['create_time']);</php>&nbsp;&nbsp;
+																			</p>
+																		<php>}</php>
+																</td>
+															</tr>
+														<php>}
+															if( count($product_orders)==0 ){ 
+																echo "<tr><td align='center' colspan='16'>暂无相关记录</td></tr>";
+															}
+														</php>
+													</tbody>
+												</table>
+												<div class="row">
+														<div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+															{$show_page}
+														</div>
+												</div>
+										</div><!-- sample-table-2_wrapper -->
+				 </div><!-- col-xs-12 -->
+		</div>
+		
+
+</div>

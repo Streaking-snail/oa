@@ -1,0 +1,42 @@
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">名称：</label>
+	<div class="col-sm-9">
+		<input type="text" id="menu_name" name="menu[name]" placeholder="名称" class="col-xs-10 col-sm-5" value="{$menu.name}" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">是否显示：</label>
+	<div class="col-sm-9">
+		 <select name="menu[is_show]" id="menu_is_show">
+		 	 <php>if( intval($menu['is_show'])==1 ){</php>
+			 	 <option value="1" selected='selected'>是</option>
+			 	 <option value="0">否</option>
+		 	 <php>}else{</php>
+			 	 <option value="1">是</option>
+			 	 <option value="0" selected='selected'>否</option>
+		 	 <php>}</php>
+		 </select>
+	</div>
+</div>
+
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">说明：</label>
+	<div class="col-sm-9">
+		<textarea name="menu[content]" id="menu_content" placeholder="说明" rows="5" cols="50">{$menu.content}</textarea>
+	</div>
+</div>
+
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">排序：</label>
+
+	<div class="col-sm-9">
+		<input type="text" id="menu_rank" name="menu[rank]" placeholder="排序" class="col-xs-10 col-sm-5" value="{$menu.rank}" />
+	</div>
+</div>
+<div class="space-4"></div>

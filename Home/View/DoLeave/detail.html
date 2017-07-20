@@ -1,0 +1,96 @@
+
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<!-- <include file='layouts/_sub_location' />-->
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="" role="form">
+				<div id="show_info">
+					<div class="t-title tc">请假表</div>
+					<table class="t-info">
+						<tr>
+							<td colspan="2">
+								单据号：{$doleave.no}
+							</td>
+							<td colspan="2">
+								填写时间：<php>if( !empty($doleave['create_time']) ){ echo date('Y-m-d H:i:s', $doleave['create_time']);}</php>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">姓名：{$doleave.username} </td>
+							<td colspan="2">部门：{$doleave.deport_name}</td>
+						</tr>
+						<tr>
+							<td colspan="4">请假类别：<?php if($doleave[ptype]==1) echo(探亲假);?>
+																		<?php if($doleave[ptype]==2) echo(事假);?>
+																		<?php if($doleave[ptype]==3) echo(病假);?>
+																		<?php if($doleave[ptype]==4) echo(婚假);?>
+																		<?php if($doleave[ptype]==5) echo(丧假);?>
+																		<?php if($doleave[ptype]==6) echo(公假);?>
+																		<?php if($doleave[ptype]==7) echo(工伤);?>
+																		<?php if($doleave[ptype]==8) echo(产假);?>
+																		<?php if($doleave[ptype]==9) echo(其他);?>
+						</tr>
+						<tr>
+							<td colspan="4">请假时间：自<php>if( !empty($doleave['start_time']) ){ echo date('Y-m-d H:i:s', $doleave['start_time']);}</php>
+							至<php>if( !empty($doleave['end_time']) ){ echo date('Y-m-d H:i:s', $doleave['end_time']);}</php>
+							共计{$doleave.days}天</td>
+						</tr>
+						<tr class="n-l">
+							<th class="lf" colspan="4">请假事由:</th>
+						</tr>
+						<tr class="t-l">
+							<td colspan="4" class="att">
+								{$doleave.content}
+							</td>
+						</tr>
+                                                <php>if( count($doleaves_status)>0 ){</php>
+							<tr>
+								<td align="center">状态</td>
+								<td align="center">审核时间</td>
+								<td align="center">审核人</td>
+								<td align="center">审核内容</td>
+							</tr>
+							<foreach name="doleaves_status" item="v">
+								<tr>
+									<php>if( $v['status']==1 ){</php>
+										<td style="color:green;text-align:center;">审核通过</td>
+									<php>}else{</php>
+										<td style="color:red;text-align:center;">审核不通过</td>
+									<php>}</php>
+									<td align="center"><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+									<td align="center">{$v.username}</td>
+									<td align="center">
+										{$v.content}
+										<php>if( !empty($v['url_path']) ){</php>
+											<br />
+											附件：<a href="{:U('Download/index',array('file'=>urlencode($v['url_path'])))}">{$v['name']}</a>
+										<php>}</php>
+									</td>
+								</tr>
+							</foreach>
+						<php>}</php>
+					</table>
+				</div>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="button" name="back_btn">
+							<i class="ace-icon fa fa-undo bigger-110"></i>
+							返回上页
+						</button>&nbsp; &nbsp; &nbsp;&nbsp;
+						<button class="btn btn-info" type="button" name="print_info" >
+							打印
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

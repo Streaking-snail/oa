@@ -1,0 +1,52 @@
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">选择分类：</label>
+	<div class="col-sm-9">
+		<select name="classification[subcategory_id]" id="classification_category_id" vel="{:U('Product/get_sub_categories')}">
+			<php>foreach($categories as $value){</php>
+				<php>if( $value['id']==$classification['category_id'] ){</php>
+					<option value='{$value.id}' selected="selected">{$value.name}</option>
+				<php>}else{</php>
+					<option value='{$value.id}'>{$value.name}</option>
+				<php>}</php>
+			<php>}</php>
+		</select>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">选择系列：</label>
+	<div class="col-sm-9">
+		<select name="classification[sub_category_id]" id="classification_sub_category_id">
+			<include file="Product/_sub_categories" />
+		</select>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">类别名称：</label>
+	<div class="col-sm-9">
+		<input type="text" id="classification_name" name="classification[name]" placeholder="类别名称" class="col-xs-10 col-sm-5" value="{$classification.name}" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">描述：</label>
+	<div class="col-sm-9">
+		<textarea name="classification[content]" id="classification_content" placeholder="描述" rows="5" cols="50">{$classification.content}</textarea>
+	</div>
+</div>
+
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">排序：</label>
+
+	<div class="col-sm-9">
+		<input type="text" id="classification_rank" name="classification[rank]" placeholder="排序" class="col-xs-10 col-sm-5" value="{$classification.rank}" />
+	</div>
+</div>
+
+<div class="space-4"></div>

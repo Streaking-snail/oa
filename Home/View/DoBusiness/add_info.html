@@ -1,0 +1,31 @@
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<include file='layouts/_sub_location' />
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="{:U('DoBusiness/create_info')}" method="post" role="form">
+				<div class="form-group">
+					<include file="layouts/_notice" />
+				</div>
+				<include file="DoBusiness/_form" />
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+						</button>
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn btn-info" type="button" name="back_btn">
+							返回上页
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

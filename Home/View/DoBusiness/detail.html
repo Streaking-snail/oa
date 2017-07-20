@@ -1,0 +1,106 @@
+
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<!-- <include file='layouts/_sub_location' />-->
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="" role="form">
+				<div id="show_info">
+					<div class="t-title tc">内销办事处出差申请单</div>
+					<table class="t-info" style="text-align:center">
+						<tr>
+                                                    <td class="r-line" colspan="2">
+                                                        单据号：{$do_business.no}
+                                                    </td>
+                                                    <td class="r-line" colspan="2">
+                                                        办事处/部门：<php>echo D('AdminUser')->get_name_deport($do_business['admin_user_id']);</php>
+                                                    </td>
+						</tr>
+						<tr>
+							<td colspan="4" align="center">出差时间:
+                                                            <php>
+                                                                if( !empty($do_business[start_time])){
+                                                                    echo date('Y-m-d H:i:s', $do_business['start_time']);
+                                                                }
+                                                                echo '&nbsp;&nbsp;&nbsp;';
+                                                                echo '至';
+                                                                echo '&nbsp;&nbsp;&nbsp;';
+                                                                if( !empty($do_business[end_time])){
+                                                                    echo date('Y-m-d H:i:s', $do_business['end_time']);
+                                                                }
+                                                            </php>
+                                                        </td>
+
+						</tr>
+						<tr>
+							<td colspan="4" align="left">
+                                                            出差目的:
+                                                        </td>
+                                                </tr>
+                                                <tr>
+							<td style="height:100px;vertical-align:top; padding: 5px 23px;" colspan="4">
+                                                            {$do_business.content}
+                                                        </td>
+							
+						</tr>
+                                                <tr>
+							<td colspan="4" align="left">
+                                                            出差路线:
+                                                        </td>
+                                                </tr>
+                                                <tr>
+							<td style="height:100px;vertical-align:top; padding: 5px 23px;" colspan="4">
+                                                            {$do_business.address}
+                                                        </td>
+							
+						</tr>
+						<php>if( count($do_businesses_status)>0 ){</php>
+							<tr>
+								<td align="center">状态</td>
+								<td align="center">审核时间</td>
+								<td align="center">审核人</td>
+								<td align="center">审核内容</td>
+							</tr>
+							<foreach name="do_businesses_status" item="v">
+								<tr>
+									<php>if( $v['status']==1 ){</php>
+										<td style="color:green;text-align:center;">审核通过</td>
+									<php>}else{</php>
+										<td style="color:red;text-align:center;">审核不通过</td>
+									<php>}</php>
+									<td align="center"><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+									<td align="center">{$v.username}</td>
+									<td align="center">
+										{$v.content}
+										<php>if( !empty($v['url_path']) ){</php>
+											<br />
+											附件：<a href="{:U('Download/index',array('file'=>urlencode($v['url_path'])))}">{$v['name']}</a>
+										<php>}</php>
+									</td>
+								</tr>
+							</foreach>
+						<php>}</php>
+					</table>
+				</div>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="button" name="back_btn">
+							<i class="ace-icon fa fa-undo bigger-110"></i>
+							返回上页
+						</button>&nbsp; &nbsp; &nbsp;&nbsp;
+						<button class="btn btn-info" type="button" name="print_info" >
+							打印
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

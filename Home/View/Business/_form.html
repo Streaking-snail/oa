@@ -1,0 +1,37 @@
+	<div class="t-title tc">广博集团出差申请单</div>
+	<table class="t-info">
+		<tr>
+			<th class="r-line">出差事由</th>
+			<td colspan="3">
+				<input type="text"  style="display:none;" name="business[admin_user_id]" value="{$business.admin_user_id}" />
+				<input type="text"  style="display:none;" name="business[deport_id]" value="{$business.deport_id}" />
+				<input type="text"  style="display:none;" name="business[no]" value="{$business.no}" />
+				<textarea style="width:450px" name="business[content]" id="business_content">{$business['content']}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<th class="r-line">出差地点</th>
+			<td class="r-line">
+				<input type="text" class="tx" id="business_address" name="business[address]" value="{$business['address']}"/>
+			</td>
+			<td rowspan="2" class="r-line">出差时间</td>
+			<td rowspan="2">
+				自<input style="width:160px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="business[start_time]" id="business_start_time" value="<php>if( !empty($business['start_time']) ){ echo date('Y-m-d H:i:s', $business['start_time']);}</php>" /></br>
+				至<input style="width:160px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="business[end_time]" id="business_end_time" value="<php>if( !empty($business['end_time']) ){ echo date('Y-m-d H:i:s', $business[end_time]);}</php>" />
+			</td>
+		</tr>
+		<tr>
+		<th class="r-line">交通方式</th>
+			<td>
+				<input type="text" class="tx" id="business_transportation" name="business[transportation]" value="{$business['transportation']}"/>
+			</td>
+		</tr>
+		<tr class="n-l">
+			<th class="lf" colspan="4">备注</th>
+		</tr>
+		<tr class="t-l">
+			<td colspan="4" class="att">
+				<textarea name="business[note]" id="business_note" class="atx">{$business.note}</textarea>
+			</td>
+		</tr>
+	</table>

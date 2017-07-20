@@ -1,0 +1,258 @@
+<div class="form-group">
+	<include file="layouts/_notice" />
+</div>
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-5"><span class="err">*</span>所在部门：</label>
+
+	<div class="col-sm-9">
+		<select name="admin_user[deport_id]" id="admin_user_deport_id" class="col-xs-10 col-sm-5" vel="{:U('AdminUser/select_roles')}">
+			<php>
+			foreach( $deports as $k=>$value ){
+				if( intval($value['id'])==intval($admin_user['deport_id']) ){
+					echo '<option value="'.$value['id'].'" selected="selected">'.$value['name'].'</option>';
+				}else{
+					echo '<option value="'.$value['id'].'">'.$value['name'].'</option>';
+				}
+			}
+			</php>
+		</select>
+		<span class="help-inline col-xs-12 col-sm-7">
+			<label class="middle">
+				<span class="lbl">请选择部门!</span>
+			</label>
+		</span>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-5"><span class="err">*</span>角色：</label>
+
+	<div class="col-sm-9">
+		<select name="admin_user[role_id]" id="admin_user_role_id" class="col-xs-10 col-sm-5">
+			<include file='AdminUser/_role' />
+		</select>
+		<span class="help-inline col-xs-12 col-sm-7">
+			<label class="middle">
+				<span class="lbl">请选择角色!</span>
+			</label>
+		</span>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<!-- 
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-5">是否为管理员：</label>
+
+	<div class="col-sm-9">
+		<select name="admin_user[is_admin]" id="admin_user_is_admin" class="col-xs-10 col-sm-5">
+                    <php>if(($admin_user['is_admin'])==1){</php>
+                        <option value="0" >非管理员</option>
+                        <option value="1" selected="selected">管理员</option>
+                    <php>}else{</php>
+			<option value="0" selected="selected">非管理员</option>
+                        <option value="1" >管理员</option>
+                        <php>}</php>
+		</select>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-5">是否发送邮件：</label>
+
+	<div class="col-sm-9">
+		<select name="admin_user[is_mail]" id="admin_user_is_mail" class="col-xs-10 col-sm-5">
+                    <php>if(($admin_user['is_mail'])==1){</php>
+                        <option value="0" >不发送邮件</option>
+                        <option value="1" selected="selected">发送邮件</option>
+                    <php>}else{</php>
+			<option value="0" selected="selected">不发送邮件</option>
+                        <option value="1" >发送邮件</option>
+                        <php>}</php>
+		</select>
+	</div>
+</div>
+ -->
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1"><span class="err">*</span>用户名：</label>
+
+	<div class="col-sm-9">
+		<input type="text" id="admin_user_username" name="admin_user[username]" placeholder="用户名" class="col-xs-10 col-sm-5" value="{$admin_user.username}" />
+                <span class="help-inline col-xs-12 col-sm-7">
+			<label class="middle">
+				<span class="lbl">请输入用户名!</span>
+			</label>
+		</span>
+        </div>
+        
+        
+</div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">姓名：</label>
+
+	<div class="col-sm-9">
+		<input type="text" id="admin_user_name" name="admin_user[name]" placeholder="姓名" class="col-xs-10 col-sm-5" value="{$admin_user.name}" />
+	</div>
+</div>
+
+<!-- /section:elements.form -->
+<div class="space-4"></div>
+
+<php>if( $is_add ){</php>
+	<div class="form-group">
+		<label class="col-sm-3 control-label no-padding-right" for="form-field-2"><span class="err">*</span>密码： </label>
+	
+		<div class="col-sm-9">
+			<input type="password" id="admin_user_password" name="admin_user[password]" placeholder="请输入密码" class="col-xs-10 col-sm-5" />
+			<span class="help-inline col-xs-12 col-sm-7">
+				<label class="middle">
+					<span class="lbl">请输入密码</span>
+				</label>
+			</span>
+		</div>
+	</div>
+	
+	<div class="space-4"></div>
+	
+	<div class="form-group">
+		<label class="col-sm-3 control-label no-padding-right" for="form-input-readonly"><span class="err">*</span>确认密码：</label>
+	
+		<div class="col-sm-9">
+			<input type="password" class="col-xs-10 col-sm-5" id="admin_user_confirm_password" name="admin_user[confirm_password]" placeholder="请输入确认密码" name="confirm_psd" value="" />
+			<span class="help-inline col-xs-12 col-sm-7">
+				<label class="middle">
+					<span class="lbl">请输入确认密码!</span>
+				</label>
+			</span>
+		</div>
+	</div>
+	<div class="space-4"></div>
+<php>}</php>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">账号类型：</label>
+
+	<div class="col-sm-9">
+		<php>if( $admin_user['is_test']==1 ){</php>
+			<input type="radio" name="admin_user[is_test]" id="admin_user_is_test" checked="checked" value="1"/>测试账号
+			<input type="radio" name="admin_user[is_test]" id="admin_user_is_test" value="0"/>普通账号
+		<php>}else{</php>
+			<input type="radio" name="admin_user[is_test]" id="admin_user_is_test" value="1"/>测试账号
+			<input type="radio" name="admin_user[is_test]" id="admin_user_is_test" checked="checked" value="0"/>普通账号
+		<php>}</php>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-4"><span class="err">*</span>手机号：</label>
+
+	<div class="col-sm-9">
+		<input type="text" class="col-xs-10 col-sm-5" id="admin_user_mobile" name="admin_user[mobile]" placeholder="手机号" value="{$admin_user.mobile}" />
+		<span class="help-inline col-xs-12 col-sm-7">
+			<label class="middle">
+				<span class="lbl">请输入手机号!</span>
+			</label>
+		</span>
+	</div>
+</div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-5">固定电话：</label>
+
+	<div class="col-sm-9">
+		<input class="col-xs-10 col-sm-5" type="text" id="admin_user_phone" name="admin_user[phone]" placeholder="固定电话" value="{$admin_user.phone}" />
+
+		<span class="help-inline col-xs-12 col-sm-7">
+			<label class="middle">
+				<span class="lbl"></span>
+			</label>
+		</span>
+	</div>
+</div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right"><span class="err">*</span>性别：</label>
+
+	<div class="col-sm-9">
+		<php>if($admin_user['sex']==0 ){</php>
+			<span class="input-icon">
+				<input type="radio" id="admin_user_sex_1" name="admin_user[sex]" value="1" />男&nbsp;&nbsp;
+			</span>
+
+			<span class="input-icon input-icon-right">
+				<input type="radio" id="admin_user_sex_0" name="admin_user[sex]" checked="checked" value="0" />女
+			</span>
+		<php>}else{</php>
+			<span class="input-icon">
+				<input type="radio" id="admin_user_sex_1" name="admin_user[sex]" checked="checked" value="1" />男&nbsp;&nbsp;
+			</span>
+
+			<span class="input-icon input-icon-right">
+				<input type="radio" id="admin_user_sex_0" name="admin_user[sex]" value="0" />女
+			</span>
+		<php>}</php>
+	</div>
+</div>
+
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-6">现在住址：</label>
+
+	<div class="col-sm-9">
+		<input type="text" class="col-xs-10 col-sm-5" id="admin_user_address" name="admin_user[address]" placeholder="现在住址" value="{$admin_user.address}" />
+		<span class="help-inline col-xs-12 col-sm-7">
+			<label class="middle">
+				<span class="lbl"></span>
+			</label>
+		</span>
+                <span class="help-inline col-xs-12 col-sm-7">
+			<label class="middle">
+				<span class="lbl">请输入现在住址!</span>
+			</label>
+		</span>
+	</div>
+</div>
+
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-6">头像：</label>
+    <style>
+    	.head-list{}
+    	.head-list li{float:left;list-style:none;margin-right:10px;}
+    	.head-list li input{vertical-align:bottom;}
+    </style>
+	<div class="col-sm-9">
+		<ul class="head-list">
+			<php>
+				for($i=0;$i<5;$i++){
+					echo "<li>";
+					echo "<input type='radio' class='acs' name='admin_user[head_pic]' id='admin_user_head_pic' ";
+					if( "/avatars/avatar".$i.".png"==$admin_user['head_pic'] || (empty($admin_user['head_pic']) && $i==0 ) ){
+						echo " checked='checked' ";
+					}
+					echo "value='/avatars/avatar".$i.".png' />";
+					echo "<img width='48' height='48' src='/Public/avatars/avatar".$i.".png' />";
+					echo "</li>";
+				}
+			</php>
+		</ul>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">描述：</label>
+
+	<div class="col-sm-9">
+		<textarea name="admin_user[content]" id="admin_user_content" placeholder="描述" rows="5" cols="50">{$admin_user.content}</textarea>
+	</div>
+</div>
+<div class="space-4"></div>

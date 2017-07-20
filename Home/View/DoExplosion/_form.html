@@ -1,0 +1,108 @@
+<div class="t-title">办事处爆款申请表</div>
+<table class="t-info">
+    <tr>
+        <th colspan="9">
+            单据号：<input type="text" id="explosion_no" name="explosion[no]"
+                       class="valid tx" valid_type="empty" value="{$explosion.no}"/>
+        </th>
+    </tr>
+    <tr>
+        <th>客户名称</th>
+        <td class="r-line">
+            <input type="text" id="explosion_user_name" name="explosion[user_name]"
+                   class="valid tx" valid_type="empty" value="{$explosion.user_name}"/>
+        </td>
+        <th>店铺名称</th>
+        <td class="r-line">
+            <input type="text" id="explosion_shop_name" name="explosion[shop_name]"
+                   class="valid tx" valid_type="empty" error_msg="店铺名称不允许为空"
+                   value="{$explosion.shop_name}"/>
+        </td>
+        <th>年度指标</th>
+        <td class="r-line" colspan="2">
+            <input type="text" id="explosion_shop_year" name="explosion[shop_year]"
+                   class="tx valid" valid_type="empty" error_msg="年度指标不能为空"
+                   value="{$explosion.shop_year}"/>
+        </td>
+    </tr>
+    <tr>
+        <th>店铺类型及等级</th>
+        <td class="r-line">
+            <input type="text" id="explosion_shop_typer" name="explosion[shop_type]"
+                   class="tx" value="{$explosion.shop_type}"/>
+        </td>
+        <th>店铺链接</th>
+        <td class="r-line">
+            <input type="text" id="explosion_shop_url" name="explosion[shop_url]"
+                   class="tx" value="{$explosion.shop_url}"/>
+        </td>
+        <th>活动时间</th>
+        <td class="r-line" colspan="2">
+            <input type="text" id="explosion" name="explosion[activity_time]"
+                   placeholder="格式：YYYY-MM-DD HH:mm:ss ）"
+                   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" class="tx"
+                   value="<php>if(!empty($explosion['activity_time'])){echo date('Y-m-d H:i:s',$explosion['activity_time']);}</php>"/>
+        </td>
+    </tr>
+    <tr>
+        <th>活动平台</th>
+        <td class="r-line">
+            <input type="text" id="explosion_platform" name="explosion[platform]"
+                   class="tx" value="{$explosion.platform}"/>
+        </td>
+        <th>活动付费</th>
+        <td class="r-line">
+            <input type="text" id="explosion_activity_cost" name="explosion[activity_cost]"
+                   class="tx" value="{$explosion.activity_cost}"/>
+        </td>
+        <th>爆款目的</th>
+        <td class="r-line" colspan="2">
+            <input type="text" id="explosion_explosion_goal" name="explosion[explosion_goal]" class="tx"
+                   value="{$explosion.explosion_goal}">
+        </td>
+    </tr>
+    <tr>
+        <th>关联销售产品</th>
+        <td class="r-line">
+            <input type="text" id="explosion_related_products" name="explosion[related_products]"
+                   class="tx" value="{$explosion.related_products}"/>
+        </td>
+        <th>上月店铺销量</th>
+        <td class="r-line">
+            <input type="text" id="explosion_last_month_sales" name="explosion[last_month_sales]"
+                   class="tx" value="{$explosion.last_month_sales}"/>
+        </td>
+        <th>上周店铺销量</th>
+        <td class="r-line" colspan="2">
+            <input type="text" id="explosion_last_week_sales" name="explosion[last_week_sales]" class="tx"
+                   value="{$explosion.last_week_sales}">
+        </td>
+    </tr>
+    <tr>
+        <th>广博在售单品数</th>
+        <td class="r-line">
+            <input type="text" id="explosion_gb_sale_items" name="explosion[gb_sale_items]"
+                   class="tx" value="{$explosion.gb_sale_items}"/>
+        </td>
+        <th>转化率</th>
+        <td class="r-line">
+            <input type="text" id="explosion_poi" name="explosion[poi]"
+                   class="tx" value="{$explosion.poi}"/>
+        </td>
+        <th></th>
+        <td class="r-line" colspan="2">
+    </tr>
+    <tr class="n-l">
+        <th class="lf" colspan="9">爆款单品政策内容说明</th>
+    </tr>
+    <tr class="t-l">
+        <td colspan="9" class="att">
+            <textarea class="atx" name="explosion[content]" id="overdue_content" placeholder="描述" rows="5" cols="50">{$explosion.content}</textarea>
+        </td>
+    </tr>
+    <include file="DoExplosion/_items"/>
+    <a href="{:U('DoExplosion/get_products_info')}" style="display: none" id="item_url"></a>
+    <php>if(intval($id)>0){</php>
+    <input type="hidden" name="explosion[id]" value="{$id}">
+    <php>}</php>
+</table>

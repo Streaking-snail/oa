@@ -1,0 +1,80 @@
+<style>
+    .t-info .atx{height:100px;}
+</style>	
+<div class="t-title tc">贴码产品申请流程单</div>
+	<table class="t-info">
+                <tr>
+			<th>单据号：</th>
+			<td colspan='3' class="r-line">
+				<input type="text" class="tx" id="no" name="do_post_code[no]" value="{$do_post_code.no}" />
+			</td>
+<!--			<th>办事处：</th>
+			<td colspan="2" class="r-line">
+                            <select name="do_post_code[office_id]">
+                                <foreach name="office_id" item="list">
+                                    <option <php>if($do_post_code[office_id] == $list[id]) echo "selected"; </php> value="{$list.id}">{$list.name}</option>
+                                </foreach>
+                            </select>
+			</td>-->
+                        <th>申请日期：</th>
+                        <td colspan='3' class="r-line">
+                            <input type="text" class="tx" id='apply_time' name="do_post_code[apply_time]" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="<php>if( !empty($do_post_code['apply_time']) ){ echo date('Y-m-d H:i:s', $do_post_code['apply_time']);}</php>" />
+                        </td>
+		</tr>
+                <tr>
+                        <th>超市名称：</th>
+                        <td class="r-line" colspan="4">
+                            <input type="text" style="width:350px;" class="tx" name="do_post_code[market_name]" value="{$do_post_code.market_name}" />
+                        </td>
+                        <th>店名：</th>
+                        <td colspan='2' class="r-line">
+                            <input type="text" class="tx" name="do_post_code[shop_name]" value="{$do_post_code.shop_name}" />
+                        </td>
+                </tr>
+                <tr>
+                    <th class="r-line">贴码原因：</th>
+                    <td colspan="7">
+                        <textarea name="do_post_code[reason]" id="temporary_content" class="atx">{$do_post_code.reason}</textarea>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="r-line">产品货号<br />(订单产品)</td>
+                    <td class="r-line">产品货号<br />(替代产品)</td>
+                    <td class="r-line">贴码条形码<br />(订单产品)</td>
+                    <td class="r-line">订单产品<br />计划单价</td>
+                    <td class="r-line">替代产品<br />计划单价</td>
+                    <td class="r-line">数量</td>
+                    <td class="r-line">单价</td>
+                    <td class="r-line">操作</td>
+                </tr>
+                <php>if($do_post_code_item){</php>
+                    <foreach name="do_post_code_item" item="vo" key="k" >
+                        <tr name="item" id='sub_cat_{$k}' vel='{$k}'>
+                            <input type='hidden' name="do_post_code_items[{$k}][id]" value='{$vo.id}' />
+                            <td><input class="tx" type="text" id='product_id_{$k}' name="do_post_code_items[{$k}][product_id]" value="{$vo.product_id}" /></td>
+                            <td><input class="tx" type="text" id='change_id_{$k}' name="do_post_code_items[{$k}][change_id]" value="{$vo.change_id}" /></td>
+                            <td><input class="tx" type="text" id='barcode_{$k}' name="do_post_code_items[{$k}][barcode]" value="{$vo.barcode}" /></td>
+                            <td><input class="tx" type="text" id='plan_order_price_{$k}' name="do_post_code_items[{$k}][plan_order_price]" value="{$vo.plan_order_price}" /></td>
+                            <td><input class="tx" type="text" id='plan_change_price_{$k}' name="do_post_code_items[{$k}][plan_change_price]" value="{$vo.plan_change_price}" /></td>
+                            <td><input class="tx" type="text" id='unit_{$k}' name="do_post_code_items[{$k}][unit]" value="{$vo.unit}" /></td>
+                            <td><input class="tx" type="text" id='num_{$k}' name="do_post_code_items[{$k}][num]" value="{$vo.num}" /></td>
+                            <td><a onclick='del_sub(this)' href='javascrpit:;'>删除</a></td>
+                        </tr>
+                    </foreach>
+                <php>}else{</php>
+                    <tr name="item" id='sub_cat_0' vel='0'>
+                        <td class="r-line"><input class="tx" id='product_id_0' type="text" name="do_post_code_items[0][product_id]" /></td>
+                        <td class="r-line"><input class="tx" id='change_id_0' type="text" name="do_post_code_items[0][change_id]" /></td>
+                        <td class="r-line"><input class="tx" id='barcode_0' type="text" name="do_post_code_items[0][barcode]" /></td>
+                        <td class="r-line"><input class="tx" id='plan_order_price_0' type="text" name="do_post_code_items[0][plan_order_price]" /></td>
+                        <td class="r-line"><input class="tx" id='plan_change_price_0' type="text" name="do_post_code_items[0][plan_change_price]" /></td>
+                        <td class="r-line"><input class="tx" id='unit_0' type="text" name="do_post_code_items[0][unit]" /></td>
+                        <td class="r-line"><input class="tx" id='num_0' type="text" name="do_post_code_items[0][num]" /></td>
+                        <td><a onclick='del_sub(this)' href='javascrpit:;'>删除</a></td>
+                    </tr>
+                <php>}</php>
+                <tr>
+                    <td colspan="8" align="right"><a onclick="add_sub()" href="javascrpit:;" style="display: table;margin: 0 auto;">添加</a></td>
+                </tr>
+	</table>

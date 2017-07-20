@@ -1,0 +1,166 @@
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	   <include file="layouts/_sub_location" />
+	   <div class="row">
+				<div class="col-xs-12">
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-5">所在部门：</label>
+						
+							<div class="col-sm-9">
+								<select name="admin_user[deport_id]" id="admin_user_deport_id" class="col-xs-10 col-sm-5">
+									<php>
+									foreach( $deports as $k=>$value ){
+										if( $value['id']==$admin_user->deport_id ){
+											echo '<option value="'.$value['id'].'" selected="selected">'.$value['name'].'</option>';
+										}else{
+											echo '<option value="'.$value['id'].'">'.$value['name'].'</option>';
+										}
+									}
+									</php>
+								</select>
+								<span class="help-inline col-xs-12 col-sm-7">
+									<label class="middle">
+										<span class="lbl">请输入固定电话!</span>
+									</label>
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1">用户名：</label>
+						
+							<div class="col-sm-9">
+								<input type="text" id="admin_user_username" name="admin_user[username]" placeholder="用户名" class="col-xs-10 col-sm-5" value="{$admin_user.username}" />
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">姓名：</label>
+						
+							<div class="col-sm-9">
+								<input type="text" id="admin_user_name" name="admin_user[name]" placeholder="姓名" class="col-xs-10 col-sm-5" value="{$admin_user.name}" />
+							</div>
+						</div>
+						
+						<!-- /section:elements.form -->
+						<div class="space-4"></div>
+						
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-2">密码： </label>
+						
+							<div class="col-sm-9">
+								<input type="password" id="admin_user_password" name="admin_user[password]" placeholder="请输入密码" class="col-xs-10 col-sm-5" />
+								<span class="help-inline col-xs-12 col-sm-7">
+									<span class="middle">请输入密码</span>
+								</span>
+							</div>
+						</div>
+						
+						<div class="space-4"></div>
+						
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-input-readonly">确认密码：</label>
+						
+							<div class="col-sm-9">
+								<input type="text" class="col-xs-10 col-sm-5" id="admin_user_confirm_password" name="admin_user[confirm_password]" placeholder="请输入确认密码" name="confirm_psd" value="" />
+								<span class="help-inline col-xs-12 col-sm-7">
+									<label class="middle">
+										<span class="lbl">请输入确认密码!</span>
+									</label>
+								</span>
+							</div>
+						</div>
+						
+						<div class="space-4"></div>
+						
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-4">手机号：</label>
+						
+							<div class="col-sm-9">
+								<input type="text" class="col-xs-10 col-sm-5" id="admin_user_mobile" ame="admin_user[mobile]" placeholder="手机号" value="{$admin_user.mobile}" />
+								<span class="help-inline col-xs-12 col-sm-7">
+									<label class="middle">
+										<span class="lbl">请输入手机号!</span>
+									</label>
+								</span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-5">固定电话：</label>
+						
+							<div class="col-sm-9">
+								<input class="col-xs-10 col-sm-5" type="text" id="admin_user_phone" name="admin_user[phone]" placeholder="固定电话" value="{$admin_user.phone}" />
+						
+								<span class="help-inline col-xs-12 col-sm-7">
+									<label class="middle">
+										<span class="lbl">请输入固定电话!</span>
+									</label>
+								</span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right">性别：</label>
+						
+							<div class="col-sm-9">
+								<php>if($admin_user['sex']==0 ){</php>
+									<span class="input-icon">
+										<input type="radio" id="admin_user_sex_1" name="admin_user[sex]" value="1" />男&nbsp;&nbsp;
+									</span>
+						
+									<span class="input-icon input-icon-right">
+										<input type="radio" id="admin_user_sex_0" name="admin_user[sex]" checked="checked" value="0" />女
+									</span>
+								<php>}else{</php>
+									<span class="input-icon">
+										<input type="radio" id="admin_user_sex_1" name="admin_user[sex]" checked="checked" value="1" />男&nbsp;&nbsp;
+									</span>
+						
+									<span class="input-icon input-icon-right">
+										<input type="radio" id="admin_user_sex_0" name="admin_user[sex]" value="0" />女
+									</span>
+								<php>}</php>
+							</div>
+						</div>
+						
+						<div class="space-4"></div>
+						
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-6">现在住址：</label>
+						
+							<div class="col-sm-9">
+								<input type="text" class="col-xs-10 col-sm-5" id="admin_user_address" name="admin_user[address]" placeholder="现在住址" value="{$admin_user.address}" />
+								<span class="help-inline col-xs-12 col-sm-7">
+									<label class="middle">
+										<span class="lbl">请输入现在住址!</span>
+									</label>
+								</span>
+							</div>
+						</div>
+						
+						<div class="space-4"></div>
+						
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">描述：</label>
+						
+							<div class="col-sm-9">
+								<textarea name="admin_user[content]" id="admin_user_content" rows="5" cols="50">{$admin_user.content}</textarea>
+							</div>
+						</div>
+						<div class="clearfix form-actions">
+							<div class="col-md-offset-3 col-md-9">
+								<button class="btn btn-info" id="btn" type="submit">
+									<i class="ace-icon fa fa-check bigger-110"></i>
+									提交
+								</button>
+
+								&nbsp; &nbsp; &nbsp;
+								<button class="btn" type="reset">
+									<i class="ace-icon fa fa-undo bigger-110"></i>
+									重置
+								</button>
+							</div>
+						</div>
+				</div>
+		</div>
+</div>

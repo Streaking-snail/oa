@@ -1,0 +1,38 @@
+<div class="title">                                                        
+	<span class="tit">添加信息</span>
+    <span class="closed">[关闭]</span>
+</div>
+
+<table class="checked_list">
+	<tr>
+		<th width="5%">序号</th>
+		<th width="10%">审核状态</th>
+		<th width="15%">审核内容</th>
+		<th width="10%">部门</th>
+		<th width="10%">审核人</th>
+		<th width="15%">审核时间</th>
+	</tr>
+	<php>if( count($businesses_status)>0 ){</php>
+		<foreach name="businesses_status" key="k" item="v">
+			<tr>
+				<td>{$k+1}</td>
+				<php>if( $v['status']==1 ){</php>
+					<td style="color:green;">审核通过</td>
+				<php>}else{</php>
+					<td style="color:red;">审核不通过</td>
+				<php>}</php>
+				<td>{$v.content}</td>
+				<td><php>echo D('AdminUser')->get_deport_name($v['admin_user_id']);</php></td>
+				<td>{$v.username}</td>
+				<td><php>echo date("Y-m-d H:i:s", $v['create_time'])</php></td>
+			</tr>
+		</foreach>
+	<php>}else{</php>
+		<tr>
+			<td colspan=""></td>
+		</tr>
+	<php>}</php>
+</table>
+<p  style="margin:20px auto 0px;text-align:center;align:center;">
+     <input type="button" name="close" class="btn_c" value="关闭" />
+</p>

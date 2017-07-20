@@ -1,0 +1,64 @@
+<div class="page-content-area">
+		<include file='layouts/_sub_location' />
+		<div class="row">
+				<div class="col-xs-12">
+						<div id="sample-table-2_wrapper" class="dataTables_wrapper form-inline no-footer">
+								<div class="row">
+									<include file="layouts/_search" />
+								</div>
+								<table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample-table-2_info">
+									<thead>
+										   <tr>
+										   		<th>部门名称</th>
+												<th>部门描述</th>
+												<th>
+													<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+													创建时间
+												</th>
+												<th>部门角色</th>
+												<th>部门成员</th>
+												<th>排序</th>
+												<th>操作</th>
+											</tr>
+									</thead>
+
+									<tbody>
+										<php>foreach($deports as $k=>$value){</php>
+											<tr role="row" class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>">
+												<td>
+													<a href="{:U('Home/AdminUser/index',array('deport_id'=>$value['id']))}">{$value.name}</a>
+												</td>
+												<td>{$value.content}</td>
+												<td class=""><php>echo date("Y-m-d H:i:s", $value['create_time']);</php></td>
+												<td><php>echo $Deport->role_list($value['id']);</php></td>
+												<td><php>echo $Deport->user_list($value['id']);</php></td>
+												<td>{$value.rank}</td>
+												<td>
+													<div class="hidden-sm hidden-xs btn-group">
+														<a href="{:U('Deport/edit', array('id'=>$value['id']))}">
+															<button class="btn btn-xs btn-info">
+																<i class="ace-icon fa fa-pencil bigger-120"></i>
+															</button>
+														</a>
+														<a href="{:U('Deport/delete_deport', array('id'=>$value['id']))}">
+															<button class="btn btn-xs btn-danger">
+																<i class="ace-icon fa fa-trash-o bigger-120"></i>
+															</button>
+														</a>
+													</div>
+
+												</td>
+											</tr>
+										<php>}</php>
+										<php>if( count($deports)==0 ){ echo "<tr><td colspan='6'>暂无相关记录</td></tr>";}</php>
+									</tbody>
+								</table>
+								<div class="row">
+										<div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+											{$show_page}
+										</div>
+								</div>
+						</div><!-- sample-table-2_wrapper -->
+				 </div><!-- col-xs-12 -->
+		</div>
+</div>

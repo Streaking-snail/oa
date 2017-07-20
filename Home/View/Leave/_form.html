@@ -1,0 +1,44 @@
+<div class="t-title tc">请假单</div>
+	<table class="t-info">
+		<tr>
+			<td colspan="2">
+				单据号：<input type="text" class="tx" name="leave[no]" id="doleave_no" value="{$leave.no}" />
+			</td>
+			<th colspan="4">
+				填写时间：<input style="width:160px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="leave[create_time]" id="leave_create_time" value="<php>if( !empty($leave['report_time']) ){ echo date('Y-m-d H:i:s', $leave['report_time']);}</php>" />
+				<input type="text"  style="display:none;" name="leave[admin_user_id]" value="{$leave.admin_user_id}" />
+				<input type="text"  style="display:none;" name="leave[deport_id]" value="{$leave.deport_id}" />
+			</th>
+		</tr>
+		<tr>
+			<td class="r-line">请假类别：</td>
+			<td  class="r-line" colspan="2"><select name="leave[ptype]">
+				<option <?php if($leave[ptype]==1) echo("selected");?> value="1">探亲假</option> 
+				<option <?php if($leave[ptype]==2) echo("selected");?> value="2">事假</option> 
+				<option <?php if($leave[ptype]==3) echo("selected");?> value="3">病假</option> 
+				<option <?php if($leave[ptype]==4) echo("selected");?> value="4">婚假</option> 
+				<option <?php if($leave[ptype]==5) echo("selected");?> value="5">丧假</option> 
+				<option <?php if($leave[ptype]==6) echo("selected");?> value="6">公假</option> 
+				<option <?php if($leave[ptype]==7) echo("selected");?> value="7">工伤</option> 
+				<option <?php if($leave[ptype]==8) echo("selected");?> value="8">产假</option> 
+				<option <?php if($leave[ptype]==9) echo("selected");?> value="9">其他</option> 
+			</select></td>
+			<td class="r-line">工号：</td>
+			<td class="r-line" colspan="2"><input type="text" name="leave[job_id]" class="tx"  value="{$leave.job_id}" /></td>
+		</tr>
+		
+		<tr>
+			<td rowspan="3" class="r-line">请假时间：</td>
+			<td colspan="2"  class="r-line">自<input style="width:160px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="leave[start_time]" id="leave_start_time" value="<php>if( !empty($leave['start_time']) ){ echo date('Y-m-d H:i:s', $leave['start_time']);}</php>" /></td>
+			<td rowspan="3" class="r-line">请假事由</td>
+			<td rowspan="3" colspan="2"  class="att">
+				<textarea name="leave[content]" id="leave_content" class="atx">{$leave.content}</textarea>
+			</td>
+		</tr>
+		<tr>
+		<td colspan="2"  class="r-line">至<input style="width:160px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="leave[end_time]" id="leave_end_time" value="<php>if( !empty($leave['end_time']) ){ echo date('Y-m-d H:i:s', $leave['end_time']);}</php>" /></td>
+		</tr>
+		<tr>
+		<td colspan="2"  class="r-line">共计<input type="text" class="tx"  name="leave[days]" value="<php>if( !empty($leave['days']) ){ echo $leave['days'];}</php>" />天</td>
+		</tr>
+	</table>

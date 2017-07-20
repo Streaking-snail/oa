@@ -1,0 +1,56 @@
+/* included only when we don't want to use fonts from google server */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(../font/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(../font/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+.err{color:red;font-size:12px;}
+.lbl{display:none;}
+
+
+input.fp {
+	position: absolute;
+    left: 0px;
+    top: -5px;
+    width: 40px;
+    z-index: 1000;
+    height: 30px;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+input.ad-btn {
+	/*background:url('../images/upload.png') 0 0 no-repeat;*/
+	background:#438eb9;
+	color:#fff;
+    border: none;
+    width: 40px;
+    line-height: 23px;
+    height: 30px;
+}
+
+.checked_list{align:center;border:1px solid #c2c2c2;margin:0px auto;font-size:14px;}
+
+.rg{float:right;margin-right:10px;}
+.table tr.current td,.table-hover tr.odd.current td{background:#7cc5e5};
+.table tr.current td,.table-hover tr.current td{background:#7cc5e5};
+.t-title{text-align:center;margin:5px auto;font-size:20px;}
+.t-info{align:center;border:1px solid #c2c2c2;margin:0px auto;font-size:14px;}
+.t-info tr{border:1px solid #444444;line-height:35px;}
+.t-info th{text-align:right;padding:0px 5px 0px 20px;font-weight:normal;}
+.t-info td{padding:5px 40px 5px 5px;}
+.t-info td.att{padding:5px;}
+.t-info th.lf{text-align:left;}
+.t-info .tx{height:25px;width:110px;line-height:12px;padding:2px 0px;}
+.t-info .atx{height:150px;width:100%;line-height:20px;overflow-y:auto;}
+.r-line{border-right:1px solid #444444;}
+.t-info tr.n-l{border-bottom:none;}
+.t-info tr.t-l{border-top:none;}
+.tc{text-align:center;margin:5px auto;font-size:20px;}

@@ -1,0 +1,137 @@
+<div class="page-content-area">
+		<include file="layouts/_sub_location" />
+		<div class="row">
+				<div class="col-xs-12">
+							<div id="sample-table-2_wrapper" class="dataTables_wrapper form-inline no-footer"  style="overflow-x:auto;">
+												<div class="row">
+													<include file="layouts/_search" />
+												</div>
+                                                                                                <div id="col" class="col">
+													<include file="layouts/_conditions" />
+												</div>
+												<div class="row">
+													<include file="layouts/_notice" />
+												</div>
+												<table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample-table-2_info">
+													<thead>
+														   <tr>
+                                                                <th width="3%">序号</th>
+																<th width="5%">大类名称</th>
+																<th width="5%">产品系列</th>
+																<th width="5%">产品类别</th>
+																<th width="8%">物料代码</th>
+																<th width="8%">辅代码</th>
+																<th width="10%">产品名称</th>
+																<th width="8%">现价</th>
+																<th width="8%">统一售价</th>
+																<th width="8%">最低售价</th>
+																<th width="8%">起订数</th>
+																<th width="10%">生产周期</th>
+																<th width="10%">计划完成时间</th>
+																<th width="10%">描述</th>
+																<th width="8%">状态</th>
+																<th width="10%">操作</th>
+															</tr>
+													</thead>
+	
+													<tbody>
+														<php>foreach($products as $k=>$value){</php>
+															<tr class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>" name="item" vel="{$value.id}">
+                                                                <td>{$page_number+$k+1}</td>
+																<td><php>echo $Product->get_category_name($value['category_id']);</php></td>
+																<td><php>echo $Product->get_sub_category_name($value['sub_category_id']);</php></td>
+																<td><php>echo $Product->get_classification_name($value['classification_id']);</php></td>
+																<td>{$value.code}</td>
+																<td>{$value.number}</td>
+																<td>
+																	<img src="<php>echo C('WEBURL').$value['pic_path'];</php>" width="50" height="50" />
+																	{$value.name}<br />
+																	<a href="{:U('Download/index',array('file'=>urlencode($value['pic_path'])))}">下载</a>
+																</td>
+																<td>{$value.now_price}</td>
+																<td>{$value.sold_price}</td>
+																<td>{$value.min_price}</td>
+																<td>{$value.min_num}</td>
+																<td>{$value.days}</td>
+																<td><php>if(!empty($value['ptime'])){ echo date("Y-m-d", $value['ptime']); }</php></td>
+																<td>{$value.content}</td>
+																<td>
+																	<php>if($value['status']==1){
+																			echo "<span class='label label-sm label-success'>审核通过</span>";
+																		 }elseif( $value['status']==2 ){
+																		 	echo "<span class='label label-sm label-inverse arrowed-in'>审核不通过</span>";
+																		 }else{
+																		 	echo "<span class='label label-sm label-warning'>未审核</span>";
+																		 }
+																	</php>
+																</td>
+																<td>
+																	<div class="hidden-sm hidden-xs action-buttons">
+																		<php>if( $value['status']==0 && D('Roles')->is_power('Product', 'check', $user_info['id']) ){</php>
+																		<a class="blue" href="{:U('Product/checked', array('id'=>$value['id']))}" title="审核通过">
+																			<i class="ace-icon fa fa-check bigger-120"></i>
+																		</a>
+																		
+																		<a class="blue" href="{:U('Product/unchecked', array('id'=>$value['id']))}" title="审核不通过">
+																			<i class="ace-icon fa fa-flag bigger-120"></i>
+																		</a>
+																		<php>}</php>
+																		
+																		<php>if( D('Roles')->is_power('Product', 'edit', $user_info['id']) ){</php>
+																		<a class="green" href="{:U('Product/edit', array('id'=>$value['id']))}" title="修改">
+																			<i class="ace-icon fa fa-pencil bigger-130"></i>
+																		</a>
+																		<php>}</php>
+																		<php>if( $value['status']==0 ){</php>
+																		<a class="red" href="{:U('Product/del', array('id'=>$value['id']))}" title="删除">
+																			<i class="ace-icon fa fa-trash-o bigger-130"></i>
+																		</a>
+																		<php>}</php>
+																	</div>
+																</td>
+															</tr>
+															<tr id="item_{$value.id}" data-s="1" style="display:none;">
+																<td colspan="15">
+																	<php>$product_logs=D('AdminUserLog')->get_product_logs($value['id']);</php>
+																	<table width="100%" border=1>
+																		<tr>
+																		<th width="50%">旧数据</th>
+																		<th width="50%">修改数据</th>
+																		</tr>
+																		<php>foreach($product_logs as $v){
+																			$res = json_decode($v['content']);	
+																		</php>
+																			<tr>
+																			<td>
+																			现价:{$res->oinfo->now_price}&nbsp;统一售价：{$res->oinfo->sold_price}&nbsp;最低售价：{$res->oinfo->min_price}
+																			起订量：{$res->oinfo->min_num}&nbsp;生产周期：{$res->oinfo->days}&nbsp;计划完成时间：<php>echo date("Y-m-d H:i:s", $res->oinfo->ptime);</php>&nbsp;
+																			创建者：<php>echo D('AdminUser')->get_name($res->oinfo->admin_user_id)</php>&nbsp;&nbsp;创建时间：<php>echo date("Y-m-d H:i:s", $res->oinfo->create_time)</php>
+																			</td>
+																			<td>
+																			现价:{$res->ninfo->now_price}&nbsp;统一售价：{$res->ninfo->sold_price}&nbsp;最低售价：{$res->ninfo->min_price}
+																			起订量：{$res->ninfo->min_num}&nbsp;生产周期：{$res->ninfo->days}&nbsp;计划完成时间：{$res->ninfo->ptime}</php>&nbsp;
+																			修改者：<php>echo D('AdminUser')->get_name($v['admin_user_id'])</php>&nbsp;&nbsp;修改时间：<php>echo date("Y-m-d H:i:s", $v['create_time'])</php>
+																			</td>
+																			</tr>
+																		<php>}</php>
+																	</table>
+																</td>
+															</tr>
+														<php>}
+															if( count($products)==0 ){ 
+																echo "<tr><td align='center' colspan='15'>暂无相关记录</td></tr>";
+															}
+														</php>
+													</tbody>
+												</table>
+												<div class="row">
+														<div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+															{$show_page}
+														</div>
+												</div>
+										</div><!-- sample-table-2_wrapper -->
+				 </div><!-- col-xs-12 -->
+		</div>
+		
+
+</div>

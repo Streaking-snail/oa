@@ -1,0 +1,53 @@
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	   <include file="layouts/_sub_location" />
+	   <div class="row">
+				<div class="col-xs-12">
+						<div class="profile-user-info profile-user-info-striped">
+								<div class="profile-info-row">
+									<div class="profile-info-name">分类名称</div>
+
+									<div class="profile-info-value">
+										<span class="editable editable-click" id="username">{$p_type.name}</span>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name">状态</div>
+
+									<div class="profile-info-value">
+										<php>
+											foreach( $Ptype->get_status($p_type['id']) as $k=>$v ){
+												if($k!=0){
+													echo "->".$v['name'];
+												}else{
+													echo $v['name'];
+												}
+										     }
+										</php>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name">流程说明</div>
+
+									<div class="profile-info-value">
+										{$p_type.content}
+									</div>
+								</div>
+						</div>
+						<div class="clearfix form-actions">
+							<div class="col-md-offset-3 col-md-9">
+								<php> if( D('Roles')->is_power('Ptypes', 'edit', $user_info['id']) || $this->user_info['is_admin']==1 ){ </php>
+									<a href="{:U('Ptypes/edit', array('id'=>$p_type['id']))}">
+										<button class="btn btn-info" id="btn" type="button">
+											<i class="ace-icon fa fa-check bigger-110"></i>
+											修改
+										</button>
+									</a>
+								<php>}</php>
+							</div>
+						</div>
+				</div>
+		</div>
+</div>

@@ -1,0 +1,48 @@
+<div class="form-group">
+	<include file="layouts/_notice" />
+</div>
+<input type="hidden" name="count_info[product_id]" id="count_info_product_id" value="{$count_info.product_id}"/>
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-5"><span class="err">*</span>产品名称/辅代码/物料代码：<br />(只有图片流程完成才能添加)</label>
+
+	<div class="col-sm-9">
+		<input type="text" id="product_name" name="product_name" data-url="{:U('CountInfo/get_products')}" placeholder="产品名称/辅代码/物料代码" class="col-xs-10 col-sm-5" value="{$count_info.product_name}" />
+		<span class="help-inline col-xs-12 col-sm-7">
+			<label class="middle">
+				<span class="lbl">请输入产品!</span>
+			</label>
+		</span>
+	</div>
+</div>
+<div class="space-4"></div>
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-5"><span class="err">*</span>商城：</label>
+
+	<div class="col-sm-9">
+		<select name="count_info[mall_id]" id="count_info_mall_id" class="col-xs-10 col-sm-5" data-url="{:U('CountInfo/select_shops')}">
+			<php>
+			foreach( $malls as $k=>$value ){
+				if( intval($value['id'])==intval($count_info['mall_id']) ){
+					echo '<option value="'.$value['id'].'" selected="selected">'.$value['name'].'</option>';
+				}else{
+					echo '<option value="'.$value['id'].'">'.$value['name'].'</option>';
+				}
+			}
+			</php>
+		</select>
+		<span class="help-inline col-xs-12 col-sm-7">
+			<label class="middle">
+				<span class="lbl">请选择商城!</span>
+			</label>
+		</span>
+	</div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-5"><span class="err">*</span>店铺：</label>
+	<div class="col-sm-9" id="shop_list">
+		<include file="CountInfo/_shop_list" />
+	</div>
+</div>
+<div class="space-4"></div>

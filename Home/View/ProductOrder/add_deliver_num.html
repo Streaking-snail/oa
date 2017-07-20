@@ -1,0 +1,80 @@
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+		<include file="layouts/_sub_location"/>
+		<div class="row">
+				<div class="col-xs-12">
+						<form class="form-horizontal" action="{:U('ProductOrder/create_deliver')}" method="post" role="form"  runat="server">
+							<input type="hidden" name="product_order_deliver[product_order_id]" id="product_order_deliver_product_order_id" value="{$product_order.id}" />
+							<div class="form-group">
+								<include file="layouts/_notice" />
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">应到数量：</label>
+							
+								<div class="col-sm-9">
+									<input type="number" min='0' id="num" name="num" readonly placeholder="到货数量" class="col-xs-10 col-sm-5" value="<php>echo $product_order['jd_num']+$product_order['tm_num']+$product_order['tb_num']+$product_order['ka_num']+$product_order['sc_num'];</php>" />
+								</div>
+							</div>
+							<div class="space-4"></div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">实际已到数量：</label>
+							
+								<div class="col-sm-9">
+									<input type="number" min='0' id="sj_num" name="sj_num" readonly placeholder="到货数量" class="col-xs-10 col-sm-5" value="{$deliver_num}" />
+								</div>
+							</div>
+							<div class="space-4"></div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-tags"><span class="err">*</span>到货时间：</label>
+							
+								<div class="col-sm-9">
+									<input type="text"  id="product_order_deliver_deliver_time" name="product_order_deliver[deliver_time]" placeholder="到货时间（格式：YYYY-mm-dd HH:mm:ss）" name="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" class="col-xs-10 col-sm-5"  value="<php>if(!empty($product_order_deliver['deliver_time'])){echo date('Y-m-d H:i:s', $product_order_deliver['deliver_time']);}</php>" />
+									<span class="help-inline col-xs-12 col-sm-7">
+					                        <label class="middle">
+					                                <span class="lbl">请填写到货时间!</span>
+					                        </label>
+					                </span>
+								</div>
+							</div>
+							<div class="space-4"></div>
+							
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-tags"><span class="err">*</span>到货数量：</label>
+							
+								<div class="col-sm-9">
+									<input type="number" min='0' id="product_order_deliver_num" name="product_order_deliver[num]" placeholder="到货数量" class="col-xs-10 col-sm-5" value="{$product_order_deliver.num}" />
+									<span class="help-inline col-xs-12 col-sm-7">
+					                        <label class="middle">
+					                                <span class="lbl" id="error_msg">请填写到货数量!</span>
+					                        </label>
+					                </span>
+								</div>
+							</div>
+							<div class="space-4"></div>
+							
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">备注：</label>
+							
+								<div class="col-sm-9">
+							          <textarea name="product_order_deliver[content]" id="product_order_deliver_content" class="" rows="3" cols="45">{$product_order_deliver.content}</textarea>
+								</div>
+							</div>
+							<div class="space-4"></div>
+							<div class="clearfix form-actions">
+								<div class="col-md-offset-3 col-md-9">
+									<button class="btn btn-info" id="btn" type="submit">
+										<i class="ace-icon fa fa-check bigger-110"></i>
+										提交
+									</button>
+
+									&nbsp; &nbsp; &nbsp;
+									<button class="btn" type="reset">
+										<i class="ace-icon fa fa-undo bigger-110"></i>
+										重置
+									</button>
+								</div>
+							</div>
+						</form>
+				</div>
+	   </div>
+</div>

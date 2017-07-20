@@ -1,0 +1,37 @@
+<div id="member-tab" class="tab-pane">
+	<div class="clearfix">
+		<php>foreach($members as $value){</php>
+				<div class="itemdiv memberdiv">
+					<div class="user">
+						<img alt="{$value.username}" src="__PUBLIC__/avatars/avatar2.png" />
+					</div>
+
+					<div class="body">
+						<div class="name">
+							<a href="javascript:void(0);">{$value.name}</a>
+						</div>
+						<div class="time">
+							<i class="ace-icon fa fa-clock-o"></i>
+							<span class="green"><php>echo date("Y-m-d H:i:s", $value['create_time']);</php></span>
+						</div>
+						<div>
+							<!--<span class="label label-success label-sm arrowed-in"></span>-->
+						</div>
+					</div>
+				</div>
+		<php>}</php>
+	</div>
+
+	<div class="space-4"></div>
+	<!-- 
+	<div class="center">
+		<i class="ace-icon fa fa-users fa-2x green middle"></i>
+		&nbsp;
+		<a href="#" class="btn btn-sm btn-white btn-info">
+			See all members &nbsp;
+			<i class="ace-icon fa fa-arrow-right"></i>
+		</a>
+	</div>
+	 -->
+	<div class="hr hr-double hr8"></div>
+</div><!-- /.#member-tab -->

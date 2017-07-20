@@ -1,0 +1,61 @@
+<php>if( isset($_SESSION['notice']) && !empty($_SESSION['notice']) ){</php>
+	<php>if( $_SESSION['notice_code']=='login' ){ </php>
+		<style>
+			.notice{padding:0px;color:red;margin:-16px 0px 5px;text-align:center;}
+		</style>
+		<div class="notice"><php>echo $_SESSION['notice'];</php></div>
+	<php>}else if( $_SESSION['notice_code']=='login_index' ){</php>
+		<div class="alert alert-block alert-success">
+			<button type="button" class="close" data-dismiss="alert">
+				<i class="ace-icon fa fa-times"></i>
+			</button>
+			<i class="ace-icon fa fa-check green"></i>
+			<php>if( empty($_SESSION['notice']) ){</php>
+			欢迎您，
+			<strong class="green">
+				<php>if( !empty($user_info['name']) ){echo $user_info['name'];}else{echo $user_info['username'];}</php>
+			</strong>,登录广博项目管理系统
+			<php>}else{
+				echo $_SESSION['notice'];
+			}
+			</php>
+			
+		</div>
+	<php>}else if( $_SESSION['notice_code']=='success' ){</php>
+		<div class="alert alert-block alert-success">
+			<button type="button" class="close" data-dismiss="alert">
+				<i class="ace-icon fa fa-times"></i>
+			</button>
+			<p>
+				<strong>
+					<i class="ace-icon fa fa-check"></i>
+					执行成功!
+				</strong>
+				<php>echo $_SESSION['notice'];</php>
+			</p>
+		</div>
+	<php>}else if( $_SESSION['notice_code']=='warning' ){</php>
+		<div class="alert alert-warning">
+			<button type="button" class="close" data-dismiss="alert">
+				<i class="ace-icon fa fa-times"></i>
+			</button>
+			<strong>提示！</strong>
+			<php>echo $_SESSION['notice'];</php>
+			<br>
+		</div>
+	<php>}else{</php>
+		<div class="alert alert-danger">
+			<button type="button" class="close" data-dismiss="alert">
+				<i class="ace-icon fa fa-times"></i>
+			</button>
+			<strong>
+				<i class="ace-icon fa fa-times"></i>
+				错误！
+			</strong>
+			<php>echo $_SESSION['notice'];</php>
+			<br />
+		</div>
+	<php>}
+		unset($_SESSION['notice']);
+	</php>
+<php>}</php>

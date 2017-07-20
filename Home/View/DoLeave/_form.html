@@ -1,0 +1,36 @@
+<div class="t-title tc">请假单</div>
+	<table class="t-info">
+		<tr>
+			<td>
+				单据号：<input type="text" class="tx" name="doleave[no]" id="doleave_no" value="{$doleave.no}" />
+			</td>
+			<th colspan="2">
+				填写时间：<input style="width:160px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="doleave[create_time]" id="doleave_create_time" value="<php>if( !empty($doleave['report_time']) ){ echo date('Y-m-d H:i:s', $doleave['report_time']);}</php>" />
+				<input type="text"  style="display:none;" name="doleave[admin_user_id]" value="{$doleave.admin_user_id}" />
+				<input type="text"  style="display:none;" name="doleave[deport_id]" value="{$doleave.deport_id}" />
+			</th>
+		<tr>
+			<td colspan="3">请假类别：探亲假<input type="radio" name="doleave[ptype]" value="1" <?php if($doleave[ptype]==1) echo("checked");?>>&nbsp;
+										事假<input type="radio" name="doleave[ptype]" value="2" <?php if($doleave[ptype]==2) echo("checked");?>>&nbsp;
+										病假<input type="radio" name="doleave[ptype]" value="3" <?php if($doleave[ptype]==3) echo("checked");?>>&nbsp;
+										婚假<input type="radio" name="doleave[ptype]" value="4" <?php if($doleave[ptype]==4) echo("checked");?>>&nbsp;
+										丧假<input type="radio" name="doleave[ptype]" value="5" <?php if($doleave[ptype]==5) echo("checked");?>>&nbsp;
+										公假<input type="radio" name="doleave[ptype]" value="6" <?php if($doleave[ptype]==6) echo("checked");?>>&nbsp;
+										工伤<input type="radio" name="doleave[ptype]" value="7" <?php if($doleave[ptype]==7) echo("checked");?>>&nbsp;
+										产假<input type="radio" name="doleave[ptype]" value="8" <?php if($doleave[ptype]==8) echo("checked");?>>&nbsp;
+										其他<input type="radio" name="doleave[ptype]" value="9" <?php if($doleave[ptype]==9) echo("checked");?>></td>
+		</tr>
+		<tr>
+			<td colspan="3">请假时间：自<input style="width:140px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="doleave[start_time]" id="doleave_start_time" value="<php>if( !empty($doleave['start_time']) ){ echo date('Y-m-d H:i:s', $doleave['start_time']);}</php>" />
+			至<input style="width:140px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="doleave[end_time]" id="doleave_end_time" value="<php>if( !empty($doleave['end_time']) ){ echo date('Y-m-d H:i:s', $doleave['end_time']);}</php>" />
+			共计<input type="text" class="tx"  name="doleave[days]" id="doleave_days" value="{$doleave.days}" />天</td>
+		</tr>
+		<tr class="n-l">
+			<th class="lf" colspan="3">请假事由</th>
+		</tr>
+		<tr class="t-l">
+			<td colspan="3" class="att">
+				<textarea name="doleave[content]" id="doleave_content" class="atx">{$doleave.content}</textarea>
+			</td>
+		</tr>
+	</table>

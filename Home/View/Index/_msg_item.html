@@ -1,0 +1,47 @@
+<div class="itemdiv dialogdiv">
+	<div class="user">
+	    <php>if( !empty($value['head_pic']) ){</php>
+			<img alt="{$value.name}" src="__PUBLIC__{$value.head_pic}" />
+		<php>}else{</php>
+			<img alt="{$value.name}" src="__PUBLIC__/avatars/avatar2.png" />
+		<php>}</php>
+	</div>
+	<div class="body">
+		<div class="time">
+			<i class="ace-icon fa fa-clock-o"></i>
+			<span class="green">
+				<php>
+					$t = time()-$value['create_time'];
+					$d = intval($t/24/3600);
+					$h = intval($t/3600%24);
+					$m = intval($t%3600/60);
+					$s = intval($t%3600%60);
+					$str = "";
+					if( $d>0 ){ 
+						$str .= $d."天前"; 
+					}elseif( $h>0 ){ 
+						$str .= $h."小时前"; 
+					}elseif( $m>0 ){ 
+						$str .= $m."分前"; 
+					}elseif( $s>0 ){ 
+						$str .= $s."秒前";
+					}else{
+						$str .= "1秒前";
+					}
+					echo $str;
+				</php>
+			</span>
+		</div>
+		<div class="name">
+			<a href="javascript:void(0);">{$value.username}</a>
+		</div>
+		<div class="text">{$value.msg}</div>
+		<div class="tools">
+			<php>if( intval($value['admin_user_id'])==intval($_SESSION['admin_user_id']) ){</php>
+				<a href="javascript:void(0);" class="btn btn-minier btn-info" name="del_item" vel="{$value.id}" >
+					<i class="icon-only ace-icon fa fa-share"></i>
+				</a>
+			<php>}</php>
+		</div>
+	</div>
+</div>

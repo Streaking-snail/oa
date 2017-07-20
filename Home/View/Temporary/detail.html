@@ -1,0 +1,91 @@
+
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<!-- <include file='layouts/_sub_location' />-->
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="" role="form">
+				<div id="show_info">
+					<div class="t-title tc">公司临时审批表</div>
+					<table class="t-info">
+						<tr>
+							<th colspan="4">
+								报千附件单据号：{$temporary.no}
+							</th2>
+						</tr>
+						<tr>
+							<th>报告递交部门：</th>
+							<td class="r-line">
+								{$temporary.deport_name}
+							</td>
+							<th>报告递交人员：</th>
+							<td>
+								{$temporary.user_name}
+							</td>
+						</tr>
+						<tr>
+							<th>报告填写人员：</th>
+							<td class="r-line">{$temporary.username}</td>
+							<th>报告填写时间：</th>
+							<td><php>
+								if( !empty($temporary['report_time']) ){ 
+									echo date('Y-m-d H:i:s', $temporary['report_time']);
+								}
+							    </php>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4" style="height:200px;vertical-align:top; padding: 5px 23px;" >
+								{$temporary.content}
+							</td>
+						</tr>
+						<php>if( count($temporary_status)>0 ){</php>
+							<tr>
+								<td align="center">状态</td>
+								<td align="center">审核时间</td>
+								<td align="center">审核人</td>
+								<td align="center">审核内容</td>
+							</tr>
+							<foreach name="temporary_status" item="v">
+								<tr>
+									<php>if( $v['status']==1 ){</php>
+										<td style="color:green;text-align:center;">审核通过</td>
+									<php>}else{</php>
+										<td style="color:red;text-align:center;">审核不通过</td>
+									<php>}</php>
+									<td align="center"><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+									<td align="center">{$v.username}</td>
+									<td align="center">
+										{$v.content}
+										<php>if( !empty($v['url_path']) ){</php>
+											<br />
+											附件：<a href="{:U('Download/index',array('file'=>urlencode($v['url_path'])))}">{$v['name']}</a>
+										<php>}</php>
+									</td>
+								</tr>
+							</foreach>
+						<php>}</php>
+					</table>
+				</div>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="button" name="back_btn">
+							<i class="ace-icon fa fa-undo bigger-110"></i>
+							返回上页
+						</button>&nbsp; &nbsp; &nbsp;&nbsp;
+						<button class="btn btn-info" type="button" name="print_info" >
+							打印
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

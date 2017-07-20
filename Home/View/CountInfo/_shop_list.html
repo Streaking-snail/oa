@@ -1,0 +1,16 @@
+<php>if( count($shops)>0 ){</php>
+	<php>foreach($shops as $k=>$value){</php>
+		<input type="checkbox" name="shop_ids[]" checked="checked" id="shops_{$k}_id" value="{$value.id}" /> {$value.name}
+	<php>}</php>
+	<span class="help-inline col-xs-12 col-sm-7">
+		<label class="middle">
+			<span class="lbl">请选择店铺!</span>
+		</label>
+	</span>
+<php>}else{</php>
+	<span>
+		<label class="middle">
+			<span class="lbl" style="display:block;">请先去&nbsp;<a href="{:U('Shop/add_info')}">添加店铺</a></span>
+		</label>
+	</span>
+<php>}</php>

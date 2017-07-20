@@ -1,0 +1,11 @@
+<div class="row">
+		<div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+			{$show_page}
+		</div>
+		<php>$controller = CONTROLLER_NAME;</php>
+		<div class="rg">
+			<input type="button" value="查看" name="show_info" data-url='{:U("\$controller/detail")}'/>&nbsp;
+			<input type="button" value="修改" name="edit_info" data-url='{:U("\$controller/edit")}'/>&nbsp;
+			<input type="button" value="添加" name="add_info" data-url='{:U("\$controller/add_info")}' />
+		</div>
+</div>

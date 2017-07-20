@@ -1,0 +1,34 @@
+	<div class="t-title tc">公司临时审批表</div>
+	<table class="t-info">
+		<tr>
+			<th colspan="4">
+				报千附件单据号：<input type="text" class="tx" name="temporary[no]" id="temporary_no" value="{$temporary.no}" />
+			</th>
+		</tr>
+		<tr>
+			<th>报告递交部门</th>
+			<td class="r-line">
+				<input type="hidden" name="temporary[deport_id]" data="deport_id" id="temporary_deport_id" value="{$temporary.deport_id}"/>
+				<input type="text" data-url="{:U('Index/get_deport')}" autocomplete="off" class="tx" id="deport_name" name="deport_name" value="{$temporary.deport_name}" />
+			</td>
+			<th>报告递交人员</th>
+			<td>
+				<input type="hidden" name="temporary[make_id]" data="user_id" id="temporary_make_id" value="{$temporary.make_id}"/>
+				<input type="text" data-url="{:U('Index/get_user')}" class="tx" autocomplete="off" id="user_name" name="user_name" value="{$temporary.user_name}"/>
+			</td>
+		</tr>
+		<tr>
+			<th>报告填写人员</th>
+			<td class="r-line"><input type="text" class="tx" readonly value="{$temporary.username}" /></td>
+			<th>报告填写时间</th>
+			<td><input type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="temporary[report_time]" id="temporary_report_time" value="<php>if( !empty($temporary['report_time']) ){ echo date('Y-m-d H:i:s', $temporary['report_time']);}</php>" /></td>
+		</tr>
+		<tr class="n-l">
+			<th class="lf" colspan="4">备注</th>
+		</tr>
+		<tr class="t-l">
+			<td colspan="4" class="att">
+				<textarea name="temporary[content]" id="temporary_content" class="atx">{$temporary.content}</textarea>
+			</td>
+		</tr>
+	</table>

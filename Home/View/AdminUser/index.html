@@ -1,0 +1,115 @@
+<div class="page-content-area">
+		<include file='layouts/_sub_location' />
+		<div class="row">
+				<div class="col-xs-12">
+								<include file='layouts/_table_title' />
+								<include file="layouts/_notice" />
+								<div id="sample-table-2_wrapper"  style="overflow-x:auto;" class="dataTables_wrapper form-inline no-footer">
+												<div class="row">
+													<include file="layouts/_search" />
+												</div>
+												<table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample-table-2_info">
+													<thead>
+														   <tr>
+																<th class="center">
+																	序号
+																</th>
+																<th>用户名</th>
+																<th>姓名</th>
+																<th>所在部门</th>
+																<th>角色</th>
+																<th class="hidden-480">联系电话</th>
+																
+																<th>
+																	<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+																	创建时间
+																</th>
+																<th class="hidden-480">状态</th>
+			
+																<th>操作</th>
+															</tr>
+													</thead>
+	
+													<tbody>
+														<php>foreach($admin_users as $k=>$value){</php>
+															<tr role="row" class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>"> 
+																<td class="center">
+																	{$k+1+$page_number}
+																</td>
+																<td>{$value.username}</td>
+																<td>
+																	<a href="{:U('Home/AdminUser/edit', array('id'=>$value['id']))}">{$value.name}</a>
+																</td>
+																<td>
+																	<php>echo $AdminUser->deport_name($value['deport_id'])</php>
+																</td>
+																<td>
+																	<php>echo $AdminUser->role_name($value['role_id'])</php>
+																</td>
+																<td class="hidden-480">{$value.phone}</td>
+																<td class=""><php>echo date("Y-m-d H:i:s", $value['create_time']);</php></td>
+		
+																<td class="hidden-480 sorting_1">
+																	<php>if($value['status']==1){</php>
+																		<span class="label label-sm">正常</span>
+																	<php>}else if( $value['status']==2 ){</php>
+																		<span class="label label-sm label-warning">锁定</span>
+																	<php>}</php>
+																	<php>if($value['is_test']==1){</php>
+																	<br />测试账号
+																	<php>}</php>
+																</td>
+		
+																<td>
+																	<php>if( $value['id']!=1 || ($value['id']==$admin_user_id && $admin_user_id==1) ){</php>
+																		<div class="hidden-sm hidden-xs action-buttons">
+																			<!--  
+																			<a class="blue" href="{:U('AdminUser/detail', array('id'=>$value['id']))}" title="查看详情">
+																				<i class="ace-icon fa fa-search-plus bigger-130"></i>
+																			</a>
+																			-->
+																			<php>if( $value['status']==2 ){</php>	
+																				<a href="{:U('AdminUser/unlock', array('id'=>$value['id']))}" title="解锁">
+																					<button class="btn btn-xs btn-success">
+																						<i class="ace-icon fa fa-check bigger-120"></i>
+																					</button>
+																				</a>
+																			<php>}else if( $value['status']==1 ){</php>
+																				<a href="{:U('AdminUser/lock', array('id'=>$value['id']))}" title="锁定">
+																					<button class="btn btn-xs btn-warning">
+																						<i class="ace-icon fa fa-flag bigger-120"></i>
+																					</button>
+																				</a>
+																			<php>}</php>
+																			<a href="{:U('AdminUser/edit', array('id'=>$value['id']))}" title="修改">
+																				<button class="btn btn-xs btn-info">
+																					<i class="ace-icon fa fa-pencil bigger-120"></i>
+																				</button>
+																			</a>
+																			<a href="{:U('AdminUser/delete_user', array('id'=>$value['id']))}" title="删除">
+																				<button class="btn btn-xs btn-danger">
+																					<i class="ace-icon fa fa-trash-o bigger-120"></i>
+																				</button>
+																			</a>
+																			<php>if( $value['is_test']==1 ){</php>
+																			<a href="{:U('AdminUser/delete_test_user_info', array('id'=>$value['id']))}" title="删除">
+																				删除测试数据
+																			</a>
+																			<php>}</php>
+																		</div>
+																	<php>}</php>
+																</td>
+															</tr>
+														<php>}</php>
+														<php>if( count($admin_users)==0 ){ echo "<tr><td colspan='8' style='text-align:center;line-height:30px;'>暂无相关记录</td></tr>"; }</php>
+													</tbody>
+												</table>
+												<div class="row">
+														<div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+															{$show_page}
+														</div>
+												</div>
+										</div><!-- sample-table-2_wrapper -->
+				 </div><!-- col-xs-12 -->
+		</div>
+</div>

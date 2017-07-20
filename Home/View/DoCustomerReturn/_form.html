@@ -1,0 +1,67 @@
+<div class="t-title">市场客户退货申请单</div>
+<table class="t-info">
+    <tr>
+        <th colspan="9">
+            单据号：<input type="text" id="return_no" name="return[no]"
+                       class="valid tx" valid_type="empty" value="{$return.no}"/>
+        </th>
+    </tr>
+    <tr>
+        <td colspan="9">
+            客户名称 : <input type="text" id="return_user_name" name="return[user_name]"
+                          class="valid tx" valid_type="empty" value="{$return.user_name}"/>
+        </td>
+    </tr>
+    <tr class="t-l">
+        <td colspan="9" class="att">
+            退货原因:
+            <textarea class="atx" name="return[reason]" id="return_reason" placeholder="退货原因" rows="5" cols="50">{$return.reason}</textarea>
+        </td>
+    </tr>
+    <include file="DoCustomerReturn/_items"/>
+    <tr>
+        <th>总合格</th>
+        <td class="r-line">
+            <input type="text" id="return_succ_num" name="return[succ_num]"
+                   class="tx" value="{$return.succ_num}"/>
+        </td>
+        <th>总待修</th>
+        <td class="r-line">
+            <input type="text" id="return_warn_num" name="return[warn_num]"
+                   class="tx" value="{$return.warn_num}"/>
+        </td>
+        <th>总报废</th>
+        <td class="r-line" colspan="2">
+            <input type="text" id="return_err_num" name="return[err_num]"
+                   class="tx" value="{$return.err_num}"/>
+        </td>
+    </tr>
+    <tr>
+        <th>客户年累计退货率</th>
+        <td class="r-line">
+            <input type="text" id="return_user_rate" name="return[user_rate]"
+                   class="tx" value="{$return.user_rate}"/>
+        </td>
+        <th>客户年累计报损率</th>
+        <td class="r-line" colspan="4">
+            <input type="text" id="return_warn_rate" name="return[warn_rate]"
+                   class="tx" value="{$return.warn_rate}"/>
+        </td>
+    </tr>
+    <tr>
+        <th>办事处年累计退货率</th>
+        <td class="r-line">
+            <input type="text" id="return_do_user_rate" name="return[do_user_rate]"
+                   class="tx" value="{$return.do_user_rate}"/>
+        </td>
+        <th>办事处年累计报损率</th>
+        <td class="r-line" colspan="4">
+            <input type="text" id="return_do_warn_rate" name="return[do_warn_rate]"
+                   class="tx" value="{$return.do_warn_rate}"/>
+        </td>
+    </tr>
+    <a href="{:U('DoExplosion/get_products_info')}" style="display: none" id="item_url"></a>
+    <php>if(intval($id)>0){</php>
+    <input type="hidden" name="return[id]" value="{$id}">
+    <php>}</php>
+</table>

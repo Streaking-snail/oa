@@ -1,0 +1,73 @@
+	<div class="form-group">
+		<label class="col-sm-3 control-label no-padding-right" for="form-field-1"><span class="err">*</span>工作流程名称：</label>
+		<div class="col-sm-9">
+			<input type="text" name="process_type[name]" class="col-xs-10 col-sm-5" id="process_type_name" value="{$process_type.name}" />
+            <span class="help-inline col-xs-12 col-sm-7">
+                    <label class="middle">
+                            <span class="lbl">请输入工作流程名称!</span>
+                    </label>
+            </span>
+		</div>
+	</div>
+	<div class="space-4"></div>
+	
+	<div class="form-group">
+		<label class="col-sm-3 control-label no-padding-right" for="form-field-1"><span class="err">*</span>排序：</label>
+		<div class="col-sm-9">
+			<input type="text" name="process_type[rank]" class="col-xs-10 col-sm-5" id="process_type_rank" value="{$process_type.rank}" />
+            <span class="help-inline col-xs-12 col-sm-7">
+                    <label class="middle">
+                            <span class="lbl">请输入排序!</span>
+                    </label>
+            </span>
+		</div>
+	</div>
+	<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">说明：</label>
+	<div class="col-sm-9">
+		<textarea name="process_type[content]" id="process_type_content" placeholder="流程说明" rows="5" cols="50">{$process_type['content']}</textarea>
+    </div>
+</div>
+<div class="space-4"></div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags"><span class="err">*</span>状态：</label>
+	<style>
+		.status-list{}
+		.status-list li{list-style:none;margin-right:10px;}
+	</style>
+	<div class="col-sm-9">
+		<ul class="status-list">
+		<input type="hidden" id="data-url" value="{:U('Index/get_user')}" />
+			<php>if( count($process_type_status)>0 ){</php>
+				<php>foreach( $process_type_status as $k=>$v ){</php>
+					<li vel="{$k}" name="item">
+						<input type="hidden" name="process_type_status[{$k}][id]" id="process_type_status_{$k}_id" value="{$v.id}" />
+						状态名称：<input type="text" name="process_type_status[{$k}][name]" placeholder="状态名称" id="process_type_status_{$k}_name" value="{$v.name}" />&nbsp;&nbsp;
+						<input type="hidden" name="process_type_status[{$k}][checked_user_id]" id="process_type_status_{$k}_checked_user_id" value="{$v.checked_user_id}" />
+						审核人：<input type="text" class="search_name" name="process_type_status[{$k}][username]" id="process_type_status_{$k}_username" value="{$v.username}"/>&nbsp;&nbsp;
+						排序：<input type="text" name="process_type_status[{$k}][rank]" id="process_type_status_{$k}_rank" value="{$v.rank}" />
+                        
+                        <!--    选择：<input type="checkbox">  -->
+                        <!-- <a href="javascript:void(0);" name="del">删除</a> -->                                
+					</li>
+				<php>}</php>
+			<php>}else{</php>
+				<li vel="0" name="item">
+					<input type="hidden" name="process_type_status[0][id]" id="process_type_status_0_id" value="0" />
+					状态名称：<input type="text" name="process_type_status[0][name]" placeholder="状态名称" id="process_type_status_0_name" value="" />&nbsp;&nbsp;
+					<input type="hidden" name="process_type_status[0][checked_user_id]" id="process_type_status_0_checked_user_id" value="0" />
+					审核人：<input type="text" class="search_name" name="process_type_status[0][username]" id="process_type_status_0_username" placeholder="审核人" value="" />&nbsp;&nbsp;
+					排序：<input type="text" name="process_type_status[0][rank]" id="process_type_status_0_rank" value="0" />&nbsp;
+					<!-- <a href="javascript:void(0);" name="del">删除</a>-->
+				</li>
+			<php>}</php>
+			<li><a href="javascript:void(0);" id="add_status">添加</a></li>
+		</ul>
+	</div>
+</div>
+<div class="space-4"></div>
+
+

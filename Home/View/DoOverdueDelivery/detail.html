@@ -1,0 +1,109 @@
+
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+    <!-- <include file='layouts/_sub_location' />-->
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-horizontal" action="" role="form">
+                <div id="show_info">
+                    <table class="t-info">
+                        <tr>
+                            <th colspan="4">
+                                超额&超期发货单据号：{$overdue.no}
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>客户名称</th>
+                            <td class="r-line">
+                               {$overdue.user_name}
+                            </td>
+<!--                            <th>部门/业务员</th>
+                            <td class="r-line">
+                                <select>
+                                    <option selected>{$user_info.deport_name}/{$user_info.name}</option>
+                                </select>
+                            </td>-->
+                            <th>申请日期</th>
+                            <td>
+                                <php>if( !empty($overdue['apply_time']) ){ echo date('Y-m-d H:i:s', $overdue['apply_time']);}</php>
+<!--                                <input type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"
+                                       name="overdue[apply_time]" id="overdue_apply_time"
+                                       value="<php>if( !empty($overdue['apply_time']) ){ echo date('Y-m-d H:i:s', $overdue['apply_time']);}</php>"/>-->
+                            </td>
+                        </tr>
+<!--                        <tr>
+                            <th>客户名称</th>
+                            <td class="r-line">
+                                <input type="text" class="tx" id="overdue_user_name" name="overdue[user_name]" value="{$ovedue['user_name']?$overdue['user_name']:''}">
+                            </td>
+                        </tr>-->
+                        <tr>
+                            <th>授信额度</th>
+                            <td class="r-line">
+                                {$overdue.credit_price}
+                            </td>
+                            <th>超额金额</th>
+                            <td>
+                                {$overdue.flow_price}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>付款期限</th>
+                            <td class="r-line">
+                                {$overdue.days}
+                            </td>
+                            <th>应收款金额</th>
+                            <td>
+                                {$overdue.total_price}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>超期时间</th>
+                            <td class="r-line">
+                                {$overdue.flow_time}
+                            <th>超额金额</th>
+                            <td>
+                                {$overdue.flow_time_price}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>申请发货数</th>
+                            <td class="r-line">
+                                {$overdue.apply_delivery_num}
+                            </td>
+                            <th>发货金额</th>
+                            <td>
+                                {$overdue.delivery_price}
+                            </td>
+                        </tr>
+                        <tr class="n-l">
+                            <th class="lf" colspan="4">申请发货原因</th>
+                        </tr>
+                        <tr class="t-l">
+                            <td colspan="4" class="att">
+                                <textarea class="atx" readonly name="overdue[content]" id="overdue_content" placeholder="描述" rows="5" cols="50">{$overdue.content}</textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button class="btn btn-info" id="btn" vel="add" type="submit">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            提交
+                        </button>
+
+                        &nbsp; &nbsp; &nbsp;
+                        <button class="btn" type="button" name="back_btn">
+                            <i class="ace-icon fa fa-undo bigger-110"></i>
+                            返回上页
+                        </button>&nbsp; &nbsp; &nbsp;&nbsp;
+                        <button class="btn btn-info" type="button" name="print_info" >
+                            打印
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div>

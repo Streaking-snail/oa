@@ -1,0 +1,202 @@
+<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='__PUBLIC__/js/jquery.min.js'>"+"<"+"/script>");
+		</script>
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='__PUBLIC__/js/jquery1x.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='__PUBLIC__/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!--[if lte IE 8]>
+		  <script src="__PUBLIC__/assets/js/excanvas.min.js"></script>
+		<![endif]-->
+		<script src="__PUBLIC__/js/jquery-ui.custom.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.easypiechart.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.sparkline.min.js"></script>
+		<script src="__PUBLIC__/js/flot/jquery.flot.min.js"></script>
+		<script src="__PUBLIC__/js/flot/jquery.flot.pie.min.js"></script>
+		<script src="__PUBLIC__/js/flot/jquery.flot.resize.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.form.js"></script>
+                <script  src="__PUBLIC__/js/My97DatePicker/WdatePicker.js"></script>
+		<script src="__PUBLIC__/js/ace-elements.min.js"></script>
+		<script src="__PUBLIC__/js/ace.min.js"></script>
+		
+		
+				
+		<php>if( $is_kindeditor ){</php>
+			<script  charset="utf-8" src="__PUBLIC__/kindeditor4.1/kindeditor-min.js"></script>
+		<php>}</php>
+                
+        <script src="__PUBLIC__/js/jquery.autocomplete.js"></script>        
+		<script src="__PUBLIC__/js/controller/common.js"></script>
+		<script src="__PUBLIC__/js/controller/<php>echo CONTROLLER_NAME;</php>.js"></script>
+        
+        <script type="text/javascript">
+			jQuery(function($) {
+				$('.easy-pie-chart.percentage').each(function(){
+					var $box = $(this).closest('.infobox');
+					var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
+					var trackColor = barColor == 'rgba(255,255,255,0.95)' ? 'rgba(255,255,255,0.25)' : '#E2E2E2';
+					var size = parseInt($(this).data('size')) || 50;
+					$(this).easyPieChart({
+						barColor: barColor,
+						trackColor: trackColor,
+						scaleColor: false,
+						lineCap: 'butt',
+						lineWidth: parseInt(size/10),
+						animate: /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase()) ? false : 1000,
+						size: size
+					});
+				})
+			
+				$('.sparkline').each(function(){
+					var $box = $(this).closest('.infobox');
+					var barColor = !$box.hasClass('infobox-dark') ? $box.css('color') : '#FFF';
+					$(this).sparkline('html',
+									 {
+										tagValuesAttribute:'data-values',
+										type: 'bar',
+										barColor: barColor ,
+										chartRangeMin:$(this).data('min') || 0
+									 });
+				});
+			
+			
+			  //flot chart resize plugin, somehow manipulates default browser resize event to optimize it!
+			  //but sometimes it brings up errors with normal resize event handlers
+			  
+			
+			
+			
+			
+			
+			
+				var d1 = [];
+				for (var i = 0; i < Math.PI * 2; i += 0.5) {
+					d1.push([i, Math.sin(i)]);
+				}
+			
+				var d2 = [];
+				for (var i = 0; i < Math.PI * 2; i += 0.5) {
+					d2.push([i, Math.cos(i)]);
+				}
+			
+				var d3 = [];
+				for (var i = 0; i < Math.PI * 2; i += 0.2) {
+					d3.push([i, Math.tan(i)]);
+				}
+				
+			
+				
+			
+			
+				$('#recent-box [data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+				function tooltip_placement(context, source) {
+					var $source = $(source);
+					var $parent = $source.closest('.tab-content')
+					var off1 = $parent.offset();
+					var w1 = $parent.width();
+			
+					var off2 = $source.offset();
+					//var w2 = $source.width();
+			
+					if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+					return 'left';
+				}
+			
+			
+				$('.dialogs,.comments').ace_scroll({
+					size: 300
+			    });
+				
+				var agent = navigator.userAgent.toLowerCase();
+				if("ontouchstart" in document && /applewebkit/.test(agent) && /android/.test(agent))
+				  $('#tasks').on('touchstart', function(e){
+					var li = $(e.target).closest('#tasks li');
+					if(li.length == 0)return;
+					var label = li.find('label.inline').get(0);
+					if(label == e.target || $.contains(label, e.target)) e.stopImmediatePropagation() ;
+				});
+			
+				$('#tasks').sortable({
+					opacity:0.8,
+					revert:true,
+					forceHelperSize:true,
+					placeholder: 'draggable-placeholder',
+					forcePlaceholderSize:true,
+					tolerance:'pointer',
+					stop: function( event, ui ) {
+						$(ui.item).css('z-index', 'auto');
+					}
+					}
+				);
+				$('#tasks').disableSelection();
+				$('#tasks input:checkbox').removeAttr('checked').on('click', function(){
+					if(this.checked) $(this).closest('li').addClass('selected');
+					else $(this).closest('li').removeClass('selected');
+				});
+			
+				$('#task-tab .dropdown-hover').on('mouseenter', function(e) {
+					var offset = $(this).offset();
+			
+					var $w = $(window)
+					if (offset.top > $w.scrollTop() + $w.innerHeight() - 100) 
+						$(this).addClass('dropup');
+					else $(this).removeClass('dropup');
+				});
+				
+				$("#ace-settings-navbar,#ace-settings-sidebar,#ace-settings-breadcrumbs,"+
+				  "#ace-settings-add-container,#ace-settings-hover,#ace-settings-compact"+
+				  "#ace-settings-highlight,a.colorpick-btn").click(function(){
+					  var t, cl, code;
+					  if( $(this).attr("checked") ){ t='d'; }else{ t='a'; }
+					  if( typeof($(this).attr('data-color'))!='undefined' ){
+						  cl = $(this).attr('data-color');
+						  code = cl;
+					  }else{
+						  cl = '';
+						  code = $(this).attr('id');
+					  }
+					  $.post("{:U('Home/Index/selected_show')}", { code:code, t:t, cl:cl }, function(data){ });
+				});
+				
+				<php>foreach($admin_user_shows as $v){</php>
+					$("#{$v.code}").tigger('click');
+				<php>}</php>
+				
+				$("div.dropdown-colorpicker").click(function(){
+					$("a.colorpick-btn").removeClass('selected');
+					$("a.colorpick-btn[data-color='{$admin_color}']").addClass('selected');
+				});
+				
+				$("span.btn-colorpicker").css("background-color", "{$admin_color}");
+
+				
+			});
+		</script>
+
+		<!-- the following scripts are used in demo only for onpage help and you don't need them -->
+		<link rel="stylesheet" href="__PUBLIC__/css/ace.onpage-help.css" />
+		<link rel="stylesheet" href="__PUBLIC__/docs/assets/js/themes/sunburst.css" />
+
+		<script type="text/javascript"> ace.vars['base'] = '..'; </script>
+		<script src="__PUBLIC__/js/ace/elements.onpage-help.js"></script>
+		<script src="__PUBLIC__/js/ace/ace.onpage-help.js"></script>
+		<script src="__PUBLIC__/docs/assets/js/rainbow.js"></script>
+		<script src="__PUBLIC__/docs/assets/js/language/generic.js"></script>
+		<script src="__PUBLIC__/docs/assets/js/language/html.js"></script>
+		<script src="__PUBLIC__/docs/assets/js/language/css.js"></script>
+		<script src="__PUBLIC__/docs/assets/js/language/javascript.js"></script>
+		

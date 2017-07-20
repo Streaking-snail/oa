@@ -1,0 +1,62 @@
+<div class="page-content-area">
+		<include file="layouts/_sub_location" />
+		<div class="row">
+				<div class="col-xs-12">
+							<div id="sample-table-2_wrapper" class="dataTables_wrapper form-inline no-footer"  style="overflow-x:auto;">
+												<div class="row">
+													<include file="layouts/_search" />
+												</div>
+												<div class="row">
+													<include file="layouts/_notice" />
+												</div>
+												<table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample-table-2_info">
+													<thead>
+														   <tr>
+                                                                <th width="5%">序号</th>
+																<th width="10%">工作流程名称</th>
+																<th width="30%">状态</th>
+																<th width="10%">描述</th>
+																<th width="10%">操作</th>
+															</tr>
+													</thead>
+	
+													<tbody>
+														<php>foreach($process_types as $k=>$value){</php>
+															<tr class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>" name="item" vel="{$value.id}">
+                                                                <td>{$page_number+$k+1}</td>
+																<td>{$value.name}</td>
+																<td>
+																	<php>$process_type_status = $ProcessType->get_status($value['id']);
+																		foreach($process_type_status as $k=>$v){
+																			echo $v['name'];
+																			if( count($process_type_status)-1!=$k ){
+																			   echo "->";
+																			}
+																		}
+																	</php>
+																</td>
+																<td>{$value.content}</td>
+																<td>
+																	<php>if( $user_info['is_admin']==1 ){</php>
+																		<a href="{:U('ProcessType/edit', array('id'=>$value['id']))}">修改</a>
+																	<php>}</php>
+																</td>
+															</tr>
+														<php>}
+															if( count($process_types)==0 ){ 
+																echo "<tr><td align='center' colspan='5'>暂无相关记录</td></tr>";
+															}
+														</php>
+													</tbody>
+												</table>
+												<div class="row">
+														<div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+															{$show_page}
+														</div>
+												</div>
+										</div><!-- sample-table-2_wrapper -->
+				 </div><!-- col-xs-12 -->
+		</div>
+		
+
+</div>

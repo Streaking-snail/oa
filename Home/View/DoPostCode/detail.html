@@ -1,0 +1,102 @@
+
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<!-- <include file='layouts/_sub_location' />-->
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="" role="form">
+				<div id="show_info">
+					<div class="t-title tc">内销办事处出差申请单</div>
+					<table class="t-info" style="text-align:center">
+                                            <tr>
+                                                <!--<th></th>-->
+                                                <td class="r-line">
+                                                        单据号：{$do_post_code.no}
+                                                </td>
+                                                <!--<th></th>-->
+                                                <td colspan="2" class="r-line">
+                                                    办事处/部门：
+                                                    <php>echo D('Admin_user')->get_name_deport($do_post_code['admin_user_id'])</php>
+                                                </td>
+                                                <!--<th></th>-->
+                                                <td colspan="4" class="r-line">
+                                                    申请日期：
+                                                    <php>if( !empty($do_post_code['apply_time'] ) ) echo date('Y-m-d H:i:s', $do_post_code['apply_time']);</php>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                                <!--<th></th>-->
+                                                <td class="r-line" colspan="5">
+                                                    超市名称：{$do_post_code.market_name}
+                                                </td>
+                                                <!--<th></th>-->
+                                                <td colspan="2" class="r-line">
+                                                   店名：{$do_post_code.shop_name}
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="r-line">贴码原因：</th>
+                                            <td colspan="7">
+                                                <textarea name="do_post_code[reason]" readonly id="temporary_content" class="atx">{$do_post_code.reason}</textarea>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="r-line">产品货号<br />(订单产品)</td>
+                                            <td class="r-line">产品货号<br />(替代产品)</td>
+                                            <td class="r-line">贴码条形码<br />(订单产品)</td>
+                                            <td class="r-line">订单产品<br />计划单价</td>
+                                            <td class="r-line">替代产品<br />计划单价</td>
+                                            <td class="r-line">数量</td>
+                                            <td class="r-line">单价</td>
+                                        </tr>
+                                        <foreach name='do_post_code_items' item='vo' >
+                                            <tr>
+                                                <td class="r-line">{$vo.product_id}</td>
+                                                <td class="r-line">{$vo.change_id}</td>
+                                                <td class="r-line">{$vo.barcode}</td>
+                                                <td class="r-line">{$vo.plan_order_price}</td>
+                                                <td class="r-line">{$vo.plan_change_price}</td>
+                                                <td class="r-line">{$vo.unit}</td>
+                                                <td class="r-line">{$vo.num}</td>
+                                            </tr>
+                                        </foreach>
+						<php>if( count($do_post_code_status)>0 ){</php>
+							<tr>
+								<td>审核时间</td>
+								<td>审核人</td>
+								<td>审核内容</td>
+								<td></td>
+							</tr>
+							<foreach name="temporary_status" item="v">
+								<tr>
+									<td><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+									<td>{$v.username}</td>
+									<td>{$v.content}</td>
+								</tr>
+							</foreach>
+						<php>}</php>
+					</table>
+				</div>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="button" name="back_btn">
+							<i class="ace-icon fa fa-undo bigger-110"></i>
+							返回上页
+						</button>&nbsp; &nbsp; &nbsp;&nbsp;
+						<button class="btn btn-info" type="button" name="print_info" >
+							打印
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

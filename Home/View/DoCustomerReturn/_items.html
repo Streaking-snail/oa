@@ -1,0 +1,44 @@
+<tr>
+    <td class="r-line">属性</td>
+    <td class="r-line">型号</td>
+    <td class="r-line">名称</td>
+    <td class="r-line">数量</td>
+    <td class="r-line">单价</td>
+    <td class="r-line">金额</td>
+    <td class="r-line">合格 | 待修 | 报废</td>
+</tr>
+<!--在顶部插入个空数组,传值为空 , 作为clone的数据 , 防止传的explosion_items 数据为空不进行循环导致clone的tr没有生成 , 若为空这定义一个空的二维数组-->
+<php>
+    if(!empty($items)){
+        array_unshift($items,array());
+    }else{
+        $items = array(array());
+    }
+</php>
+<foreach name="items" item="v">
+    <php>$clone_attr = $key==0?' id="clone_item" style="display:none;" ':'';</php>
+    <tr {$clone_attr}>
+        <td class="r-line"><input name="return[item][attr_name][]" class="tx" type="text" value="{$v.name}"></td>
+        <td class="r-line"><input name="return[item][number][]" class="tx" type="text" value="{$v.number}"></td>
+        <td class="r-line">
+            <input name="return[item][name][]" class="tx" type="text" value="{$v.number}">
+        </td>
+        <td class="r-line">
+            <input type="number" name="return[item][num][]" value="{$v.num}" class="tx item_num"/>
+        </td>
+        <td class="r-line">
+            <input type="text" min='1' name="return[item][price][]" value="{$v.price}" class="tx item_price"/>
+        </td>
+        <td class="r-line">
+            <input type="text" readonly name="return[item][total_price][]" value="{$v.total_price}" class="tx item_total_price"/>
+        </td>
+        <td class="r-line">
+            -- &nbsp;
+            <a href="javascript:void(0);" class="remove_item">移除</a>
+        </td>
+    </tr>
+</foreach>
+<php>unset($v);</php>
+<tr>
+    <td colspan="9" class="r-line"><a id="add_item" href="javascrpit:;" style="display: table;margin: 0 auto;">增加</a></td>
+</tr>

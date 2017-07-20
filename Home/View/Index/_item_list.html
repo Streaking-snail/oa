@@ -1,0 +1,91 @@
+                               
+									<div class="col-sm-12">
+										<div class="widget-box transparent">
+											<div class="widget-header widget-header-flat">
+												<h4 class="widget-title lighter">
+													<i class="ace-icon fa fa-star orange"></i>
+													{$value.name}
+												</h4>
+												<div class="widget-toolbar">
+													<a href="javascript:void(0);" data-action="collapse">
+														<i class="ace-icon fa fa-chevron-up"></i>
+													</a>
+													<a href="{:U('ProductPic/index')}" style="margin-right:5px;font-size:14px;">更多</a>
+												</div>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main no-padding">
+													<table class="table table-bordered table-striped">
+														<thead class="thin-border-bottom">
+															<tr>
+																<th>
+																	<i class="ace-icon fa fa-caret-right blue"></i>物料代码
+																</th>
+																<th>
+																	<i class="ace-icon fa fa-caret-right blue"></i>辅代码
+																</th>
+																<th>
+																	<i class="ace-icon fa fa-caret-right blue"></i>产品名称
+																</th>
+
+																<th>
+																	<i class="ace-icon fa fa-caret-right blue"></i>创建时间
+																</th>
+
+																<th class="hidden-480">
+																	<i class="ace-icon fa fa-caret-right blue"></i>状态
+																</th>
+																<th>
+																	<i class="ace-icon fa fa-caret-right blue"></i>所用时间
+																</th>
+															</tr>
+														</thead>
+
+														<tbody>
+															<php>
+																foreach($value['item_infos'] as $k=>$v){
+																	$status_info = D('ProductPic')->get_status_info($v['id']);
+															</php>
+																<tr>
+																	<td>{$v.code}</td>
+																	<td>{$v.number}</td>
+																	<td><a href="{:U('ProductPic/index', array('id'=>$v['id']))}">{$v.name}</a></td>
+																	<td>
+																		<php>echo date("Y-m-d H:i:s", $v['create_time']);</php>
+																	</td>
+																	<td class="hidden-480">
+																		<php>$d = D('ProductPic')->get_day($v['create_time']);</php>
+																		<php>if( $status_info['is_over']==0 && $d>5 ){</php>
+																			<span class='label label-sm label-warning'>
+																		<php>}else if($status_info['is_over']==1){</php>
+																			<span class='label label-sm label-success'>
+																		<php>}else{</php>
+																			<span class="label label-info arrowed-right arrowed-in">
+																		<php>}</php>
+																			{$status_info.name}
+																		</span>
+																	</td>
+																	<td>
+																		 <php>
+                                                                                                                                                       if($v['is_over']==0){
+																		 	$status_info['create_time'] = isset($status_info['create_time'])?$status_info['create_time']:$v['create_time'];
+																		 	echo D('ProductOrder')->get_show_time($status_info['create_time']);
+                                                                                                                                                        }
+																		 </php>
+																	</td>
+																</tr>
+															<php>}
+																if( count($value['item_infos'])==0 ){
+															</php>
+																<tr>
+																	<td colspan="6" style="text-align:center;">暂无相关记录</td>
+																</tr>
+															<php>}</php>
+														</tbody>
+													</table>
+												</div><!-- /.widget-main -->
+											</div><!-- /.widget-body -->
+										</div><!-- /.widget-box -->
+									</div><!-- /.col -->
+									<div class="hr hr32 hr-dotted" style="width:100%;float:left;"></div>

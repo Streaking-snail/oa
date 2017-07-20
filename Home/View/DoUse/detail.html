@@ -1,0 +1,99 @@
+<style>
+.t-list td{padding: 1px 1px 1px 1px; }
+</style>
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<!-- <include file='layouts/_sub_location' />-->
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="" role="form">
+				<div id="show_info">
+					<div class="t-title tc">领用申请单</div>
+					<table class="t-info">
+						<tr>
+							<td colspan="2">
+								单据号：{$douse.no}
+							</td>
+							<th colspan="2">
+								填写时间：<php>if( !empty($douse['create_time']) ){ echo date('Y-m-d H:i:s', $douse['create_time']);}</php>
+							</th>
+							<td colspan="2">部门：{$douse.deport_name}</td>
+						</tr>
+						<tr>
+							<td class="r-line"  colspan="6" >因{$douse.reason}原因，需领用以下产品(注：如是客户所需，必须同时列明客户名称)</td>
+						</tr>
+						<tr>
+							<th colspan="4" >领用后：归还&nbsp;<input type="radio" name="douseback" value="1" <?php if($douse[is_back]==1) echo("checked");?>>&nbsp;&nbsp;
+							归还时间：<input style="width:160px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="douse[back_time]" id="douse_back_time" value="<php>if( !empty($douse['back_time']) ){ echo date('Y-m-d H:i:s', $douse['back_time']);}</php>" />
+							无法归还<input type="radio" name="douseback" value="2" <?php if($douse[is_return]==1) echo("checked");?>></th>
+							<th colspan="2" ></th>		
+						</tr>
+						<tr>
+							<th class="r-line" >(货号)/产品名称</th>
+							<th class="r-line" >数量</th>
+							<th class="r-line" >单位</th>
+							<th class="r-line" >备注</th>
+							<th class="r-line" >归还数量</th>
+							<th class="r-line" >归还时间</th>
+						</tr>
+							<php>foreach($do_use_items as $key=>$value){</php>
+				                            <tr  class="t-list"  id="sub_cat_{$key}" vel="{$key}" name="item">
+				                                 <td class="r-line"><input type="text" class="tx" id="product_name_{$key}" name="entry[{$key}][product_name]" value="{$value.product_name}"/></td>
+				                                 <td class="r-line"><input type="text" class="tx" id="num_{$key}" name="entry[{$key}][num]" value="{$value.num}"/></td>
+				                                 <td class="r-line"><input type="text" class="tx" id="unit_{$key}" name="entry[{$key}][unit]" value="{$value.unit}"/></td>
+				                                 <td class="r-line"><input type="text" class="tx" id="content_{$key}" name="entry[{$key}][content]" value="{$value.content}"/></td>
+				                                 <td class="r-line"><input type="text" class="tx" id="back_num_{$key}" name="entry[{$key}][back_num]" value="{$value.back_num}"/></td>
+				                                 <td class="r-line"><input style="width:160px" type="text" class="tx" id="back_time_{$key}" name="entry[{$key}][back_time]" value="<php>if( !empty($value['back_time']) ){ echo date('Y-m-d H:i:s', $value['back_time']);}</php>"/></td>
+				                              </td>
+				                            </tr>
+				                           <php>}</php>
+                                               <php>if( count($do_use_status)>0 ){</php>
+							<tr>
+								<td align="center">状态</td>
+								<td align="center">审核时间</td>
+								<td align="center" colspan="2" >审核人</td>
+								<td align="center" colspan="2" >审核内容</td>
+							</tr>
+							<foreach name="do_use_status" item="v">
+								<tr>
+									<php>if( $v['status']==1 ){</php>
+										<td style="color:green;text-align:center;">审核通过</td>
+									<php>}else{</php>
+										<td style="color:red;text-align:center;">审核不通过</td>
+									<php>}</php>
+									<td align="center"><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+									<td align="center" colspan="2" >{$v.username}</td>
+									<td align="center" colspan="2" >
+										{$v.content}
+										<php>if( !empty($v['url_path']) ){</php>
+											<br />
+											附件：<a href="{:U('Download/index',array('file'=>urlencode($v['url_path'])))}">{$v['name']}</a>
+										<php>}</php>
+									</td>
+								</tr>
+							</foreach>
+						<php>}</php>
+					</table>
+				</div>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="button" name="back_btn">
+							<i class="ace-icon fa fa-undo bigger-110"></i>
+							返回上页
+						</button>&nbsp; &nbsp; &nbsp;&nbsp;
+						<button class="btn btn-info" type="button" name="print_info" >
+							打印
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>

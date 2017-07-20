@@ -1,0 +1,58 @@
+<form action="" id="condition_info" method="post" />
+<input type="hidden" name='show' id="show" value="{$search_info['show']}" />
+    物料代码：<input type="text" name="code" value="{$search_info['code']}" />
+    辅代码：<input type="text" name="number" value="{$search_info['number']}" />
+    产品名称：<input type="text" name="name" value="{$search_info['name']}" />
+    
+    <php>if($is_develop){</php>
+        完成时间：
+        <input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="ptime1" value="<php>if( !empty($search_info['ptime1']) )echo date('Y-m-d H:i:s', $search_info['ptime1']);</php>" />
+        -<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="ptime2" value="<php>if( !empty($search_info['ptime1']) )echo date('Y-m-d H:i:s', $search_info['ptime1']);</php>" />
+    <php>}</php>
+    
+    <php>if($is_schedule){</php>
+    <select name="time">
+        <option value="" >请选择</option>
+        <option value="order_time">下单时间:</option>
+        <option value="dh_time">到货时间:</option>
+        <input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="time1" value="<php>if( !empty($search_info['time1']) )echo date('Y-m-d H:i:s', $search_info['time1']);</php>" />
+        -<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="time2" value="<php>if( !empty($search_info['time2']) )echo date('Y-m-d H:i:s', $search_info['time2']);</php>" />
+    <php>}</php>
+    
+    <php>if($is_price || $is_develop){</php>
+    <select name="price">
+        <option <php>if( $search_info['price'] == new_price ) echo selected;</php> value="now_price">现价</option>
+        <option <php>if( $search_info['price'] == sold_price ) echo selected;</php> value="sold_price">统一售价</option>
+        <option <php>if( $search_info['price'] == min_price ) echo selected;</php> value="min_price">最低售价</option>
+    </select>
+    <input type="text" name="price1" value="{$search_info['price1']}" />-<input type="text" name="price2" value="{$search_info['price2']}" />
+    <php>}</php>
+    
+    <php>if($is_pic){</php>
+    状态：
+    <select name="pic">
+        <option value="">请选择</option>
+        <option <php>if( $search_info['pic'] == '1' ) echo selected; </php> value="1">交样</option>
+        <option <php>if( $search_info['pic'] == '2' ) echo selected; </php> value="2">文案</option>
+        <option <php>if( $search_info['pic'] == '3' ) echo selected; </php> value="3">方案审核</option>
+        <option <php>if( $search_info['pic'] == '4' ) echo selected; </php> value="4">拍照</option>
+        <option <php>if( $search_info['pic'] == '5' ) echo selected; </php> value="5">详情页制作</option>
+        <option <php>if( $search_info['pic'] == '6' ) echo selected; </php> value="6">详情页审核</option>
+        <option <php>if( $search_info['pic'] == '7' ) echo selected; </php> value="7">首页制作</option>
+        <option <php>if( $search_info['pic'] == '8' ) echo selected; </php> value="8">首页审核</option>
+        <option <php>if( $search_info['pic'] == '9' ) echo selected; </php> value="9">完成</option>
+    </select>
+    <php>}</php>
+    
+    <php>if( $is_schedule || $is_price){</php>
+    排序：
+    <select name="sort">
+        <foreach name="sort_arrs" item="sort_arrs">
+            <option <php>if( $search_info['sort'] == $sort_arrs['0'] ) echo selected; </php> value="{$sort_arrs['0']}">{$sort_arrs['1']}</option>
+        </foreach>
+    </select>
+    <php>}</php>
+    <input id="search" type="submit" value="搜索" />
+    
+    
+</form>

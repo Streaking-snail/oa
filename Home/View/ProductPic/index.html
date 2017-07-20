@@ -1,0 +1,204 @@
+<style>
+/*
+input.ad-btn{border:none;width:50px;line-height:20px;}
+input.fp{position:absolute;left:50px;top:0;width:66px;z-index:1000;filter:alpha(opacity=0);opacity:0}
+*/
+.fl{float:left;width:60px;line-height:20px;}
+.bgt{z-index:999; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5; display:none;background:#000;width:100%;height:100%;position:absolute;left:0;top:0;}
+.info_form{width:275px;z-index:9999;position:absolute;top:10%;left:30%;background:#fff;display:none;padding:0px 0px 20px;
+ -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+}
+.title{color:#c2c2c2;width:100%;padding:5px 10px;border-bottom:1px solid #c2c2c2;float:left;margin-bottom: 20px;font-size:14px;}
+.title .tit{float:left;}
+.title .closed{float:right;}
+.info_form .mtl20{padding-left:20px;}
+.info_form .mtl120{    padding: 10px 60px 0px;font-size: 14px;}
+.info_form .btn_i{background:green;border:none;padding:4px 8px;color:#fff;margin-left:10px;}
+.info_form .btn_c{background:#c2c2c2;border:none;padding:4px 8px;color:#000;margin-left:10px;}
+.ad_in{border:none;background:#33CCFF;color:#fff;}
+</style>
+<div id="back" class="bgt"></div>
+<div class="page-content-area">
+		<include file="layouts/_sub_location" />
+		<div class="row">
+				<div class="col-xs-12">
+							<div id="sample-table-2_wrapper" style="overflow-x:auto;" class="dataTables_wrapper form-inline no-footer">
+												<div class="row">
+													<include file="layouts/_search" />
+												</div>
+                                                                                                <div id="col" class="col">
+													<include file="layouts/_conditions" />
+												</div>
+												<table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample-table-2_info">
+													<thead>
+														   
+														   <tr>
+                                                                <th width="3%">序号</th>
+																<th width="8%" rowspan="2">物料代码</th>
+																<th width="8%" rowspan="2">辅代码</th>
+																<th width="8%" rowspan="2">产品名称</th>
+																<php>foreach($ptype_statuses as $value){</php>
+																	<th>{$value.name}</th>
+                                                                <php>}</php>
+                                                                <th width="8%" rowspan="2">操作</th>
+															</tr>
+													</thead>
+	
+													<tbody>
+														<php>$Role = D('Roles');</php>
+														<php>foreach($product_pics as $k=>$value){</php>
+															<tr class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>" name="item" vel="{$value.id}">
+                                                                <td>{$page_number+$k+1}</td>
+																<td name='td-item'><a href="javascript:void(0);">{$value.code}</a></td>
+																<td name='td-item'><a href="javascript:void(0);">{$value.number}</a></td>
+																<td name='td-item'><a href="javascript:void(0);">{$value.name}</a></td>
+																<php>foreach($ptype_statuses as $i=>$v){</php>
+																	<td>
+																		<php>
+																		    $r = $ProductPic->get_pic_status($value['id'], $v['id']);
+																		    if( in_array($r['status'], array(0,2)) && $r['ptype_status_id']!=0 ){
+																	        </php>
+																	    	<php>if( $Role->text_power($user_info['role_id'], $v['id'])  ||  $Role->attach_power($user_info['role_id'], $v['id']) ){</php>
+                                                                                                                                                     <div class="info_form">
+                                                                                                                                                        <div class="title">
+                                                                                                                                                             <span class="tit">添加信息</span>
+                                                                                                                                                             <span class="closed">[关闭]</span>
+                                                                                                                                                        </div>
+                                                                                                                                                        <form action="{:U('ProductPic/upload_file')}"  enctype="multipart/form-data" method="post" >
+                                                                                                                                                            <p class="mtl20">       
+                                                                                                                                                            <input type="hidden" name="id" id="id" value="{$r.id}" />
+                                                                                                                                                                                                                                           <php>if( $Role->text_power($user_info['role_id'], $v['id']) ){</php>
+                                                                                                                                                                                                                                                       <input type="text" id="content" name="content" placeholder="描述" value="" />&nbsp;
+                                                                                                                                                                   <php>}</php>
+                                                                                                                                                                   <php>if( $Role->attach_power($user_info['role_id'], $v['id']) ){</php>
+                                                                                                                                                                           <span style="position:relative;">
+                                                                                                                                                                                                                                                                               <input type="button" value="附件" class="ad-btn" id="add_attach"/>
+                                                                                                                                                                                                                                                                               <input type="file" class="fp" name="file" id="file" value=""/>&nbsp;
+                                                                                                                                                                                                                                                                       </span>
+                                                                                                                                                                   <php>}</php>
+                                                                                                                                                        </p>
+                                                                                                                                                        <p class="mtl120">
+                                                                                                                                                                   <input type="submit" id="submit" class="btn_i" value="提交"/>
+                                                                                                                                                                   <input type="button" name="close" class="btn_c" value="关闭" />
+                                                                                                                                                        </p>
+                                                                                                                                                        </form>
+                                                                                                                                                    </div>
+                                                                                                                                                    <a href="javascript:void(0);" name="add_info">
+                                                                                                                                                        <input type="button" class="ad_in" value="添加信息" />
+                                                                                                                                                    </a>
+																	    	<php>}</php>
+																	    	<php>if( $Role->check_power($user_info['role_id'], $v['id']) ){ </php>
+                                                                                                                                                <div style="margin:5px 0;">
+                                                                                                                                                    <a href="{:U('ProductPic/update_status', array('sid'=>$v['id'], 't'=>'checked', 'id'=>$value['id']))}">
+                                                                                                                                                        <input type="button" style="border:none;background:green;color:#fff;" value="同意" />
+                                                                                                                                                    </a>
+                                                                                                                                                    <php>if( $i!=0 ){</php>
+                                                                                                                                                            &nbsp;|&nbsp;<a href="javascript:void(0);" onclick="refuse('{$v[id]}','unchecked','{$value[id]}')" >
+                                                                                                                                                                <input type="button" style="border:none;background:red;color:#fff;" value="拒绝" />
+                                                                                                                                                            </a>
+                                                                                                                                                    <php>}</php>   <br /> 
+                                                                                                                                                </div>
+																	    	<php>}
+                                                                                                                                                        echo "所用时间：".D('ProductOrder')->get_show_time($r['create_time'])."<br />";  	 
+																		    }else if( $r['status']==1 ){
+																		    	$user = M('admin_user')->where("id=%d", array($r['checked_user_id']))->find();
+																		    	if($user){
+																		    		echo $user['name']." <span style='color:green;'>同意</span> ".date("Y-m-d H:i:s", $r['checked_time'])."<br />";
+																		    	}
+																		    }
+                                                                                                                                                    $refuse = D('ProductPic')->getRefuse($v['id'], $value['id']); 
+                                                                                                                                                    $re = $refuse[0];
+                                                                                                                                                    if( $re ){
+                                                                                                                                                            echo "<p style='width:100px;overflow-x:auto;border:1px solid #c2c2c2;'>";
+                                                                                                                                                            echo $re['name'];
+                                                                                                                                                            echo " ".date("Y-m-d", $re['create_time'])."<br />";
+                                                                                                                                                            echo " 拒绝理由:<span style='color:red;'>".$re['content']."</span>";
+                                                                                                                                                            echo "</p>";
+                                                                                                                                                    }
+																		    $attaches = $ProductPic->get_pic_status_attach($value['id'], $v['id']);
+                                                                                                                                                    $attach = $attaches[0];
+                                                                                                                                                    if( $attach ){
+																				echo $attach['name']." ";
+																				if( !empty($attach['content']) ){
+																					echo "  ".$attach['content'];
+																				};
+																				if( !empty($attach['url']) ){
+																					$arrs = explode("/", $attach['url']);
+                                                                                                                                                                        echo "  <a href='".U('Download/index', array('file'=>urlencode($attach['url'])))."'>".$arrs[count($arrs)-1]."</a>";
+                                                                                                                                                                        $status = $ProductPic->get_status($attach['id']);
+                                                                                                                                                                        if($status['status'] != 1 && $attach['admin_user_id']==$_SESSION['admin_user_id']){
+                                                                                                                                                                            echo "  <a href='".U('Download/deletefile', array('id'=>$attach['id']))."'><span style='color:red;'>删除</span></a>";
+                                                                                                                                                                        }
+                                                                                                                                                                }
+                                                                                                                                                    }
+																		</php>
+																	</td>
+																<php>}</php>
+																<td>
+                                                                                                                                   
+																    <php>if( ($value['admin_user_id']==$user_info['id'] || $Role->is_power('ProductOrder', 'del', $user_info['id'])) && $value['is_over']==0  ){</php>
+																		<a href="{:U('ProductPic/del', array('id'=>$value['id']))}" title="删除">
+																			<button class="btn btn-xs btn-danger">
+																				<i class="ace-icon fa fa-trash-o bigger-120"></i>
+																			</button>
+																		</a>                                                                                                                                           
+																	<php>}else if($value['is_over']==1){</php>
+																		<span class="label label-sm label-success">已完成</span>
+																	<php>}</php>
+																</td>
+															</tr>
+															<tr id="item_{$value.id}" style="display:none;">
+																<td colspan="4">
+																	<php>$u=M('admin_user')->where("id=%d", array($value['admin_user_id']))->find();</php>
+																	提交者：{$u.name}
+																	提交时间：<php>echo date("Y-m-d H:i:s", $value['create_time'])</php>
+																</td>
+																<php>foreach($ptype_statuses as $v){
+																	 $attaches = $ProductPic->get_pic_status_attach($value['id'], $v['id']);
+																</php>
+																	<td>
+                                                                                                                                                <php>
+                                                                                                                                                        $refuse = D('ProductPic')->getRefuse($v['id'], $value['id']); 
+                                                                                                                                                            foreach($refuse as $re){
+                                                                                                                                                                    echo "<p style='width:100px;overflow-x:auto;'>";
+                                                                                                                                                                    echo $re['name'];
+                                                                                                                                                                    echo " ".date("Y-m-d", $re['create_time']);
+                                                                                                                                                                    echo " 拒绝理由:<span style='color:red;'>".$re['content']."</span>";
+                                                                                                                                                                    echo "</p>";
+                                                                                                                                                            }
+                                                                                                                                                        foreach($attaches as $t){
+                                                                                                                                                            echo "<p style='width:100px;overflow-x:auto;'>";
+                                                                                                                                                            echo $t['name']." ";
+                                                                                                                                                            if( !empty($t['content']) ){
+                                                                                                                                                                    echo "  ".$t['content'];
+                                                                                                                                                            };
+                                                                                                                                                            if( !empty($t['url']) ){
+                                                                                                                                                                   $str_atts = explode("/", $t['url']);
+                                                                                                                                                                   echo "  <a href='".U('Download/index', array('file'=>urlencode($t['url'])))."' title='".$str_atts[count($str_atts)-1]."'>".$str_atts[count($str_atts)-1]."</a>";
+                                                                                                                                                            }
+                                                                                                                                                            echo "</p>";
+                                                                                                                                                        }
+                                                                                                                                                </php>
+																	</td>
+																<php>}</php>
+															</tr>
+														<php>}
+															if( count($product_pics)==0 ){ 
+																echo "<tr><td align='center' colspan='".(5+count($ptype_statuses))."'>暂无相关记录</td></tr>";
+															}
+														</php>
+													</tbody>
+												</table>
+												<div class="row">
+														<div class="dataTables_paginate paging_simple_numbers" id="sample-table-2_paginate">
+															{$show_page}
+														</div>
+												</div>
+										</div><!-- sample-table-2_wrapper -->
+				 </div><!-- col-xs-12 -->
+		</div>
+		
+
+</div>

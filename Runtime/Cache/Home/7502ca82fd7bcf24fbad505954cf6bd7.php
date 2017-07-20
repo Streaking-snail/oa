@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit(); foreach( $roles as $k=>$value ){ if( $value['id']==$admin_user['role_id'] ){ echo '<option value="'.$value['id'].'" selected="selected">'.$value['name'].'</option>'; }else{ echo '<option value="'.$value['id'].'">'.$value['name'].'</option>'; } } ?>

@@ -1,0 +1,121 @@
+<style>
+input.ad-btn{border:none;width:50px;line-height:20px;}
+input.fp{position:absolute;left:50px;top:0;width:66px;z-index:1000;filter:alpha(opacity=0);opacity:0}
+.fl{float:left;width:60px;line-height:20px;}
+</style>
+<div id="back" class="bgt"></div>
+<include file="layouts/_add_checked" />
+<div class="info_form" id="checked_list" style="left:10%;"></div>
+<div class="page-content-area">
+		<include file="layouts/_sub_location" />
+		<div class="row">
+				<div class="col-xs-12">
+							<div id="sample-table-2_wrapper" class="dataTables_wrapper form-inline no-footer" style="overflow-x:auto;">
+												<input type="hidden" id="add_url" value="{:U('DoPromotion/add_info')}" />
+												<input type="hidden" id="edit_url" value="{:U('DoPromotion/edit')}" />
+												<input type="hidden" id="show_url" value="{:U('DoPromotion/detail')}" />
+												<div class="row">
+													<include file="layouts/_search" />
+												</div>
+												<div class="col"  id="col">
+													<include file="layouts/_application" />
+												</div>
+												<table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample-table-2_info">
+													<thead>
+														   <tr>
+																<th width="50">序号</th>
+																<th width="100">单据号</th>
+																<th width="80">状态</th>
+																<th width="100">状态描述</th>
+																<th width="100">制单部门</th>
+																<th width="80">制单人</th>
+																<th width="100">制单日期</th>
+																<th width="90">客户姓名</th>
+																<th width="120">业务负责人</th>
+																<th width="90">活动开始时间</th>
+																<th width="90">活动结束时间</th>
+																<th width="90">最新审批人</th>
+																<th width="100">操作</th>
+															</tr>
+													</thead>
+	
+													<tbody>
+														<php>foreach($do_promotions as $k=>$value){
+															$s = D('DoPromotion')->get_local_status($value['id']);  //获取最新状态
+															$t = D('DoPromotion')->get_status($value['id']);  //获取最新状态
+														</php>
+															<tr data-id="{$value.id}" class="<php>if($k%2==0){echo 'odd';}else{echo 'even';}</php>" name="item">
+																<td>{$k+1}</td>
+																<td>{$value.no}</td>
+																<td>
+																	<a href="javascript:void(0);" name="show_status" data-url="{:U('DoPromotion/get_checked_list', array('id'=>$value['id']))}">
+																		<php>
+																			
+																			if( $value['is_over']!=1 ){
+																				if( $s['status']==0 ){
+																					echo "<span>待审核</span>";
+																				}else{
+																					echo "<span style='color:red;'>".$s['name']."</span>";
+																				}
+																			}else{
+																				echo "<span style='color:green;'>审核通过</span>";
+																			}
+																		</php>
+																	</a>
+																</td>
+																<td><php>
+																	if( $value['is_over']==1 ){
+																		echo '结束';
+																	}else{
+																		if( $s ){
+																			if( $s['status']==1 ){
+																				echo $s['username']."<span style='color:green;'>审核通过</span>，等待 ".$t['username']." 审核";
+																			}else{
+																				echo $s['username']." <span style='color:red;'>审核不通过</span>";
+																			}
+																		}else{
+																			echo "未审核";
+																		}
+																	}
+																</php></td>
+																<td><php>echo D('AdminUser')->get_name_deport($value['admin_user_id']);</php></td>
+																<td><php>echo D('AdminUser')->get_username($value['admin_user_id']);</php></td>
+																<td><php>echo date("Y-m-d", $value['send_time']);</php></td>
+																<td>{$value.user_name}</td>
+																<td>{$value.username}</td>
+																<td><php>echo date("Y-m-d", $value['promotion_start_time']);</php></td>
+																<td><php>echo date("Y-m-d", $value['promotion_end_time']);</php></td>
+																<td><php>echo $DoPromotion->get_last_checked_name($value['id']);</php></td>
+																<td>
+																	<a name="show_info" href="{:U('DoPromotion/detail', array('id'=>$value['id']))}" target="_blank" title="详情">
+																		详情
+																	</a>&nbsp;|
+																	<php>if( $value['is_over']==0 ){</php>
+																		<a href="{:U('DoPromotion/edit', array('id'=>$value['id']))}" title="修改">
+																			修改
+																		</a>&nbsp;|
+																		<a href="javascript:void(0);" name="add_checked" data-id="{$value['id']}" title="审核">
+																			审核
+																		</a>&nbsp;|
+																	<php>}</php>
+																	<php>if( $value['admin_user_id']==$user_info['id'] ){</php>
+																		<a href="{:U('DoPromotion/del', array('id'=>$value['id']))}" title="删除">
+																			删除
+																		</a>
+																	<php>}</php>
+																</td>
+															</tr>
+														<php>}
+															if( count($do_promotions)==0 ){ 
+																echo "<tr><td align='center' colspan='12'>暂无相关记录</td></tr>";
+															}
+														</php>
+													</tbody>
+												</table>
+												<include file="layouts/_page" />
+										</div><!-- sample-table-2_wrapper -->
+				 </div><!-- col-xs-12 -->
+		</div>
+		
+
+</div>

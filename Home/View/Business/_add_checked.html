@@ -1,0 +1,23 @@
+<div class="info_form" id="add_checked">
+	<div class="title">                                                        
+		<span class="tit">提交审核</span>
+	    <span class="closed">[关闭]</span>
+	</div>
+	<form action="{:U('Temporary/check')}" id="check_form" enctype="multipart/form-data" method="post" >
+		 <input type="hidden" name="type" id="type" value="checked" />
+		 <p class="mtl20">       
+		      <input type="hidden" name="check_id" id="check_id" value="0" />
+		      <textarea name="content" id="content" placeholder="审核内容" style="width:200px;height:100px;"></textarea><br />
+			  <input type="text" name="attach_name" placeholder="附件说明" value="" />
+		      <span style="position:relative;">
+		             <input type="button" value="附件" class="ad-btn" id="add_attach"/>
+		   			 <input type="file" class="fp" name="file" id="file" value=""/>&nbsp;
+		      </span>
+		 </p>
+		 <p class="mtl120">
+		       <input type="button" id="checked" class="btn_i" value="审核通过"/>
+		       <input type="button" id="unchecked" class="btn_c" value="审核不通过" />
+		       <input type="button" id="unchecked" class="btn_c" value="直接结束" />
+		 </p>
+	</form>
+</div>

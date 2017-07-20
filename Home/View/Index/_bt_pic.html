@@ -1,0 +1,68 @@
+<div class="col-sm-5">
+		<div class="widget-box">
+				<div class="widget-header widget-header-flat widget-header-small">
+					<h5 class="widget-title">
+						<i class="ace-icon fa fa-signal"></i>
+						项目分部
+					</h5>
+
+					<div class="widget-toolbar no-border">
+						<div class="inline dropdown-hover"> 
+							<button class="btn btn-minier btn-primary">
+								当天
+							</button>
+							<!-- 
+							<ul class="dropdown-menu dropdown-menu-right dropdown-125 dropdown-lighter dropdown-close dropdown-caret">
+								<php>foreach( $ptypes as $value ){</php>
+									<li class="active">
+										<a href="#" class="blue">
+											<i class="ace-icon fa fa-caret-right bigger-110">&nbsp;</i>
+											This Week
+										</a>
+									</li>
+								<php>}</php>
+								<li>
+									<a href="#">
+										<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
+										Last Week
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
+										This Month
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
+										Last Month
+									</a>
+								</li>
+							</ul>
+							 -->
+						</div>
+					</div>
+				</div>
+
+				<div class="widget-body">
+					<div class="widget-main">
+						<div id="piechart-placeholder"></div>
+						<div class="hr hr8 hr-double"></div>
+						<div class="clearfix">
+							<php>foreach( $ptypes as $value ){</php>
+								<div class="grid3">
+									<span class="grey">
+										<i class="ace-icon fa fa-facebook-square fa-2x blue"></i>
+										&nbsp;{$value.name}
+									</span>
+									<h4 class="bigger pull-right">{$value.count}</h4>
+								</div>
+							<php>}</php>
+						</div>
+					</div>
+				</div>
+	  </div><!-- /.widget-box -->
+</div>

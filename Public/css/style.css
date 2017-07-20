@@ -1,0 +1,107 @@
+.fl {
+    float: left;
+    width: 60px;
+    line-height: 20px;
+}
+
+.bgt {
+    z-index: 999;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    display: none;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.info_form {
+    z-index: 9999;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    background: #fff;
+    display: none;
+    padding: 0px 0px 20px;
+    -moz-border-radius: 5px; /* Gecko browsers */
+    -webkit-border-radius: 5px; /* Webkit browsers */
+    border-radius: 5px; /* W3C syntax */
+}
+
+.title {
+    color: #000;
+    width: 100%;
+    padding: 5px 10px;
+    border-bottom: 1px solid #c2c2c2;
+    float: left;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.title .tit {
+    float: left;
+}
+
+.title .closed {
+    float: right;
+    cursor: pointer;
+}
+
+.info_form .mtl20 {
+    padding:0px 20px;
+}
+
+.info_form .mtl120 {
+    padding: 10px 60px 0px;
+    font-size: 14px;
+}
+
+.info_form .btn_i {
+    background: green;
+    border: none;
+    padding: 4px 8px;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.info_form .btn_c {
+    background: #c2c2c2;
+    border: none;
+    padding: 4px 8px;
+    color: #000;
+    margin-left: 10px;
+}
+
+.ad_in {
+    border: none;
+    background: #33CCFF;
+    color: #fff;
+}
+
+.checked_list {
+    width: 100%;
+    font-size: 12px;
+    font-weight: normal
+}
+
+.checked_list th {
+    text-align: center;
+    line-height: 25px;
+}
+
+.checked_list td {
+    text-align: center;
+    line-height: 25px;
+}
+
+.table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
+    background: #7cc5e5
+}
+
+.table-hover .current td {
+    background: #7cc5e5
+}

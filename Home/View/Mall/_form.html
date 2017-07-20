@@ -1,0 +1,85 @@
+
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">商城名称：</label>
+	<div class="col-sm-9">
+		<input type="text" id="mall_name" name="mall[name]" placeholder="商城名称" class="col-xs-10 col-sm-5" value="{$mall.name}" />
+	</div>
+</div>
+<div class="space-4"></div>
+
+
+<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">排序：</label>
+
+	<div class="col-sm-9">
+		<input type="text" id="mall_rank" name="mall[rank]" placeholder="排序" class="col-xs-10 col-sm-5" value="{$mall.rank}" />
+	</div>
+</div>
+
+<div class="form-group">
+    
+    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags">商城明细：</label>
+
+	<style>
+		.status-list{}
+		.status-list li{list-style:none;margin-right:10px;}
+	</style>
+<div class="col-sm-9">
+		<ul class="status-list">
+                    <php >if( isset($colums)&&count($colums)>0){</php>
+		                    <php> foreach($colums as $k=>$v){</php>
+								<li vel="{$k}" name="item">
+										<input type="hidden" name="mall_detail[{$k}][cid]" id="mall_detail_{$k}_cid" value="{$v.id}" />
+										字段名称：<select type="select" name="mall_detail[{$k}][id]" id="mall_detail_{$k}_id" class="column_type">
+		                                <php>foreach($ptype_status as $value){
+			                                	if( $value['id']==$v['ptype_status_id'] ){
+			                                </php>
+	                                                <option value='{$value.id}' selected="selected">{$value.name}</option>
+			                                <php>}else{</php>
+			                                		<option value='{$value.id}'>{$value.name}</option>
+			                                <php>}
+		                                }</php>            
+		                                </select>
+		                               
+                                        <span name="zdy" <php>if($v['ptype_status_id']!=0){ echo "style='display:none;'"; }</php> >
+                                        	 自定义名称：<input type="text" name="mall_detail[{$k}][name]" placeholder="自定义名称" id="mall_detail_{$k}_name" value="{$v.name}" ></input>&nbsp;&nbsp;
+                                        	是否允许填写文本：<input type="checkbox" <php>if( $v['is_text']==1 ){echo "checked='checked'";}</php> name="mall_detail[{$k}][is_text]" id="mall_detail_{$k}_is_text" value="1"/>&nbsp;&nbsp;
+                                        	是否允许上传附件：<input type="checkbox" <php>if( $v['is_attach']==1 ){echo "checked='checked'";}</php> name="mall_detail[{$k}][is_attach]" id="mall_detail_{$k}_is_attach" value="1"/>&nbsp;&nbsp;
+                                        </span>
+                                      	  排序：<input type="number" name="mall_detail[{$k}][rank]" id="mall_detail_{$k}_rank" style="width:50px;" value="{$v.rank}" />&nbsp;&nbsp;
+		                              	<!-- <a href="javascript:void(0);" name="del">删除</a> -->
+		                            </li>
+		                 <php>}</php>
+                 <php>}else{</php>
+	                 <li vel="0" name="item">
+	                 		<input type="hidden" name="mall_detail[0][cid]" id="mall_detail_0_cid" value="0" />
+                        	字段名称：
+                        	<select type="select" name="mall_detail[0][id]" id="mall_detail_0_id" class="column_type">
+                                   <php>foreach($ptype_status as $value){</php>
+                                       <option value='{$value.id}'>{$value.name}</option>
+                                   <php>}</php>
+                            </select>&nbsp;&nbsp;
+                            <span name="zdy">
+                                  	自定义名称：<input type="text" name="mall_detail[0][name]" placeholder="自定义名称" id="mall_detail_0_name" value="" />&nbsp;&nbsp;
+                                  	是否允许填写文本：<input type="checkbox" name="mall_detail[{$k}][is_text]" id="mall_detail_{$k}_is_text" value="1"/>&nbsp;&nbsp;
+                                 	是否允许上传附件：<input type="checkbox" name="mall_detail[{$k}][is_attach]" id="mall_detail_{$k}_is_attach" value="1"/>&nbsp;&nbsp;
+                            </span>
+                                                                                    排序：<input type="number" name="mall_detail[0][rank]" id="mall_detail_0_rank" style="width:50px;" value="0" />&nbsp;&nbsp;
+                            <!-- <a href="javascript:void(0);" name="del">删除</a>-->
+					</li>
+                 <php>}</php>
+				 <li><a href="javascript:void(0);" id="add">添加</a></li>
+		</ul>
+	</div>
+</div>
+
+
+
+
+
+
+<div class="space-4"></div>
+
+
+

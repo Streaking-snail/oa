@@ -1,0 +1,60 @@
+<div class="col-sm-12">
+										<div class="widget-box transparent">
+											<div class="widget-header widget-header-flat">
+												<h4 class="widget-title lighter">
+													<i class="ace-icon fa fa-star orange"></i>
+													产品进度
+												</h4>
+												<div class="widget-toolbar">
+													<a href="javascript:void(0);" data-action="collapse">
+														<i class="ace-icon fa fa-chevron-up"></i>
+													</a>
+													<a href="{:U('ProductOrder/index')}" style="margin-right:5px;font-size:14px;">更多</a>
+												</div>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main no-padding">
+													<table class="table table-bordered table-striped">
+														<thead class="thin-border-bottom">
+															<tr>
+																<th>物料代码</th>
+																<th>辅代码</th>
+																<th>产品名称</th>
+																<th>创建时间</th>
+																<th class="hidden-480">
+																	<i class="ace-icon fa fa-caret-right blue"></i>状态
+																</th>
+																<th>所用时间</th>
+															</tr>
+														</thead>
+
+														<tbody>
+															<php>
+																foreach($product_orders as $k=>$v){
+															</php>
+																<tr>
+																	<td>{$v.code}</td>
+																	<td>{$v.number}</td>
+																	<td>{$v.name}</td>
+																	<td><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+																	<td class="hidden-480">
+																		<php>echo D('ProductOrder')->get_show_status($v['id']);</php>
+																	</td>
+																	<td><php>if( $v['dh_num']<=0){echo D('ProductOrder')->get_show_time($v['update_time']);}</php></td>
+																</tr>
+															<php>}
+																if( count($product_orders)==0 ){
+															</php>
+																<tr>
+																	<td colspan="6" style="text-align:center;">暂无相关记录</td>
+																</tr>
+															<php>}</php>
+														</tbody>
+													</table>
+												</div><!-- /.widget-main -->
+											</div><!-- /.widget-body -->
+										</div><!-- /.widget-box -->
+										
+</div><!-- /.col -->
+<div class="hr hr32 hr-dotted" style="width:100%;float:left;"></div>

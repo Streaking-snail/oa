@@ -1,0 +1,38 @@
+<style>
+    .t-info .atx{height:100px;}
+</style>	
+<div class="t-title tc">办事处临时外出单</div>
+	<table class="t-info">
+		<tr>
+			<th>单据号：</th>
+			<td colspan='3' class="r-line">
+				<input type="text" class="tx" id="no" name="do_out_order[no]" value="{$do_out_order.no}" />
+			</td>
+<!--			<th>办事处/人员：</th>
+			<td>
+                            
+                            <select name="do_out_order[office_id]">
+                                <foreach name="is_office" item="list">
+                                    <option <php>if($do_out_order[office_id] == $list[id]) echo "selected"; </php> value="{$list.id}">{$list.name}</option>
+                                </foreach>
+                            </select>
+			</td>-->
+		</tr>
+                <tr>
+			<td colspan="2" align="center">前往何处：
+                            <input type="text" id='address' class="tx" name="do_out_order[address]" value="{$do_out_order.address}" />
+                        </td>
+			<td colspan="2" align="center">前往时间：
+                            <input type="text" id='lw_time' class="tx" name="do_out_order[lw_time]" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="<php>if( !empty($do_out_order['lw_time']) ){ echo date('Y-m-d H:i:s', $do_out_order['lw_time']);}</php>" />
+                        </td>
+                </tr>
+		<tr class="n-l">
+			<th class="lf" colspan="4">事由:</th>
+		</tr>
+		<tr class="t-l">
+			<td colspan="4" class="att">
+				<textarea name="do_out_order[content]" id="temporary_content" class="atx">{$do_out_order.content}</textarea>
+			</td>
+		</tr>
+                </tr>
+	</table>

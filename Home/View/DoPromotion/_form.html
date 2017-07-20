@@ -1,0 +1,73 @@
+<div class="t-title tc">促销申请报告</div>
+	<table class="t-info">
+		<tr>
+			<td>
+				单据号：<input type="text" class="tx" name="dopromotion[dj_no]" id="dopromotion_dj_no" value="{$dopromotion.dj_no}" />
+			</td>
+			<td>客户姓名：<input style="width:160px" type="text" name="dopromotion[user_name]" class="tx"  value="{$dopromotion.user_name}" /></td>
+			<td colspan="2">
+				填写时间：<input style="width:160px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="dopromotion[send_time]" id="dopromotion_send_time" value="<php>if( !empty($dopromotion['report_time']) ){ echo date('Y-m-d H:i:s', $dopromotion['report_time']);}</php>" />
+				<input type="text"  style="display:none;" name="dopromotion[admin_user_id]" value="{$dopromotion.admin_user_id}" />
+				<input type="text"  style="display:none;" name="dopromotion[deport_id]" value="{$dopromotion.deport_id}" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">合同号：
+				<input type="text" class="tx" name="dopromotion[no]" id="dopromotion_no" value="{$dopromotion.no}" />
+			</td>
+			<td colspan="2">合同时间：
+				<input style="width:160px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="dopromotion[ht_time]" id="dopromotion_ht_time" value="<php>if( !empty($dopromotion['ht_time']) ){ echo date('Y-m-d H:i:s', $dopromotion['ht_time']);}</php>" />
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="5" class="r-line" style="width:250px">促销内容：1、促销产品、客户毛利、促销幅度、有无返利等需要注明,单独需附产品明细
+																			  2、促销延长的需要说明政策内容</td>
+			<td class="r-line">促销品类</td>
+			<td class="r-line">今年1月至本月毛利</td>
+			<td>毛利异动说明</td>
+		</tr>
+		<tr>
+			<td class="r-line"><input type="text" class="tx" name="dopromotion[promotion_category]" id="dopromotion_promotion category" value="{$dopromotion.promotion_category}" /></td>
+			<td class="r-line"><input type="text" class="tx" name="dopromotion[gross_profit]" id="dopromotion_gross_profit" value="{$dopromotion.gross_profit}" /></td>
+			<td><input type="text" class="tx" name="dopromotion[exception_specification]" id="dopromotion_exception_specification" value="{$dopromotion.exception_specification}" /></td>
+		</tr>
+		<tr>
+			<td rowspan="3" colspan="3"  class="att">
+				<textarea name="dopromotion[promotion_content]" id="dopromotion_promotion_content" class="atx">{$dopromotion.promotion_content}</textarea>
+			</td>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+			<td rowspan="3" class="r-line" style="width:250px">重点产品需求说明：（每单品促销需求量超过50件需要注明单品品名细及数量）</td>
+			<td rowspan="3" colspan="3"  class="att">
+				<textarea name="dopromotion[main_content]" id="dopromotion_main_content" class="atx">{$dopromotion.main_content}</textarea>
+			</td>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+			<td class="r-line">促销额度(预会力求精准)</td>
+			<td colspan="3"  class="att">
+				<input type="text" class="tx" name="dopromotion[promotion_credit]" id="dopromotion_promotion_credit" value="{$dopromotion.promotion_credit}" />万
+			</td>
+		</tr>
+		<tr>
+			<td class="r-line">促销活动时间</td>
+			<td colspan="3">
+				自<input style="width:160px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="dopromotion[promotion_start_time]" id="dopromotion_promotion_start_time" value="<php>if( !empty($dopromotion['promotion_start_time']) ){ echo date('Y-m-d H:i:s', $dopromotion['promotion_start_time']);}</php>" />
+				至<input style="width:160px" type="text" class="tx" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="dopromotion[promotion_end_time]" id="dopromotion_promotion_end_time" value="<php>if( !empty($dopromotion['promotion_end_time']) ){ echo date('Y-m-d H:i:s', $dopromotion['promotion_end_time']);}</php>" />
+			</td>
+		</tr>
+		<tr>
+			<td class="r-line">应收货款金额</td>
+			<td class="r-line"><input type="text" class="tx" name="dopromotion[price]" id="dopromotion_price" value="{$dopromotion.price}" /></td>
+			<td class="r-line">其中：到期货款金额</td>
+			<td><input type="text" class="tx" name="dopromotion[over_price]" id="dopromotion_over_price" value="{$dopromotion.over_price}" /></td>
+		</tr>
+		
+	</table>

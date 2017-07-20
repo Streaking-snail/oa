@@ -1,0 +1,194 @@
+
+<div class="ace-settings-container" id="ace-settings-container"></div>
+<div class="page-content-area">
+	<!-- <include file='layouts/_sub_location' />-->
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" action="" role="form">
+				<div id="show_info">
+					<div class="t-title tc">会员店广告设计制作申请表</div>
+					<table class="t-info" style="text-align:center">
+                                                <tr>
+                                                        <!--<th></th>-->
+                                                        <td colspan='2' class="r-line">
+                                                                单据号：{$do_propaganda.no}
+                                                        </td>
+                                                        <!--<th></th>-->
+                                                        <td colspan='2' class="r-line">
+                                                                业务员：{$do_propaganda.address}
+                                                        </td>
+                                                        <!--<th></th>-->
+                                                        <td colspan='2' class="r-line">
+                                                            办事处/部门：
+                                                            <php>
+                                                                echo D('AdminUser')->get_name_deport($do_propaganda['admin_user_id']);
+                                                            </php>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <!--<th></th>-->
+                                                        <td colspan="3" class="r-line">
+                                                            申请时间：
+                                                            <php>if( !empty($do_propaganda[apply_time])){
+                                                                    echo date('Y-m-d H:i:s', $do_propaganda['apply_time']);
+                                                                }
+                                                            </php>
+                                                        </td>
+                                                        <!--<th></th>-->
+                                                        <td colspan="3" class="r-line">
+                                                                广告设计后接收人QQ号：{$do_propaganda.qq}
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <!--<th></th>-->
+                                                        <td colspan='2' class="r-line">
+                                                               店名：{$do_propaganda.shop_name}
+                                                         </td>
+                                                        <!--<th></th>-->
+                                                        <td colspan='2' class="r-line">
+                                                                经营负责人：{$do_propaganda.management_name}
+                                                        </td>
+                                                        <!--<th></th>-->
+                                                        <td colspan='2' class="r-line">
+                                                                联系电话：{$do_propaganda.phone}
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <!--<th></th>-->
+                                                        <td colspan="4" class="r-line">
+                                                               地址：{$do_propaganda.address}
+                                                         </td>
+                                                        <!--<th></th>-->
+                                                        <td colspan='2' class="r-line">
+                                                               上一级经销商：{$do_propaganda.distributor_name}
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <!--<th></th>-->
+                                                        <td colspan="4" class="r-line">
+                                                            会员店形式：
+                                                               <php>if($do_propaganda['shop_type']==1) echo '原广博终端店升级为会员店';
+                                                                    else if($do_propaganda['shop_type']==2) echo '新开会员店';
+                                                               </php>
+                                                         </td>
+                                                        <!--<th></th>-->
+                                                        <td colspan='2' class="r-line">
+                                                                签约金额：{$do_propaganda.qy_price}
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <!--<th></th>-->
+                                                        <td colspan="4" class="r-line">
+                                                            终端物料已使用情况：
+                                                            中岛：{$do_propaganda.zd_num} 
+                                                            高柜：{$do_propaganda.gg_num}
+                                                        </td>
+                                                        <!--<th></th>-->
+                                                        <td colspan='2' class="r-line">
+                                                            首次进货单品项数量：{$do_propaganda.first_num}
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                    <!--<th></th>-->
+                                                    <td colspan="6" class="r-line">
+                                                        客户类型：
+                                                        <php>if($do_propaganda['user_type']==1) echo '托盘商/合作办事处';
+                                                             else if($do_propaganda['user_type']==2) echo '核心客户';
+                                                             else if($do_propaganda['user_type']==3) echo '重点客户';
+                                                             else if($do_propaganda['user_type']==4) echo '生意客户';
+                                                        </php> 
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                        <!--<th></th>-->
+                                                        <td colspan='2' class="r-line">
+                                                               首次进货金额：{$do_propaganda.first_price}
+                                                         </td>
+                                                        <!--<th></th>-->
+                                                        <td colspan='2' class="r-line">
+                                                            签约方式：
+                                                              <php>if($do_propaganda['qy_type']==1) echo '销售合同';
+                                                                   else if($do_propaganda['qy_type']==2) echo '三方协议';
+                                                              </php>
+                                                         </td>
+                                                        <!--<th></th>-->
+                                                        <td colspan='2' class="r-line">
+                                                                广告发布（店招/室内）：{$do_propaganda.publish_con}
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <!--<th></th>-->
+                                                        <td colspan="6" class="r-line">
+                                                               备注：{$do_propaganda.content}
+                                                         </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="r-line">日期</td>
+                                                    <td class="r-line">进货金额</td>
+                                                    <td class="r-line">品项数量</td>
+                                                    <td class="r-line">日期</td>
+                                                    <td class="r-line">进货金额</td>
+                                                    <td class="r-line">品项数量</td>
+                                                </tr>
+                                                <php>if($do_propaganda_items){</php>
+                                                    <foreach name="do_propaganda_items" item="vo" key="k" >
+                                                        <php>if($k%2==0) echo "<tr>";</php>
+                                                            <td class='r-line'><php>if( !empty($vo['order_time']))echo date('Y-m-d', $vo[order_time]);</php></td>
+                                                            <td class='r-line'>{$vo.price}</td>
+                                                            <td class='r-line'>{$vo.num}</td>
+                                                        <php>if($k%2==1) echo "</tr>";else if($k%2==0 && $k==$items_num)echo "<td></td><td></td><td></td></tr>";</php>
+                                                    </foreach>
+                                                <php>}</php>
+						<php>if( count($do_propaganda_status)>0 ){</php>
+							<tr>
+								<td>审核时间</td>
+								<td>审核人</td>
+								<td>审核内容</td>
+								<td></td>
+							</tr>
+							<foreach name="temporary_status" item="v">
+								<tr>
+									<td><php>echo date("Y-m-d H:i:s", $v['create_time']);</php></td>
+									<td>{$v.username}</td>
+									<td>{$v.content}</td>
+								</tr>
+							</foreach>
+						<php>}</php>
+                                                <tr>
+                                                    <td colspan="6">
+                                                        展示柜需求数量：
+                                                        {$do_propaganda.z_num}中岛&nbsp;
+                                                        {$do_propaganda.g_num}高柜&nbsp;
+                                                        其他：{$do_propaganda.o_num}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6">其他广告宣传物料：名称及数量:&nbsp;{$do_propaganda.wl_name}
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6"><textarea name="do_propaganda[other_content]" id="temporary_content" class="atx">{$do_propaganda.other_content}</textarea></td>
+                                                </tr>
+					</table>
+				</div>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-info" id="btn" vel="add" type="submit">
+							<i class="ace-icon fa fa-check bigger-110"></i>
+							提交
+						</button>
+
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="button" name="back_btn">
+							<i class="ace-icon fa fa-undo bigger-110"></i>
+							返回上页
+						</button>&nbsp; &nbsp; &nbsp;&nbsp;
+						<button class="btn btn-info" type="button" name="print_info" >
+							打印
+						</button>
+					</div>
+				</div>
+			</form>
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+</div>
